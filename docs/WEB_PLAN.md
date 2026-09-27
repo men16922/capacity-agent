@@ -1,23 +1,25 @@
 # Cloudscape 웹 계획·구현 명세
 
-2026-09-28. On-Prem / AWS를 상위 탭으로 두고 **On-Prem 사양 → AWS 마이그레이션**을 중심으로 구현한다. 인프라 TA·설계자가 입력부터 후보·근거·산정서를 만들고 검토자가 재현할 수 있는 로컬 도구다. [수치 설계](MIGRATION_DESIGN.md), [제품 로드맵](PRODUCT_PLAN.md), [검증 기록](WEB_VERIFICATION.md)을 함께 관리한다.
+2026-09-28. 프로젝트 목록을 시작점으로 두고 선택한 프로젝트 안의 좌측 메뉴를 On-Prem / AWS로 나누며 **On-Prem 사양 → AWS 마이그레이션**을 중심으로 구현한다. 인프라 TA·설계자가 입력부터 후보·근거·산정서를 만들고 검토자가 재현할 수 있는 로컬 도구다. [수치 설계](MIGRATION_DESIGN.md), [제품 로드맵](PRODUCT_PLAN.md), [검증 기록](WEB_VERIFICATION.md)을 함께 관리한다.
 
 ## 화면과 기능
 
 | 메뉴 | 사용자 작업 | 실제 구성 |
 | --- | --- | --- |
-| On-Prem · 대시보드 | 자산 수·논리 CPU·메모리·이전안 연결, 빈 상태·예제 시작 | AppLayout, Tabs, Container, ColumnLayout |
+| 프로젝트 목록 / 통합 대시보드 | 프로젝트 선택·환경별 자산·산정 현황·최근 저장 | AppLayout, SideNavigation, Table, Container, ColumnLayout |
 | On-Prem · 서버 자산 | 단일 서버/VM 등록·수정·삭제·검색, CSV 양식/가져오기 | Table, Modal, FormField, Input, Select |
 | On-Prem · 용량산정 | 세 프로파일 21식의 입력·단위·옵션·근거, 실시간 결과·전체 결과·JSON | Tabs, FormField, ExpandableSection, Table |
-| AWS · 이전 설계 | 최대 200개 자산·검색/필터/정렬/페이지·선택 일괄 산정·공통 조건·CSV | Table, Pagination, Select, Modal, ProgressBar |
+| AWS · AWS 마이그레이션 | 최대 200개 자산·검색/필터/정렬/페이지·선택 일괄 산정·공통 조건·CSV | Table, Pagination, Select, Modal, ProgressBar |
 | AWS · 자산 상세 | 요약·원본 사양·이전 조건·후보·계산 근거, 개별 편집/검토 저장 | Tabs, Table, Mapping, 4단계 Wizard, SplitPanel |
 | AWS · 이전안·시나리오 | 당시 원본 유지, 복제·삭제, 같은 자산의 2개 이전안 비교 | Table, Decimal 차이·변화율 |
 | 공통 · 산정서 | 원본·가정·계산·비용·한계·출처, 인쇄/PDF·개별 JSON | 독립 article, 인쇄 CSS, Table |
 | 공통 · 산정 Wiki | 51문서 제목·본문 검색, 분류, 출처 카드·개념·보안 자료 | TextFilter, Select, Markdown/GFM |
 | 공통 · 벤치마크 참고 | TPC-C·SPC-1/SPC-1C·SPEC 공식 링크와 확인일 | Table, Link, 비교 조건 안내 |
-| 프로젝트 도구 | 한 프로젝트 이름 변경·새로 만들기·JSON 백업/가져오기 | localStorage, Modal, Flashbar |
+| 프로젝트 도구 | 독립 생성·전환·이름 변경·JSON 백업/가져오기·충돌 보호 | IndexedDB, Modal, Flashbar |
+| On-Prem · 상세·산정 시나리오 | 원본 상세·실사용 최적화·저장·동일 자산 비교 | Tabs, Table, FormField |
+| AWS · 자산·최적화·최적화 시나리오 | 현재 EC2 등록·사용률 기반 EC2/gp3 후보·비용 차이·비교 | Table, FormField, Container |
 
-처음에는 자산이 없는 화면을 보인다. 사용자가 명시적으로 예제를 불러오면 합성 프로젝트라는 표시를 유지한다. 프로젝트 서버 저장·목록·공동 편집은 후속 범위다.
+처음에는 자산이 없는 화면을 보인다. 사용자가 명시적으로 예제를 불러오면 합성 프로젝트라는 표시를 유지한다. 브라우저 프로젝트 목록과 전환을 제공하며 서버 협업 저장은 후속 범위다. 상세 계층·저장·최적화 계약은 [프로젝트 설계](PROJECT_WORKSPACE_DESIGN.md)를 따른다.
 
 ## 대표 흐름
 
@@ -39,12 +41,12 @@ On-Prem 계산기는 AWS 마법사와 별도다. 프로파일을 선택하고 �
 
 ## 수치·저장 계약
 
-- 계산은 `capacity_engine`과 `capacity_web.migration`이 소유한다. 프런트엔드는 십진 문자열을 보내고 Decimal로 표시·집계·차이를 계산한다.
+- 계산은 `capacity_engine`, `capacity_web.migration`, `capacity_web.optimization`이 소유한다. 프런트엔드는 십진 문자열을 보내고 Decimal로 표시·집계·차이를 계산한다.
 - 비어 있는 필드는 0으로 채우지 않는다. 원문 MB/MiB 구분, 출처·기준일·단위·변수별 조건은 코어 계약을 따른다.
 - On-Prem 입력은 350ms 지연 후 재계산하고 이전 응답을 무효화한다. AWS 조건을 바꾸면 과거 후보·선택·확인을 폐기한다.
 - 저장은 완성한 계산/선택 후보만 허용한다. 원본 자산을 수정·삭제해도 이전안의 당시 입력·결과·출처는 보존한다.
 - AWS 시나리오는 같은 자산·리전·모델만 수치 비교한다. 비용은 동일한 EC2·gp3 범위이며 On-Prem 절감률로 표현하지 않는다. 기준값 0이면 변화율은 미산정이다.
-- 프로젝트 JSON은 최대 5MB, 자산 200개·이전안 200개·On-Prem 산정 30개다. API 계산 요청은 2MB, CSV는 1MB다.
+- 프로젝트 JSON은 최대 20MB, 각 환경 자산 200개·이전안/최적화안 각각 200개·TTA/네트워크 산정 30개다. API 계산 요청은 2MB, CSV는 1MB다.
 - 가져온 결과는 현재 엔진으로 재계산한다. 검증 실패·손상된 로컬 저장값·저장 공간 부족 시 기존 데이터를 덮어쓰지 않거나 백업 경로를 안내한다.
 
 ## 근거와 출력
@@ -59,7 +61,7 @@ On-Prem 계산기는 AWS 마법사와 별도다. 프로파일을 선택하고 �
 
 ## 다수 자산 화면 상태
 
-목록은 25/50/100개 페이지, 역할·산정 상태 필터와 이름/ID/장비 검색을 제공한다. 헤더 체크박스는 현재 페이지, `검색 결과 전체 선택`은 필터에 맞는 모든 페이지를 대상으로 한다. 페이지/필터 이동 후에도 선택은 유지되며 선택 건수를 표시한다. 상세에서 목록으로 돌아오면 탐색 상태를 유지한다. 상세 주소는 `#migrate/{assetId}`이며 새로고침과 브라우저 뒤로 이동을 지원한다.
+목록은 25/50/100개 페이지, 역할·산정 상태 필터와 이름/ID/장비 검색을 제공한다. 헤더 체크박스는 현재 페이지, `검색 결과 전체 선택`은 필터에 맞는 모든 페이지를 대상으로 한다. 페이지/필터 이동 후에도 선택은 유지되며 선택 건수를 표시한다. 상세에서 목록으로 돌아오면 탐색 상태를 유지한다. 상세 주소는 `#project/{projectId}/migrate/{assetId}`이며 새로고침과 브라우저 뒤로 이동을 지원한다.
 
 자동 산정은 검토 전 초안이다. 미산정·입력 확인·후보 없음·요청 실패·재산정 필요·후보 검토를 구분한다. 월 소계에는 현재 입력·카탈로그에 맞고 선택 후보 가격이 있는 자산만 포함한다. 전체 후보 배열은 상세에서 재조회하며 저장 초안은 선택 후보와 계산 근거만 보관한다. [상태·저장 설계](MIGRATION_PORTFOLIO.md)를 참고한다.
 
@@ -70,7 +72,7 @@ React·TypeScript·Vite·Cloudscape의 한국어 UI, FastAPI HTTP 어댑터, Pyt
 | API | 역할 |
 | --- | --- |
 | `GET /api/health`, `/api/bootstrap`, `/api/catalog` | 실행 상태·양식·문서 메타데이터·AWS 사양 |
-| `POST /api/calculate`, `/api/migrate` | 기존 21식과 별도 마이그레이션 계산 |
+| `POST /api/calculate`, `/api/migrate`, `/api/optimize` | 기존 21식·마이그레이션·사용률 최적화 |
 | `POST /api/benchmarks/compare` | 기존 벤치마크 비교 계약 |
 | `GET /api/documents/{id}`, `/api/search` | 등록 Wiki 문서와 본문 검색 |
 | `GET /api/sources/{id}/original` | manifest에 등록되고 로컬에 존재하는 원본만 제공 |
@@ -79,7 +81,7 @@ React·TypeScript·Vite·Cloudscape의 한국어 UI, FastAPI HTTP 어댑터, Pyt
 
 ## 디자인과 완료 조건
 
-Cloudscape 컴포넌트와 밝은 업무 화면, 명확한 좌측 메뉴, On-Prem/AWS 탭, 표 중심의 후보 비교를 사용한다. 서버·EC2·EBS 색상은 유형 구분이며 추천 순위가 아니다. 다크 모드·390px 화면·키보드·폼 라벨·오류/빈 상태·인쇄를 실제 브라우저로 확인한다.
+Cloudscape 컴포넌트와 밝은 업무 화면, 명확한 좌측 메뉴, On-Prem/AWS 좌측 메뉴, 표 중심의 후보 비교를 사용한다. 서버·EC2·EBS 색상은 유형 구분이며 추천 순위가 아니다. 다크 모드·390px 화면·키보드·폼 라벨·오류/빈 상태·인쇄를 실제 브라우저로 확인한다.
 
 완료 게이트는 기존 원문/규칙 검사·Python 테스트, 타입·production 빌드, 브라우저 자산→AWS→후보→저장→복제/비교→JSON 재계산→PDF, 접근성 자동 검사다. 공개 배포는 원본·전체 추출·환경정보를 제외한 GitHub 코드 저장소에 한정하고 새 체크아웃의 재현성을 확인한다.
 

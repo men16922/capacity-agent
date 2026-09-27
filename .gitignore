@@ -37,3 +37,10 @@ node_modules/
 *.sqlite*
 *.db
 *.zip
+
+# User exports and browser recordings can contain real asset inventory.
+capacity-project-*.json
+capacity-report-*.json
+capacity-recovery*.json
+*.har
+*.mhtml

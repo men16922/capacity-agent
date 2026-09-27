@@ -1,3 +1,4 @@
+import { project, storedProjects, blank } from "./helpers";
 import { test, expect, type Page } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import fs from "node:fs/promises";
@@ -13,14 +14,8 @@ async function start(page: Page, data = fixture) {
   );
   await page.goto("/#migrate");
   await expect(
-    page.getByRole("heading", { name: "AWS 이전 설계", exact: true }),
+    page.getByRole("heading", { name: "AWS 마이그레이션", exact: true }),
   ).toBeVisible();
-}
-async function project(page: Page) {
-  return page.evaluate(
-    (key) => JSON.parse(localStorage.getItem(key)!),
-    STORAGE,
-  );
 }
 async function calculateAll(page: Page, count = 48) {
   await page
@@ -66,7 +61,31 @@ test("48 assets: batch, pagination, detail candidate choice, common assumptions,
 }, info) => {
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));
-  await start(page);
+  await blank(page);
+  await page
+    .getByRole("link", { name: "AWS 마이그레이션", exact: true })
+    .click();
+  const empty = await project(page);
+  await page.getByRole("button", { name: "48개 예제", exact: true }).click();
+  await expect(
+    page.getByRole("button", { name: "현재 프로젝트 백업", exact: true }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: "취소", exact: true }).click();
+  expect((await project(page)).id).toBe(empty.id);
+  expect((await project(page)).assets).toHaveLength(0);
+  await page.getByRole("button", { name: "48개 예제", exact: true }).click();
+  await page.getByRole("button", { name: "계속", exact: true }).click();
+  await expect(
+    page.getByRole("heading", { name: "통합 대시보드", exact: true }),
+  ).toBeVisible();
+  await page
+    .getByRole("link", { name: "AWS 마이그레이션", exact: true })
+    .click();
+  await expect(
+    page.getByRole("button", { name: "검색 결과 48개 전체 선택", exact: true }),
+  ).toBeVisible();
+  expect((await project(page)).demo).toBe(true);
+  expect((await project(page)).id).not.toBe(empty.id);
   await calculateAll(page);
   let p = await project(page);
   expect(p.migrationDrafts).toHaveLength(48);
@@ -86,7 +105,7 @@ test("48 assets: batch, pagination, detail candidate choice, common assumptions,
     .getByRole("button", { name: "다음 자산 페이지", exact: true })
     .click();
   await page.getByRole("link", { name: "app-034-batch", exact: true }).click();
-  await expect(page).toHaveURL(/#migrate\/sample-034$/);
+  await expect(page).toHaveURL(/\/migrate\/sample-034$/);
   await expect(
     page.getByRole("heading", { name: "app-034-batch", exact: true }),
   ).toBeVisible();
@@ -128,7 +147,9 @@ test("48 assets: batch, pagination, detail candidate choice, common assumptions,
     "app-034-batch 이전안",
   );
   expect((await project(page)).scenarios[0].selected).toBe(selectedName);
-  await page.getByRole("link", { name: "이전 설계", exact: true }).click();
+  await page
+    .getByRole("link", { name: "AWS 마이그레이션", exact: true })
+    .click();
   await select(page, "역할 필터", "DB");
   await page
     .getByRole("button", { name: "검색 결과 8개 전체 선택", exact: true })
@@ -169,10 +190,7 @@ test("48 assets: batch, pagination, detail candidate choice, common assumptions,
   });
   await page.getByRole("button", { name: "계속", exact: true }).click();
   await expect(
-    page.getByText(
-      "프로젝트를 가져오고 계산 결과를 현재 엔진으로 검증했습니다.",
-      { exact: true },
-    ),
+    page.getByRole("heading", { name: "통합 대시보드", exact: true }),
   ).toBeVisible();
   expect(
     (await project(page)).migrationDrafts[0].result.candidates[0].cost
@@ -251,7 +269,9 @@ test("changed original and individual plan invalidate totals; detail back retain
   await page
     .getByRole("textbox", { name: "연간 성장률 (%)", exact: true })
     .fill("60");
-  await page.getByRole("button", { name: "취소", exact: true }).click();
+  await page
+    .getByRole("button", { name: "상세로 돌아가기", exact: true })
+    .click();
   await expect(page.getByText("재산정 필요", { exact: true })).toBeVisible();
   await page
     .getByRole("button", { name: "이전 대상 목록", exact: true })
@@ -265,9 +285,9 @@ test("changed original and individual plan invalidate totals; detail back retain
   await expect(
     page.getByText("47/48개 현재 결과만 포함 · USD", { exact: true }),
   ).toBeVisible();
-  await page.getByRole("tab", { name: "On-Prem", exact: true }).click();
   await page.getByRole("link", { name: "서버 자산", exact: true }).click();
   await page.getByRole("button", { name: "app-001-web", exact: true }).click();
+  await page.getByRole("button", { name: "자산 수정", exact: true }).click();
   await page
     .getByRole("textbox", { name: "CPU 피크 사용률 (%)", exact: true })
     .fill("70");
@@ -281,7 +301,9 @@ test("changed original and individual plan invalidate totals; detail back retain
     .getByRole("textbox", { name: "OS 버전", exact: true })
     .fill("Linux 테스트 버전");
   await page.getByRole("button", { name: "서버 저장", exact: true }).click();
-  await page.getByRole("tab", { name: "AWS", exact: true }).click();
+  await page
+    .getByRole("link", { name: "AWS 마이그레이션", exact: true })
+    .click();
   await expect(
     page.getByText("46/48개 현재 결과만 포함 · USD", { exact: true }),
   ).toBeVisible();
@@ -319,6 +341,9 @@ test("cancelled batch and late responses cannot replace project or write new res
   ).toBeVisible();
   await page.getByRole("button", { name: "새 프로젝트", exact: true }).click();
   await page.getByRole("button", { name: "계속", exact: true }).click();
+  await expect(
+    page.getByRole("heading", { name: "통합 대시보드", exact: true }),
+  ).toBeVisible();
   release();
   await page.unrouteAll({ behavior: "wait" });
   expect((await project(page)).assets).toHaveLength(0);

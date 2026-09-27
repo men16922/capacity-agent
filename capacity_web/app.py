@@ -11,6 +11,7 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 from capacity_engine import calculate, compare_benchmark, __version__
 from capacity_engine.rules import SPECS
 from capacity_web.migration import calculate_migration, catalog
+from capacity_web.optimization import calculate_optimization
 
 ROOT = Path(__file__).resolve().parents[1]
 LIMIT = 2 * 1024 * 1024
@@ -137,6 +138,11 @@ async def calculate_route(request: Request):
 @app.post("/api/migrate")
 async def migration_route(request: Request):
     return calculate_migration(await body(request))
+
+
+@app.post("/api/optimize")
+async def optimization_route(request: Request):
+    return calculate_optimization(await body(request))
 
 
 @app.post("/api/benchmarks/compare")

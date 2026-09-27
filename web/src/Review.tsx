@@ -1,3 +1,4 @@
+import { OptimizationResultView } from "./Optimization";
 import { unitLabel } from "./references";
 import { useState } from "react";
 import Alert from "@cloudscape-design/components/alert";
@@ -9,13 +10,14 @@ import Header from "@cloudscape-design/components/header";
 import Link from "@cloudscape-design/components/link";
 import Modal from "@cloudscape-design/components/modal";
 import SpaceBetween from "@cloudscape-design/components/space-between";
-import StatusIndicator from "@cloudscape-design/components/status-indicator";
 import Table from "@cloudscape-design/components/table";
 import TextFilter from "@cloudscape-design/components/text-filter";
 import {
   delta,
   download,
   fmt,
+  memoryUsed,
+  diskUsed,
   formulaNames,
   money,
   percentChange,
@@ -346,6 +348,10 @@ export function Reports({
   setSelectedId: (id: string) => void;
 }) {
   const options = [
+    ...(project.optimizations ?? []).map((s) => ({
+      value: `opt:${s.id}`,
+      label: `${s.request.environment === "aws" ? "AWS" : "On-Prem"} 최적화 · ${s.name}`,
+    })),
     ...project.scenarios.map((s) => ({
       value: s.id,
       label: `AWS · ${s.name}`,
@@ -360,11 +366,14 @@ export function Reports({
     : (options.at(-1)?.value ?? "");
   const scenario = project.scenarios.find((s) => s.id === effectiveId);
   const calc = project.calculations.find((c) => `calc:${c.id}` === effectiveId);
+  const optimization = project.optimizations?.find(
+    (s) => `opt:${s.id}` === effectiveId,
+  );
   const candidate = scenario?.result.candidates?.find(
     (c) => c.instance_type === scenario.selected,
   );
   function exportJson() {
-    const data = scenario ?? calc;
+    const data = scenario ?? calc ?? optimization;
     if (data)
       download(
         `capacity-report-${data.id}.json`,
@@ -372,7 +381,11 @@ export function Reports({
           {
             report_version: 1,
             project_name: project.name,
-            type: scenario ? "migration" : "sizing",
+            type: scenario
+              ? "migration"
+              : optimization
+                ? "optimization"
+                : "sizing",
             ...data,
           },
           null,
@@ -390,14 +403,14 @@ export function Reports({
           actions={
             <SpaceBetween direction="horizontal" size="s">
               <Button
-                disabled={!scenario && !calc}
+                disabled={!scenario && !calc && !optimization}
                 iconName="download"
                 onClick={exportJson}
               >
                 산정서 JSON
               </Button>
               <Button
-                disabled={!scenario && !calc}
+                disabled={!scenario && !calc && !optimization}
                 variant="primary"
                 iconName="file"
                 onClick={() => {
@@ -436,15 +449,52 @@ export function Reports({
               <div>
                 <div className="eyebrow">
                   CAPACITY AGENT ·{" "}
-                  {scenario ? "AWS MIGRATION" : "ON-PREM SIZING"}
+                  {scenario
+                    ? "AWS MIGRATION"
+                    : optimization
+                      ? `${optimization.request.environment.toUpperCase()} OPTIMIZATION`
+                      : "ON-PREM SIZING"}
                 </div>
-                <h1>{scenario?.name ?? calc?.name}</h1>
+                <h1>{scenario?.name ?? calc?.name ?? optimization?.name}</h1>
                 <p>{project.name}</p>
               </div>
               <div className="report-stamp">
                 설계 산정서{project.demo && <span>예제 프로젝트</span>}
               </div>
             </div>
+            {optimization && (
+              <SpaceBetween size="l">
+                <section>
+                  <h2>측정과 설계 가정</h2>
+                  <p>
+                    {optimization.request.asset.name} · 측정일{" "}
+                    {optimization.request.asset.observed_on} ·{" "}
+                    {optimization.request.asset.source}
+                  </p>
+                  <p>
+                    모델 {optimization.result.model_version} · 저장일{" "}
+                    {optimization.savedAt}
+                  </p>
+                  <p>{String(optimization.request.plan.basis)}</p>
+                  <Table
+                    variant="embedded"
+                    items={Object.entries(optimization.request.plan)}
+                    columnDefinitions={[
+                      {
+                        id: "field",
+                        header: "조건",
+                        cell: ([k]) => planLabels[k] ?? k,
+                      },
+                      { id: "value", header: "값", cell: ([, v]) => String(v) },
+                    ]}
+                  />
+                </section>
+                <OptimizationResultView
+                  request={optimization.request}
+                  result={optimization.result}
+                />
+              </SpaceBetween>
+            )}
             {scenario && candidate ? (
               <SpaceBetween size="l">
                 <Mapping
@@ -501,12 +551,12 @@ export function Reports({
                       ],
                       [
                         "메모리 피크",
-                        scenario.request.asset.peak_memory_gib,
+                        memoryUsed(scenario.request.asset),
                         "GiB",
                       ],
                       [
                         "논리 디스크 사용량",
-                        scenario.request.asset.disk_gib,
+                        diskUsed(scenario.request.asset),
                         "GiB",
                       ],
                     ]}

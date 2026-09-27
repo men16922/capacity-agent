@@ -7,6 +7,7 @@ import {
   type SetStateAction,
 } from "react";
 import Alert from "@cloudscape-design/components/alert";
+import Checkbox from "@cloudscape-design/components/checkbox";
 import Box from "@cloudscape-design/components/box";
 import Button from "@cloudscape-design/components/button";
 import ColumnLayout from "@cloudscape-design/components/column-layout";
@@ -22,6 +23,8 @@ import StatusIndicator from "@cloudscape-design/components/status-indicator";
 import Table from "@cloudscape-design/components/table";
 import {
   api,
+  copy,
+  uid,
   download,
   fmt,
   money,
@@ -38,6 +41,7 @@ import {
   putDraft,
   requestFor,
   statusLabels,
+  signature,
   type DraftStatus,
   type PortfolioView,
 } from "./migrationState";
@@ -75,6 +79,7 @@ export function Portfolio({
   update,
   bootstrap,
   open,
+  loadExample,
   navigate,
   view,
   setView,
@@ -83,10 +88,14 @@ export function Portfolio({
   update: Dispatch<SetStateAction<Project>>;
   bootstrap: Bootstrap;
   open: (id: string) => void;
+  loadExample: () => void;
   navigate: (p: string) => void;
   view: PortfolioView;
   setView: Dispatch<SetStateAction<PortfolioView>>;
 }) {
+  const [review, setReview] = useState(false);
+  const [approved, setApproved] = useState(false);
+  const [batchName, setBatchName] = useState("");
   const [running, setRunning] = useState(false);
   const [progress, setProgress] = useState<{
     done: number;
@@ -151,6 +160,67 @@ export function Portfolio({
   const attention = rows.filter((r) =>
     ["invalid", "no_candidates", "failed", "stale"].includes(r.status),
   ).length;
+  const reviewRows = selected.map((r) => ({
+    ...r,
+    duplicate: project.scenarios.some(
+      (s) =>
+        s.selected === r.draft?.selected &&
+        signature(s.request) === signature(r.draft?.request),
+    ),
+  }));
+  const reviewIssues = reviewRows.filter(
+    (r) => r.status !== "complete" || !r.candidate || r.duplicate,
+  );
+  const canSave =
+    selected.length > 0 &&
+    !reviewIssues.length &&
+    project.scenarios.length + selected.length <= 200;
+  function saveReviewed() {
+    if (!approved || !canSave) return;
+    // Validate and append all snapshots in one state update.
+    update((p) => {
+      const current = selected.map((row) => {
+        const asset = p.assets.find((a) => a.id === row.id);
+        const draft = p.migrationDrafts?.find((d) => d.assetId === row.id);
+        return { asset, draft };
+      });
+      if (
+        p.scenarios.length + current.length > 200 ||
+        current.some(
+          ({ asset, draft }) =>
+            !asset ||
+            !draft ||
+            draftStatus(asset, draft, bootstrap.catalog.catalog_version) !==
+              "complete" ||
+            !draft.result?.candidates?.some(
+              (c) => c.instance_type === draft.selected,
+            ) ||
+            p.scenarios.some(
+              (s) =>
+                s.selected === draft.selected &&
+                signature(s.request) === signature(draft.request),
+            ),
+        )
+      )
+        return p;
+      return {
+        ...p,
+        scenarios: [
+          ...p.scenarios,
+          ...current.map(({ asset, draft }) => ({
+            id: uid(),
+            name: `${asset!.name}${batchName.trim() ? ` · ${batchName.trim()}` : " · 검토 이전안"}`,
+            savedAt: new Date().toISOString(),
+            request: copy(draft!.request!),
+            result: copy(draft!.result!),
+            selected: draft!.selected,
+          })),
+        ],
+      };
+    });
+    setReview(false);
+    navigate("scenarios");
+  }
   const updateView = (values: Partial<PortfolioView>) =>
     setView((v) => ({ ...v, ...values }));
   function store(draft: MigrationDraft) {
@@ -289,10 +359,13 @@ export function Portfolio({
     <SpaceBetween size="m">
       <PageHeading
         eyebrow="AWS MIGRATION · PORTFOLIO"
-        title="AWS 이전 설계"
+        title="AWS 마이그레이션"
         description="수십 개의 On-Prem 자산을 함께 산정하고, 서버별 이전 조건과 AWS 후보를 검토하세요."
         actions={
           <SpaceBetween direction="horizontal" size="xs">
+            <Button disabled={running} onClick={loadExample}>
+              48개 예제
+            </Button>
             <Button onClick={() => navigate("assets")}>
               자산 관리·CSV 등록
             </Button>
@@ -438,6 +511,16 @@ export function Portfolio({
                   onClick={() => void calculate(selected.map((r) => r.asset))}
                 >
                   선택 {selected.length}개 산정
+                </Button>
+                <Button
+                  disabled={running || !selected.length}
+                  onClick={() => {
+                    setApproved(false);
+                    setBatchName("");
+                    setReview(true);
+                  }}
+                >
+                  선택 {selected.length}개 검토 후 저장
                 </Button>
               </SpaceBetween>
             }
@@ -643,6 +726,71 @@ export function Portfolio({
           </Empty>
         }
       />
+      {review && (
+        <Modal
+          visible={review}
+          size="large"
+          header={`선택 ${selected.length}개 이전안 일괄 검토`}
+          closeAriaLabel="닫기"
+          onDismiss={() => setReview(false)}
+          footer={
+            <SpaceBetween direction="horizontal" size="s">
+              <Button onClick={() => setReview(false)}>취소</Button>
+              <Button
+                variant="primary"
+                disabled={!approved || !canSave}
+                onClick={saveReviewed}
+              >
+                이전안 {selected.length}개 저장
+              </Button>
+            </SpaceBetween>
+          }
+        >
+          <SpaceBetween size="m">
+            {!canSave && (
+              <Alert type="warning">
+                미산정·재산정 대상·후보 누락·동일 저장안이 있으면 저장할 수
+                없습니다. 프로젝트당 이전안 한도는 200개입니다. 현재{" "}
+                {project.scenarios.length}개가 저장되어 있습니다.
+              </Alert>
+            )}
+            <Table
+              variant="embedded"
+              items={reviewRows}
+              columnDefinitions={[
+                { id: "name", header: "자산", cell: (r) => r.name },
+                {
+                  id: "candidate",
+                  header: "선택 EC2",
+                  cell: (r) => r.candidate?.instance_type ?? "후보 없음",
+                },
+                {
+                  id: "cost",
+                  header: "월 USD · EC2+EBS",
+                  cell: (r) => money(r.monthly),
+                },
+                {
+                  id: "state",
+                  header: "검토 상태",
+                  cell: (r) =>
+                    r.duplicate ? "동일 이전안 저장됨" : statusLabels[r.status],
+                },
+              ]}
+            />
+            <Field
+              label="일괄 저장 이름 접미사 (선택)"
+              value={batchName}
+              onChange={(v) => setBatchName(v.slice(0, 100))}
+            />
+            <Checkbox
+              checked={approved}
+              onChange={(e) => setApproved(e.detail.checked)}
+            >
+              선택한 각 자산의 사양·조건·후보와 비용 제외 항목을 검토했습니다.
+            </Checkbox>
+          </SpaceBetween>
+        </Modal>
+      )}
       <Modal
         visible={common !== null}
         header={`선택 ${selected.length}개 자산 공통 조건`}

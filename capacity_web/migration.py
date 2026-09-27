@@ -10,7 +10,7 @@ from pathlib import Path
 from capacity_engine.numeric import number, decimal_text, exact, rounded
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 CATALOG_PATH = ROOT / "data/aws/catalog.json"
 
 
@@ -87,6 +87,33 @@ def value_record(value, unit):
     }
 
 
+def usage(v, resource, positive=False):
+    """Resolve an explicit amount/percent measurement without float rounding."""
+    memory = resource == "memory"
+    mode_key = "memory_usage_mode" if memory else "disk_usage_mode"
+    amount_key = "peak_memory_gib" if memory else "disk_gib"
+    allocation_key = "memory_gib" if memory else "disk_allocated_gib"
+    percent_key = "peak_memory_percent" if memory else "disk_used_percent"
+    mode = v.asset.get(mode_key, "amount") or "amount"
+    if mode not in {"amount", "percent"}:
+        v.error(f"asset.{mode_key}", "사용량 또는 사용률 입력 방식을 선택하세요.")
+        return F(0)
+    allocation = None
+    if mode == "percent" or v.asset.get(allocation_key) not in (None, ""):
+        allocation = v.n("asset", allocation_key, maximum=F(10**8), positive=True)
+    if mode == "percent":
+        percent = v.n("asset", percent_key, maximum=F(100), positive=positive)
+        result = allocation * percent / 100
+    else:
+        result = v.n("asset", amount_key, maximum=F(10**8), positive=positive)
+    if allocation is not None and result > allocation:
+        v.error(
+            f"asset.{amount_key}",
+            "실사용량이 할당량보다 큽니다. 측정 범위를 확인하세요.",
+        )
+    return result
+
+
 def cost_for(item, os, nodes, hours, storage, data):
     ec2_price = item.get("prices", {}).get(os)
     prices = data["gp3"].get("prices", {})
@@ -159,7 +186,7 @@ def calculate_migration(request, data=None):
     arm = v.boolean("arm_verified")
     v.text("plan", "basis")
     hours = v.n("plan", "hours_per_month", maximum=F(744), positive=True)
-    storage_used = v.n("asset", "disk_gib", maximum=F(10**8))
+    storage_used = usage(v, "disk")
     storage_growth = v.n("plan", "storage_growth_percent", maximum=F(1000)) / 100
     reserve = v.n("plan", "storage_reserve_percent", maximum=F(99)) / 100
     network = v.n("plan", "network_gbps", maximum=F(10**5))
@@ -178,7 +205,7 @@ def calculate_migration(request, data=None):
         )
         allocated_mem = v.n("asset", "memory_gib", maximum=F(10**8), positive=True)
         peak_cpu = v.n("asset", "peak_cpu_percent", maximum=F(100), positive=True) / 100
-        peak_mem = v.n("asset", "peak_memory_gib", maximum=F(10**8), positive=True)
+        peak_mem = usage(v, "memory", positive=True)
         fixed = v.n("plan", "fixed_memory_gib", maximum=F(10**8))
         growth_rate = v.n("plan", "growth_percent", maximum=F(1000)) / 100
         years = v.n("plan", "years", maximum=F(10), integer=True)
@@ -298,6 +325,26 @@ def calculate_migration(request, data=None):
             "expression": "사용량 × (1 + 스토리지 성장률) / (1 − 여유율)",
             **value_record(logical, "GiB"),
         }
+    )
+    trace.extend(
+        [
+            {
+                "name": "해석된 디스크 실사용량",
+                "expression": "사용량 입력 또는 할당량 × 사용률 / 100",
+                **value_record(storage_used, "GiB"),
+            },
+            *(
+                [
+                    {
+                        "name": "해석된 메모리 실사용량",
+                        "expression": "사용량 입력 또는 할당량 × 사용률 / 100",
+                        **value_record(peak_mem, "GiB"),
+                    }
+                ]
+                if mode == "measured"
+                else []
+            ),
+        ]
     )
     trace.append(
         {

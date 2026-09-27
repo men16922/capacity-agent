@@ -4,6 +4,12 @@ Last Updated: 2026-09-28
 
 P2.1 다수 자산 이전 설계의 로컬/CI 검증·public commit/push·대시보드 기동 완료. 상세 완료 기록은 [웹 검증](WEB_VERIFICATION.md)과 [완료 요약](COMPLETED_SUMMARY.md)을 참고한다.
 
+## P2.2 — 공개 반영 마감
+
+프로젝트 계층·On-Prem 자산 상세·사용률 입력과 최적화·AWS 마이그레이션 일괄 저장·AWS 최적화·문서·리팩토링·로컬 검증을 완료했다. [설계](PROJECT_WORKSPACE_DESIGN.md)와 [검증](WEB_VERIFICATION.md)에 근거를 기록했다.
+
+- [ ] 공개 파일 최종 검사 후 commit/push, 원격 CI·HEAD 일치 확인. 대시보드를 기동 상태로 인계.
+
 ## P3 — Wiki 에이전트와 설계 검토
 
 - [ ] 문서 검색·인용 평가와 요구사항 추출·추가 질문·계산 도구 연결.

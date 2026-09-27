@@ -1,10 +1,10 @@
 # Agent Brief
 
-> ▶ NEXT SESSION: `docs/NEXT_PLAN.md`를 따른다. P2.1 다수 자산 이전 설계·공식 출처·범용 견적 입력의 로컬/CI 검증·public push·대시보드 기동 완료. 다음은 P3 Wiki 검색·인용 평가셋과 요구사항 추출·계산 도구 계약이다.
+> ▶ NEXT SESSION: `docs/NEXT_PLAN.md`의 P2.2 공개 반영 마감부터 확인한다. 로컬77개·브라우저20개·실제 Chrome 검수는 통과했다. public commit/push와 원격 CI를 확인한 후 P3로 이동한다.
 
 Last Updated: 2026-09-28
 
-사용자 원본56경로·고유36개를 보존한 LLM Wiki와 결정론적 계산 엔진1.0.0, On-Prem/AWS Cloudscape 대시보드를 구현했다. 핵심 흐름은 최대200개 원본 자산 목록→선택 일괄 산정→자산별 상세·EC2·gp3·비용→검토 저장·산정서다. LLM은 아직 연결하지 않았다.
+사용자 원본56경로·고유36개를 보존한 LLM Wiki와 결정론적 계산 엔진1.0.0, On-Prem/AWS Cloudscape 대시보드를 구현했다. 프로젝트 목록→통합 대시보드→좌측 On-Prem/AWS로 이동한다. 자산 목록/상세·사용률 최적화·TTA 산정·AWS 선택 일괄 검토 저장과 산정서를 제공한다. LLM은 아직 연결하지 않았다.
 
 ## Read Order
 
@@ -13,10 +13,10 @@ Last Updated: 2026-09-28
 ## Commands
 
 - 설치·실행: [웹 사용법](WEB_USAGE.md). `make web-start` → `http://127.0.0.1:8765`.
-- `make check`: Wiki·출처·21식·Python71개 테스트. 로컬 원본이 있으면 해시 검사도 포함.
+- `make check`: Wiki·출처·21식·Python77개 테스트. 로컬 원본이 있으면 해시 검사도 포함.
 - `make check-sources`: 원본과 전체 추출을 필수로 검사.
 - `make engine-smoke`: 세 계산 예제 CLI 실행.
-- `make web-check`: Python gate·웹 빌드·Playwright14개 흐름. Playwright Chromium 사전 설치 필요.
+- `make web-check`: Python gate·웹 빌드·Playwright20개 흐름. Playwright Chromium 사전 설치 필요.
 - `make overnight-where`: 설치된 플러그인 탐색. 무인 실행 seed0개.
 
 ## Boundaries

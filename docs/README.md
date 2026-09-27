@@ -6,6 +6,7 @@
 | --- | --- | --- |
 | [제품 기획](PRODUCT_PLAN.md) | 기획자·TA·검토자 | 문제·사용자·수십 개 자산 흐름·현재 제품 범위·후속 에이전트 계획 |
 | [화면·기능 명세](WEB_PLAN.md) | 기획·디자인·프런트엔드 | On-Prem/AWS 메뉴·화면·상태·출력·Cloudscape 설계 |
+| [프로젝트·최적화 설계](PROJECT_WORKSPACE_DESIGN.md) | 개발자·설계자 | 프로젝트 계층·IndexedDB·사용률 입력·On-Prem/AWS 최적화·일괄 검토 저장 |
 | [마이그레이션 수치 설계](MIGRATION_DESIGN.md) | 아키텍트·개발자 | 실측/확정 식·단위·노드/HA·EC2/gp3·가격·수치 검증 |
 | [다수 자산 설계](MIGRATION_PORTFOLIO.md) | 개발자·리뷰어 | 독립 계산·동시 요청·취소·부분 실패·초안·변경 감지·탐색/저장 |
 | [견적 데이터 사전·근거](ESTIMATION_INPUTS.md) | 조사 담당자·TA | 범용 입력·공식 TTA/AWS 근거·지원/미지원·출처와 단위 정책 |

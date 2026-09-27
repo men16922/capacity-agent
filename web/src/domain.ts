@@ -17,6 +17,14 @@ export type Asset = {
   network_gbps: string;
   source: string;
   observed_on: string;
+  memory_usage_mode?: string;
+  peak_memory_percent?: string;
+  disk_usage_mode?: string;
+  disk_allocated_gib?: string;
+  disk_used_percent?: string;
+  instance_type?: string;
+  current_iops?: string;
+  current_throughput_mibps?: string;
   hardware?: string;
   asset_type?: string;
   environment?: string;
@@ -177,6 +185,31 @@ export type CalcResult = {
   }[];
   engine_version?: string;
 };
+export type OptimizationRequest = MigrationRequest & {
+  environment: "onprem" | "aws";
+};
+export type OptimizationResult = {
+  status: string;
+  errors: { field: string; message: string }[];
+  model_version?: string;
+  requirements?: Record<
+    "vcpu" | "memory_gib" | "disk_gib",
+    Val & { minimum: number }
+  >;
+  measurements?: Record<string, Val>;
+  trace?: (Val & { name: string; expression: string })[];
+  warnings?: string[];
+  migration?: MigrationResult;
+  baseline_cost?: Candidate["cost"] | null;
+  monthly_difference?: string | null;
+};
+export type OptimizationScenario = {
+  id: string;
+  name: string;
+  savedAt: string;
+  request: OptimizationRequest;
+  result: OptimizationResult;
+};
 export type Project = {
   schemaVersion: 1;
   id: string;
@@ -185,7 +218,10 @@ export type Project = {
   assets: Asset[];
   scenarios: Scenario[];
   migrationDrafts?: MigrationDraft[];
+  awsAssets?: Asset[];
+  optimizations?: OptimizationScenario[];
   calculations: {
+    savedAt?: string;
     id: string;
     name: string;
     request: CalcRequest;
@@ -323,6 +359,14 @@ export function blankAsset(): Asset {
     network_gbps: "",
     source: "",
     observed_on: TODAY,
+    memory_usage_mode: "amount",
+    peak_memory_percent: "",
+    disk_usage_mode: "amount",
+    disk_allocated_gib: "",
+    disk_used_percent: "",
+    instance_type: "",
+    current_iops: "",
+    current_throughput_mibps: "",
     hardware: "",
     asset_type: "",
     environment: "",
@@ -357,9 +401,19 @@ export function assetErrors(asset: Asset): Record<string, string> {
     "iops",
     "throughput_mibps",
     "network_gbps",
+    "peak_memory_percent",
+    "disk_allocated_gib",
+    "disk_used_percent",
+    "current_iops",
+    "current_throughput_mibps",
   ] as const) {
-    const value = asset[key];
-    const required = ["vcpu", "memory_gib", "disk_gib"].includes(key);
+    const value = asset[key] ?? "";
+    const required =
+      ["vcpu", "memory_gib"].includes(key) ||
+      (key === "disk_gib" && asset.disk_usage_mode !== "percent") ||
+      (["disk_allocated_gib", "disk_used_percent"].includes(key) &&
+        asset.disk_usage_mode === "percent") ||
+      (key === "peak_memory_percent" && asset.memory_usage_mode === "percent");
     if (value === "" && !required) continue;
     if (
       typeof value !== "string" ||
@@ -377,10 +431,28 @@ export function assetErrors(asset: Asset): Record<string, string> {
       errors[key] = "허용 범위를 확인하세요.";
     if (key === "vcpu" && !n.isInteger())
       errors[key] = "논리 CPU 개수는 정수여야 합니다.";
-    if (key === "peak_cpu_percent" && n.gt(100))
+    if (
+      ["peak_cpu_percent", "peak_memory_percent", "disk_used_percent"].includes(
+        key,
+      ) &&
+      n.gt(100)
+    )
       errors[key] = "0~100% 범위입니다.";
   }
+  for (const key of ["memory_usage_mode", "disk_usage_mode"] as const)
+    if (asset[key] && !["amount", "percent"].includes(asset[key]!))
+      errors[key] = "사용량 또는 사용률을 선택하세요.";
   if (
+    !errors.disk_allocated_gib &&
+    !errors.disk_gib &&
+    asset.disk_allocated_gib &&
+    asset.disk_usage_mode !== "percent" &&
+    asset.disk_gib &&
+    new Decimal(asset.disk_gib).gt(asset.disk_allocated_gib)
+  )
+    errors.disk_gib = "할당 디스크보다 클 수 없습니다.";
+  if (
+    asset.memory_usage_mode !== "percent" &&
     !errors.peak_memory_gib &&
     !errors.memory_gib &&
     asset.peak_memory_gib &&
@@ -414,10 +486,27 @@ export function assetErrors(asset: Asset): Record<string, string> {
   }
   return errors;
 }
+export function memoryUsed(asset: Asset): string {
+  if (asset.memory_usage_mode !== "percent") return asset.peak_memory_gib;
+  return asset.memory_gib && asset.peak_memory_percent
+    ? new Decimal(asset.memory_gib)
+        .mul(asset.peak_memory_percent)
+        .div(100)
+        .toFixed()
+    : "";
+}
+export function diskUsed(asset: Asset): string {
+  if (asset.disk_usage_mode !== "percent") return asset.disk_gib;
+  return asset.disk_allocated_gib && asset.disk_used_percent
+    ? new Decimal(asset.disk_allocated_gib)
+        .mul(asset.disk_used_percent)
+        .div(100)
+        .toFixed()
+    : "";
+}
 export function planFor(asset: Asset): Plan {
   return {
-    mode:
-      asset.peak_cpu_percent && asset.peak_memory_gib ? "measured" : "direct",
+    mode: asset.peak_cpu_percent && memoryUsed(asset) ? "measured" : "direct",
     region: "ap-northeast-2",
     architecture: "x86_64",
     os: asset.os,
@@ -514,8 +603,11 @@ export function parseProject(value: unknown): Project {
   if (
     p.schemaVersion !== 1 ||
     typeof p.name !== "string" ||
+    !p.name.trim() ||
     p.name.length > 200 ||
     typeof p.id !== "string" ||
+    !p.id.trim() ||
+    p.id.length > 200 ||
     typeof p.demo !== "boolean" ||
     !Array.isArray(p.assets) ||
     !Array.isArray(p.scenarios) ||
@@ -575,6 +667,45 @@ export function parseProject(value: unknown): Project {
     )
       throw new Error("이전 설계 초안 형식이 올바르지 않습니다.");
   }
+  if (
+    p.awsAssets !== undefined &&
+    (!Array.isArray(p.awsAssets) ||
+      p.awsAssets.length > 200 ||
+      new Set(p.awsAssets.map((a) => a?.id)).size !== p.awsAssets.length ||
+      p.awsAssets.some(
+        (a) =>
+          !a ||
+          Object.keys(assetErrors(a)).length ||
+          typeof a.instance_type !== "string" ||
+          !a.instance_type,
+      ))
+  )
+    throw new Error("AWS 자산 형식이 올바르지 않습니다.");
+  if (
+    p.optimizations !== undefined &&
+    (!Array.isArray(p.optimizations) ||
+      p.optimizations.length > 200 ||
+      new Set(p.optimizations.map((s) => s?.id)).size !==
+        p.optimizations.length ||
+      p.optimizations.some(
+        (s) =>
+          !s ||
+          typeof s.id !== "string" ||
+          typeof s.name !== "string" ||
+          !s.request ||
+          !["onprem", "aws"].includes(s.request.environment) ||
+          s.request.schema_version !== 1 ||
+          !s.request.asset ||
+          Object.keys(assetErrors(s.request.asset)).length ||
+          !validPlan(s.request.plan) ||
+          !s.result ||
+          s.result.status !== "complete",
+      ))
+  )
+    throw new Error("최적화 시나리오 형식이 올바르지 않습니다.");
+  for (const list of [p.scenarios, p.calculations])
+    if (new Set(list.map((s) => s?.id)).size !== list.length)
+      throw new Error("저장 시나리오 ID가 중복됩니다.");
   for (const s of p.scenarios)
     if (
       !s ||

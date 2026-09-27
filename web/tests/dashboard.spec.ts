@@ -1,13 +1,23 @@
+import { project, seed, blank, storedProjects } from "./helpers";
+import migrationFixture from "../../examples/migration.json" with { type: "json" };
 import { test, expect, type Page } from "@playwright/test";
 import fs from "node:fs/promises";
 import AxeBuilder from "@axe-core/playwright";
 const storage = "capacity-agent.workspace.v1";
 async function demo(page: Page) {
-  await page.goto("/");
-  await page
-    .getByRole("button", { name: "예제로 둘러보기", exact: true })
-    .click();
-  await page.getByRole("button", { name: "계속", exact: true }).click();
+  await seed(
+    page,
+    {
+      schemaVersion: 1,
+      id: "test-demo",
+      name: "업무 시스템 클라우드 전환",
+      demo: true,
+      assets: [{ ...migrationFixture.asset, name: "고객 포털 WEB/WAS" }],
+      scenarios: [],
+      calculations: [],
+    },
+    "assets",
+  );
   await expect(
     page.getByRole("button", { name: "고객 포털 WEB/WAS", exact: true }),
   ).toBeVisible();
@@ -20,12 +30,6 @@ async function saveMigration(page: Page, name: string) {
   await page.getByRole("checkbox", { name: /입력 근거와 상대성능/ }).check();
   await page.getByRole("button", { name: "이전안 저장", exact: true }).click();
   await expect(page.locator("#root article.report h1")).toHaveText(name);
-}
-async function project(page: Page) {
-  return page.evaluate(
-    (key) => JSON.parse(localStorage.getItem(key)!),
-    storage,
-  );
 }
 
 test("migration golden result, report, snapshot clone, comparison and JSON round trip", async ({
@@ -41,9 +45,10 @@ test("migration golden result, report, snapshot clone, comparison and JSON round
   await page
     .getByRole("button", { name: "고객 포털 WEB/WAS", exact: true })
     .click();
-  await expect(
-    page.getByRole("tab", { name: "AWS", exact: true }),
-  ).toHaveAttribute("aria-selected", "true");
+
+  await page
+    .getByRole("button", { name: "AWS 마이그레이션", exact: true })
+    .click();
   await page
     .getByRole("button", { name: "이전 조건 편집", exact: true })
     .click();
@@ -97,16 +102,15 @@ test("migration golden result, report, snapshot clone, comparison and JSON round
       .getByRole("button", { name: "탐색 메뉴 열기", exact: true })
       .click();
   // A stored scenario is immutable when the current source asset changes.
-  await page.getByRole("tab", { name: "On-Prem", exact: true }).click();
   await page.getByRole("link", { name: "서버 자산", exact: true }).click();
   await page
     .getByRole("button", { name: "고객 포털 WEB/WAS", exact: true })
     .click();
+  await page.getByRole("button", { name: "자산 수정", exact: true }).click();
   await page
     .getByRole("textbox", { name: "CPU 피크 사용률 (%)", exact: true })
     .fill("80");
   await page.getByRole("button", { name: "서버 저장", exact: true }).click();
-  await page.getByRole("tab", { name: "AWS", exact: true }).click();
   await page
     .getByRole("link", { name: "이전안·시나리오", exact: true })
     .click();
@@ -164,24 +168,21 @@ test("migration golden result, report, snapshot clone, comparison and JSON round
   });
   await page.getByRole("button", { name: "계속", exact: true }).click();
   await expect(
-    page.getByText(
-      "프로젝트를 가져오고 계산 결과를 현재 엔진으로 검증했습니다.",
-      { exact: true },
-    ),
+    page.getByRole("heading", { name: "통합 대시보드", exact: true }),
   ).toBeVisible();
   expect(
     (await project(page)).scenarios[0].result.requirements.vcpu.value,
   ).toBe("9.6");
   await page.reload();
   await expect(
-    page.getByRole("heading", { name: "인프라 설계 대시보드", exact: true }),
+    page.getByRole("heading", { name: "통합 대시보드", exact: true }),
   ).toBeVisible();
   expect((await project(page)).scenarios).toHaveLength(2);
   expect(errors).toEqual([]);
 });
 
 test("asset CRUD and atomic CSV validation", async ({ page }) => {
-  await page.goto("/");
+  await blank(page);
   await page.getByRole("link", { name: "서버 자산", exact: true }).click();
   await page
     .getByRole("button", { name: "서버 추가", exact: true })
@@ -238,7 +239,7 @@ test("asset CRUD and atomic CSV validation", async ({ page }) => {
 test("all 21 formulas, live recalculation, missing values, Wiki and benchmark links", async ({
   page,
 }) => {
-  await page.goto("/");
+  await blank(page);
   await page.getByRole("link", { name: "용량산정", exact: true }).click();
   await expect(
     page.getByRole("button", { name: "산정 결과 저장", exact: true }),
@@ -298,6 +299,9 @@ test("invalid migration, ARM confirmation and no-candidate state", async ({
     .getByRole("button", { name: "고객 포털 WEB/WAS", exact: true })
     .click();
   await page
+    .getByRole("button", { name: "AWS 마이그레이션", exact: true })
+    .click();
+  await page
     .getByRole("button", { name: "이전 조건 편집", exact: true })
     .click();
   await page.getByRole("button", { name: "다음", exact: true }).click();
@@ -343,9 +347,9 @@ test("mobile layout, keyboard navigation and dark mode", async ({
   page,
 }, info) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/");
+  await blank(page);
   await expect(
-    page.getByRole("heading", { name: "인프라 설계 대시보드", exact: true }),
+    page.getByRole("heading", { name: "통합 대시보드", exact: true }),
   ).toBeVisible();
   expect(
     await page.evaluate(
@@ -357,12 +361,19 @@ test("mobile layout, keyboard navigation and dark mode", async ({
     fullPage: true,
   });
   await page.setViewportSize({ width: 1440, height: 1050 });
-  await page.getByRole("tab", { name: "On-Prem", exact: true }).focus();
-  await page.keyboard.press("ArrowRight");
+  if (
+    await page
+      .getByRole("button", { name: "탐색 메뉴 열기", exact: true })
+      .isVisible()
+  )
+    await page
+      .getByRole("button", { name: "탐색 메뉴 열기", exact: true })
+      .click();
+  await page
+    .getByRole("link", { name: "AWS 마이그레이션", exact: true })
+    .focus();
   await page.keyboard.press("Enter");
-  await expect(
-    page.getByRole("tab", { name: "AWS", exact: true }),
-  ).toHaveAttribute("aria-selected", "true");
+
   await page.getByRole("button", { name: "다크 모드", exact: true }).click();
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
   await page.screenshot({ path: info.outputPath("dark.png"), fullPage: true });
@@ -392,11 +403,13 @@ test("accessible dashboard, forms and migration choices", async ({ page }) => {
     .getByRole("button", { name: "고객 포털 WEB/WAS", exact: true })
     .click();
   await page
+    .getByRole("button", { name: "AWS 마이그레이션", exact: true })
+    .click();
+  await page
     .getByRole("button", { name: "이전 조건 편집", exact: true })
     .click();
   await page.getByRole("button", { name: "다음", exact: true }).click();
   await audit();
-  await page.getByRole("tab", { name: "On-Prem", exact: true }).click();
   await page.getByRole("link", { name: "용량산정", exact: true }).click();
   await expect(
     page.getByRole("button", { name: "산정 결과 저장", exact: true }),
@@ -407,17 +420,37 @@ test("accessible dashboard, forms and migration choices", async ({ page }) => {
 test("corrupt local storage is preserved, invalid imported calculation does not replace project", async ({
   page,
 }) => {
-  await page.addInitScript(
+  await page.goto("/");
+  await page.evaluate(
     (key) => localStorage.setItem(key, '{"invalid":true}'),
     storage,
   );
-  await page.goto("/");
-  await expect(page.getByText("자동 저장 중지", { exact: true })).toBeVisible();
-  expect(await page.evaluate((key) => localStorage.getItem(key), storage)).toBe(
-    '{"invalid":true}',
+  // A new context is required to exercise first-run legacy migration.
+  const context = await page.context().browser()!.newContext();
+  const corrupt = await context.newPage();
+  await corrupt.addInitScript(
+    (key) => localStorage.setItem(key, '{"invalid":true}'),
+    storage,
   );
-  await page.getByRole("button", { name: "새 프로젝트", exact: true }).click();
-  await page.getByRole("button", { name: "계속", exact: true }).click();
+  await corrupt.goto("http://127.0.0.1:8765/");
+  await expect(
+    corrupt.getByRole("button", { name: "기존 저장값 백업", exact: true }),
+  ).toBeVisible();
+  expect(
+    await corrupt.evaluate((key) => localStorage.getItem(key), storage),
+  ).toBe('{"invalid":true}');
+  await context.close();
+  await page.evaluate((key) => localStorage.removeItem(key), storage);
+  await page
+    .getByRole("button", { name: "프로젝트 생성", exact: true })
+    .click();
+  await page
+    .getByRole("textbox", { name: "프로젝트 이름", exact: true })
+    .fill("보존 프로젝트");
+  await page.getByRole("button", { name: "생성 후 열기", exact: true }).click();
+  await expect(
+    page.getByRole("heading", { name: "통합 대시보드", exact: true }),
+  ).toBeVisible();
   const before = await project(page);
   const imported = {
     ...before,
@@ -438,7 +471,9 @@ test("corrupt local storage is preserved, invalid imported calculation does not 
   });
   await page.getByRole("button", { name: "계속", exact: true }).click();
   await expect(
-    page.getByText("오류 산정: 규칙 버전·입력을 확인하세요.", { exact: true }),
+    page.getByText("오류 산정: 용량산정 입력·규칙을 확인하세요.", {
+      exact: true,
+    }),
   ).toBeVisible();
   expect((await project(page)).name).toBe(before.name);
 });
@@ -446,7 +481,7 @@ test("corrupt local storage is preserved, invalid imported calculation does not 
 test("late calculator response cannot overwrite the latest input", async ({
   page,
 }) => {
-  await page.goto("/");
+  await blank(page);
   await page.getByRole("link", { name: "용량산정", exact: true }).click();
   await expect(
     page.getByRole("button", { name: "산정 결과 저장", exact: true }),

@@ -3,7 +3,6 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Alert from "@cloudscape-design/components/alert";
 import Box from "@cloudscape-design/components/box";
-import Button from "@cloudscape-design/components/button";
 import ColumnLayout from "@cloudscape-design/components/column-layout";
 import Container from "@cloudscape-design/components/container";
 import Header from "@cloudscape-design/components/header";

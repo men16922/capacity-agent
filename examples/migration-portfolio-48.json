@@ -870,5 +870,32 @@
     }
   ],
   "scenarios": [],
-  "calculations": []
+  "calculations": [],
+  "awsAssets": [
+    {
+      "id": "aws-demo-web",
+      "name": "aws-portal-01",
+      "role": "WEB/WAS",
+      "os": "Linux",
+      "architecture": "x86_64",
+      "vcpu": "16",
+      "memory_gib": "64",
+      "disk_gib": "300",
+      "peak_cpu_percent": "35",
+      "peak_memory_gib": "32",
+      "iops": "6000",
+      "throughput_mibps": "200",
+      "network_gbps": "0.5",
+      "source": "합성 AWS 사용률 예제 · 실제 운영 측정값 아님",
+      "observed_on": "2026-09-27",
+      "instance_type": "m8i.4xlarge",
+      "memory_usage_mode": "percent",
+      "peak_memory_percent": "50",
+      "disk_usage_mode": "percent",
+      "disk_allocated_gib": "500",
+      "disk_used_percent": "60",
+      "current_iops": "6000",
+      "current_throughput_mibps": "200"
+    }
+  ]
 }

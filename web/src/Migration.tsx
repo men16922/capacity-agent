@@ -7,20 +7,19 @@ import Checkbox from "@cloudscape-design/components/checkbox";
 import ColumnLayout from "@cloudscape-design/components/column-layout";
 import Container from "@cloudscape-design/components/container";
 import ExpandableSection from "@cloudscape-design/components/expandable-section";
-import FormField from "@cloudscape-design/components/form-field";
 import Header from "@cloudscape-design/components/header";
 import RadioGroup from "@cloudscape-design/components/radio-group";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import Spinner from "@cloudscape-design/components/spinner";
-import StatusIndicator from "@cloudscape-design/components/status-indicator";
 import Table from "@cloudscape-design/components/table";
 import Wizard from "@cloudscape-design/components/wizard";
 import {
   api,
   copy,
   fmt,
+  memoryUsed,
+  diskUsed,
   money,
-  planFor,
   uid,
   type Asset,
   type Bootstrap,
@@ -221,8 +220,12 @@ export function Migration({
     <SpaceBetween size="l">
       <PageHeading
         eyebrow="MIGRATION STUDIO"
-        title="On-Prem → AWS 이전 설계"
-        description="원본 사양, 이전 가정, 후보 선택을 하나의 근거로 연결합니다."
+        title="On-Prem → AWS 마이그레이션"
+        description={
+          updateDraft
+            ? "조건 변경은 초안에 자동 저장됩니다. 검토 완료 이전안은 마지막 단계에서 별도로 저장하세요."
+            : "원본 사양, 이전 가정, 후보 선택을 하나의 근거로 연결합니다."
+        }
       />
       {failure && (
         <Alert type="error" dismissible onDismiss={() => setFailure("")}>
@@ -236,8 +239,8 @@ export function Migration({
           stepNumberLabel: (n) => `단계 ${n}`,
           collapsedStepsLabel: (n, total) => `${total}단계 중 ${n}단계`,
           skipToButtonLabel: (s) => `${s.title}으로 이동`,
-          navigationAriaLabel: "AWS 이전 설계 단계",
-          cancelButton: "취소",
+          navigationAriaLabel: "AWS 마이그레이션 단계",
+          cancelButton: updateDraft ? "상세로 돌아가기" : "취소",
           previousButton: "이전",
           nextButton: step === 1 ? "후보 계산" : "다음",
           submitButton: "이전안 저장",
@@ -286,12 +289,12 @@ export function Migration({
                       />
                       <Metric
                         label="메모리 피크 실사용"
-                        value={fmt(asset.peak_memory_gib)}
+                        value={fmt(memoryUsed(asset))}
                         unit="GiB"
                       />
                       <Metric
                         label="논리 디스크 사용량"
-                        value={fmt(asset.disk_gib)}
+                        value={fmt(diskUsed(asset))}
                         unit="GiB"
                       />
                     </ColumnLayout>
@@ -479,7 +482,7 @@ export function Migration({
                     </div>
                     <Box color="text-body-secondary">
                       IOPS·처리량·네트워크는 성장과 장애 상황을 고려한 노드당
-                      최종 실부하입니다. 디스크는 {fmt(asset.disk_gib)} GiB를
+                      최종 실부하입니다. 디스크는 {fmt(diskUsed(asset))} GiB를
                       기준으로 각 노드에 논리 볼륨 1개를 구성합니다.
                     </Box>
                   </SpaceBetween>

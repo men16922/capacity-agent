@@ -51,3 +51,14 @@
 공식 링크가 확인되지 않은 참고 자료는 그 사실을 밝힌다. 비공식 강의·업무 파일을 공인 표준으로 격상하거나 공식 자료의 내용을 확인하지 않고 대체 출처를 붙이지 않는다.
 
 [제품 기획](PRODUCT_PLAN.md) · [다수 자산 설계](MIGRATION_PORTFOLIO.md) · [사용 가이드](WEB_USAGE.md)
+
+## 사용률 최적화 입력 확장
+
+| 필드 | 의미·단위 | 적용 범위 |
+| --- | --- | --- |
+| `memory_usage_mode`, `peak_memory_percent` | 실사용 GiB 또는 사용률% 중 명시적 방식. %는 할당 메모리×사용률/100 | 기존 GiB 입력과 동등한 계산 |
+| `disk_allocated_gib`, `disk_usage_mode`, `disk_used_percent` | 논리 할당량과 사용 GiB 또는 사용률% | 기존 `disk_gib`의 실제 사용량 의미 유지 |
+| `instance_type` | 현재 운영 EC2 유형 | AWS 자산만 사용. 서울 카탈로그의 CPU·메모리·아키텍처 일치 검사 |
+| `current_iops`, `current_throughput_mibps` | 현재 gp3의 프로비저닝 IOPS·MiB/s | 지속 요구량과 구분. 현재 할당 GiB와 함께 있어야 현재/제안 비용 비교 |
+
+측정 기간·피크/백분위·모니터링 근거는 `source`에 기록하고 측정일은 `observed_on`에 둔다. 성장률과 목표 활용률은 측정값이 아닌 설계 가정이다. [AWS 공식 사용률/여유 용량 지침](https://docs.aws.amazon.com/compute-optimizer/latest/ug/rightsizing-preferences.html)을 검토 참고로 제공하며 AWS Compute Optimizer 추천을 그대로 재현한다고 주장하지 않는다. 모델·한도·출력 계약은 [프로젝트/최적화 설계](PROJECT_WORKSPACE_DESIGN.md)에 정리했다.

@@ -29,20 +29,20 @@ npm run --prefix web build
 python -m uvicorn capacity_web.app:app --host 127.0.0.1 --port 8765
 ```
 
-**[http://127.0.0.1:8765](http://127.0.0.1:8765)** 에 접속해 `예제로 둘러보기`를 누르거나 새 서버를 등록하세요. 예제는 실제 운영 측정값이 아닙니다. 프로젝트는 해당 브라우저의 로컬 저장소에 보관하며 `프로젝트 JSON`으로 백업할 수 있습니다.
+**[http://127.0.0.1:8765](http://127.0.0.1:8765)** 에 접속해 `프로젝트 생성` 또는 `48개 자산 예제`를 선택하세요. 프로젝트 안에서 On-Prem 용량산정과 AWS 마이그레이션·사용률 최적화로 이동합니다. 예제는 실제 운영 측정값이 아닙니다. 프로젝트는 해당 브라우저의 로컬 저장소에 보관하며 `프로젝트 JSON`으로 백업할 수 있습니다.
 
 원본 파일·AWS 계정·API 키 없이 실행됩니다. 설치 후 계산·Wiki 조회에는 외부 네트워크가 필요하지 않습니다. 공식 링크를 여는 동작만 외부 사이트로 이동합니다.
 
 ## 여러 자산으로 테스트하기
 
-[48개 합성 자산 프로젝트 JSON](examples/migration-portfolio-48.json)을 웹의 `가져오기`로 열거나, [CSV](examples/migration-portfolio-48.csv)를 `서버 자산 → CSV 가져오기`로 추가하세요. AWS 탭에서 전체 선택·일괄 산정 후 서버 이름을 누르면 개별 상세를 볼 수 있습니다. 실제 고객 데이터는 포함하지 않습니다.
+[48개 합성 자산 프로젝트 JSON](examples/migration-portfolio-48.json)을 웹의 `가져오기`로 열거나, [CSV](examples/migration-portfolio-48.csv)를 `서버 자산 → CSV 가져오기`로 추가하세요. 프로젝트의 좌측 AWS 마이그레이션 메뉴에서 전체 선택·일괄 산정 후 서버 이름을 누르면 개별 상세를 볼 수 있습니다. 실제 고객 데이터는 포함하지 않습니다.
 
-![AWS 이전 대상 목록 — 48개 합성 서버](docs/images/migration-portfolio.png)
+![프로젝트 통합 대시보드 — On-Prem과 AWS](docs/images/project-dashboard.png)
 
 ## 검증
 
 ```sh
-make check                         # Wiki·출처 계약 + Python 71개 테스트
+make check                         # Wiki·출처 계약 + Python 테스트
 make engine-smoke                  # 세 프로파일 JSON CLI
 npm run --prefix web build         # TypeScript + production build
 cd web

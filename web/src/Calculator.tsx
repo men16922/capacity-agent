@@ -36,11 +36,14 @@ export function Calculator({
   initial,
 }: {
   bootstrap: Bootstrap;
-  save: (request: CalcRequest, result: CalcResult) => void;
+  save: (request: CalcRequest, result: CalcResult, name: string) => void;
   initial?: CalcRequest;
 }) {
   const [request, setRequest] = useState<CalcRequest>(() =>
     copy(initial ?? bootstrap.examples["tta-r3-2023"]),
+  );
+  const [scenarioName, setScenarioName] = useState(
+    initial?.scenario_id ?? "신규 업무 용량산정",
   );
   const [selected, setSelected] = useState(0);
   const [result, setResult] = useState<CalcResult | null>(null);
@@ -172,14 +175,30 @@ export function Calculator({
             </Button>
             <Button
               variant="primary"
-              disabled={!result || busy || result.status !== "calculated"}
-              onClick={() => result && save(copy(request), copy(result))}
+              disabled={
+                !result ||
+                busy ||
+                result.status !== "calculated" ||
+                !scenarioName.trim() ||
+                scenarioName.length > 200
+              }
+              onClick={() =>
+                result && save(copy(request), copy(result), scenarioName.trim())
+              }
             >
               산정 결과 저장
             </Button>
           </SpaceBetween>
         }
       />
+      <Container header={<Header variant="h2">산정 목적과 대상</Header>}>
+        <Field
+          label="산정 시나리오 이름"
+          value={scenarioName}
+          onChange={setScenarioName}
+          description="업무·시스템과 가정을 구분할 수 있는 이름을 입력하세요. 산정 대상은 각 계산의 시스템 ID로 기록합니다."
+        />
+      </Container>
       <Alert type="info">
         {request.assumptions.some((a) =>
           /example|appendix|Synthetic|Reproduce/i.test(a),

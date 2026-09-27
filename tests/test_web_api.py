@@ -32,6 +32,17 @@ class WebApiTests(unittest.TestCase):
         self.assertEqual(bootstrap["source_count"], 36)
         self.assertEqual(bootstrap["catalog"]["region"], "ap-northeast-2")
 
+    def test_optimization_http_uses_exact_measurements(self):
+        request = json.loads((ROOT / "examples/migration.json").read_text())
+        request["environment"] = "onprem"
+        request["asset"].update(memory_usage_mode="percent", peak_memory_percent="50")
+        r = self.client.post("/api/optimize", json=request)
+        self.assertEqual(r.status_code, 200)
+        self.assertEqual(r.json()["requirements"]["memory_gib"]["value"], "47")
+        self.assertEqual(
+            self.client.post("/api/optimize", content='{"x":1,"x":2}').status_code, 400
+        )
+
     def test_invalid_json_limits_and_duplicate_keys(self):
         for value in ['{"x":1,"x":2}', '{"x":NaN}', "not json", b"\xff"]:
             self.assertEqual(
