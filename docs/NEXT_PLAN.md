@@ -2,13 +2,7 @@
 
 Last Updated: 2026-09-28
 
-P2 웹 공개와 P2.1 다수 자산 이전 설계의 로컬 구현·검증 완료. 상세 완료 기록은 [웹 검증](WEB_VERIFICATION.md)과 [완료 요약](COMPLETED_SUMMARY.md)을 참고한다.
-
-## P2.1 — 공개 반영 마무리
-
-- [ ] 최종 공개 대상 검사 후 commit/push·원격 CI 확인 및 대시보드 기동 상태 확인.
-
-상세 범위와 상태 모델: [다수 자산 설계](MIGRATION_PORTFOLIO.md).
+P2.1 다수 자산 이전 설계의 로컬/CI 검증·public commit/push·대시보드 기동 완료. 상세 완료 기록은 [웹 검증](WEB_VERIFICATION.md)과 [완료 요약](COMPLETED_SUMMARY.md)을 참고한다.
 
 ## P3 — Wiki 에이전트와 설계 검토
 

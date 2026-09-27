@@ -2,14 +2,15 @@
 
 ## 2026-09-28 — 다수 자산 이전 설계·공식 출처·문서 완료
 
-- Status: P2.1 로컬 구현·검증 완료. public 반영과 대시보드 최종 확인 진행.
+- Status: P2.1 구현·로컬/원격 검증·public 반영·대시보드 기동 완료.
 - Changed: 최대200개 목록·검색·필터·페이지·선택 일괄 산정·공통 조건·자산별 상세5탭. 초안과 검토 저장 분리, 변경 감지·소계 제외·JSON 재계산.
 - Changed: 범용 견적 입력8개, 공식 TTA/AWS 웹 근거·읽기 쉬운 단위. 합성48개 JSON/CSV, 기획·설계·사용·데이터 사전·검증 문서 및 문서 안내.
 - Verified: Python71개·CLI·TypeScript/build·브라우저14개 통과(29.5초). 48개 부분 실패와200개 전체 산정 각각6회 반복 통과. 모바일390px·axe 검사·데스크톱 화면 검토.
 - Evidence: 연속 결과 갱신의 React185 재현 후 startTransition 및 예외 범위 분리로 수정. 저장48개446,252바이트·200개5MB 미만·새로고침 복원 확인.
 - Evidence: 공식 TTA 상세의 R3 유효 이력·2023-12-06 개정과 AWS 평가 지침 확인. 특정 고객 자료·원본은 공개 대상에 넣지 않음.
+- Verified: 코드4b9043d public push·원격 HEAD 일치. GitHub Actions36333255452에서 원본 없이 Python71개·브라우저14개·빌드/CLI 통과. Chrome 최신 AWS 목록·8765 health 확인.
 - Blockers: 로컬 요청 범위의 장애 없음. 실제 AWS 이관·전체 견적/TCO·LLM 연결은 후속 범위.
-- Next: 공개 대상 검사·commit/push·원격 CI 확인 후 대시보드 기동 유지.
+- Next: P3 Wiki 검색·인용 평가와 요구사항 추출·계산 도구 계약. 기획/설계/사용 가이드는 docs/README.md에서 탐색.
 
 ## 2026-09-28 — Public GitHub·원격 CI·대시보드 기동 완료
 

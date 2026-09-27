@@ -1,6 +1,6 @@
 # Agent Brief
 
-> ▶ NEXT SESSION: `docs/NEXT_PLAN.md`를 따른다. P2.1 다수 자산 이전 설계·공식 출처·범용 견적 입력의 로컬 구현과 검증 완료. 이번 변경의 공개 반영을 마친 뒤 P3 Wiki 검색·인용 평가셋과 요구사항 추출·계산 도구 계약으로 진행한다.
+> ▶ NEXT SESSION: `docs/NEXT_PLAN.md`를 따른다. P2.1 다수 자산 이전 설계·공식 출처·범용 견적 입력의 로컬/CI 검증·public push·대시보드 기동 완료. 다음은 P3 Wiki 검색·인용 평가셋과 요구사항 추출·계산 도구 계약이다.
 
 Last Updated: 2026-09-28
 
