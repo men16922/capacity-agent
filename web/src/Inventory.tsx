@@ -1,3 +1,6 @@
+import ExpandableSection from "@cloudscape-design/components/expandable-section";
+import Link from "@cloudscape-design/components/link";
+import { ASSESSMENT_REFERENCE, assessmentFields } from "./references";
 import { useRef, useState } from "react";
 import Papa from "papaparse";
 import Alert from "@cloudscape-design/components/alert";
@@ -84,9 +87,7 @@ export function Dashboard({ project, migrate, navigate, loadDemo }: Props) {
             <Button
               variant="primary"
               onClick={() =>
-                project.assets.length
-                  ? migrate(project.assets[0].id)
-                  : navigate("assets")
+                project.assets.length ? navigate("migrate") : navigate("assets")
               }
             >
               AWS 이전 설계 시작
@@ -395,6 +396,7 @@ export function Inventory({
       "source",
       "observed_on",
       "hardware",
+      ...Object.keys(assessmentFields),
     ];
     download(
       "capacity-assets-template.csv",
@@ -418,6 +420,7 @@ export function Inventory({
               "예제 · 실제 측정값 아님",
               "2026-09-27",
               "VM",
+              ...Object.keys(assessmentFields).map(() => ""),
             ],
           ],
         }),
@@ -680,6 +683,40 @@ export function Inventory({
                 onChange={(v) => setDraft({ ...draft, hardware: v })}
               />
             </div>
+            <ExpandableSection headerText="견적 검토 정보 (선택)">
+              <SpaceBetween size="m">
+                <Box>
+                  알고 있는 정보만 입력하세요. 미입력은 확인되지 않은 항목으로
+                  유지하며 EC2+EBS 계산에 포함되지 않는 검토 정보입니다.
+                </Box>
+                <Link external href={ASSESSMENT_REFERENCE.url}>
+                  {ASSESSMENT_REFERENCE.title}
+                </Link>
+                <div className="form-grid">
+                  {(
+                    Object.entries(assessmentFields) as [
+                      keyof typeof assessmentFields,
+                      string,
+                    ][]
+                  ).map(([key, label]) => (
+                    <Field
+                      key={key}
+                      label={label}
+                      value={draft[key] ?? ""}
+                      error={errors[key]}
+                      description={
+                        key === "asset_type"
+                          ? "물리 서버, 가상 서버, 하이퍼바이저, 컨테이너 등. 호스트와 게스트의 중복 산정 여부를 확인하세요."
+                          : key === "environment"
+                            ? "운영, 검증, 개발, 테스트 등"
+                            : undefined
+                      }
+                      onChange={(v) => setDraft({ ...draft, [key]: v })}
+                    />
+                  ))}
+                </div>
+              </SpaceBetween>
+            </ExpandableSection>
             <Field
               label="측정·사양 근거"
               value={draft.source}

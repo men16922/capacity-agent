@@ -81,7 +81,7 @@ a:focus-visible {
   color: #075eaf;
 }
 .mode-tabs {
-  border-bottom: 1px solid var(--line);
+  min-width: 0;
 }
 .page-heading {
   padding: 4px 0;
@@ -821,5 +821,22 @@ a:focus-visible {
   }
   .no-print {
     display: none !important;
+  }
+}
+
+.portfolio-filters {
+  display: grid;
+  grid-template-columns: minmax(180px, 2fr) repeat(2, minmax(130px, 1fr)) 120px;
+  gap: 16px;
+  align-items: end;
+}
+@media (max-width: 1100px) {
+  .portfolio-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .portfolio-filters {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

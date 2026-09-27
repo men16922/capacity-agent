@@ -9,12 +9,14 @@ import Link from "@cloudscape-design/components/link";
 import Select from "@cloudscape-design/components/select";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import StatusIndicator from "@cloudscape-design/components/status-indicator";
+import { TTA_REFERENCE } from "./references";
 import { createContext, useContext, type ReactNode } from "react";
 import {
   fmt,
   type Asset,
   type Candidate,
   type MigrationResult,
+  type InputValue,
 } from "./domain";
 
 export function Field({
@@ -136,6 +138,7 @@ export function PageHeading({
     </div>
   );
 }
+export const SourceTitles = createContext<Record<string, string>>({});
 export const SourceAvailability = createContext<Record<string, boolean>>({});
 export function SourceLink({
   id,
@@ -144,13 +147,26 @@ export function SourceLink({
 }: {
   id: string;
   page?: number;
-  children: ReactNode;
+  children?: ReactNode;
 }) {
   const available = useContext(SourceAvailability);
+  const titles = useContext(SourceTitles);
+  if (id === "tta-r3")
+    return (
+      <Link
+        href={TTA_REFERENCE.url}
+        external
+        externalIconAriaLabel="새 탭에서 TTA 공식 표준 열기"
+      >
+        {TTA_REFERENCE.title} · {TTA_REFERENCE.version}
+        {page ? ` · PDF p.${page}` : ""}
+      </Link>
+    );
+  const label = titles[id] ?? "참고 자료";
   if (available[id] === false)
     return (
       <span title="로컬 reference 폴더에 원본이 없습니다. Wiki 출처 카드를 참고하세요.">
-        {children} · 원본 별도
+        {label} · 원본 별도 (공식 링크 미확인)
       </span>
     );
   return (
@@ -159,7 +175,7 @@ export function SourceLink({
       external
       externalIconAriaLabel="새 탭에서 원문 열기"
     >
-      {children}
+      {children ?? label}
     </Link>
   );
 }
@@ -311,5 +327,28 @@ export function StepCard({
         </div>
       </div>
     </Container>
+  );
+}
+
+export function InputEvidence({
+  input,
+  sourceId,
+}: {
+  input: InputValue;
+  sourceId?: string;
+}) {
+  if (sourceId === "tta-r3" && input.origin === "source-default")
+    return (
+      <SpaceBetween size="xxs">
+        <SourceLink id="tta-r3" />
+        <Box fontSize="body-s">
+          부록 Ⅰ 예제 · PDF p.43–48 · 업무별 실측값으로 교체 필요
+        </Box>
+      </SpaceBetween>
+    );
+  return (
+    <>
+      {input.evidence || (input.result_ref ? "상위 계산 결과" : "근거 미입력")}
+    </>
   );
 }

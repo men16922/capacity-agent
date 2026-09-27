@@ -1,3 +1,4 @@
+import { calculatedDraft, requestFor } from "./migrationState";
 import { useEffect, useRef, useState } from "react";
 import Alert from "@cloudscape-design/components/alert";
 import Box from "@cloudscape-design/components/box";
@@ -26,6 +27,7 @@ import {
   type Candidate,
   type MigrationRequest,
   type MigrationResult,
+  type MigrationDraft,
   type Plan,
   type Scenario,
 } from "./domain";
@@ -80,6 +82,8 @@ export function Migration({
   selectAsset,
   bootstrap,
   initial,
+  draft,
+  updateDraft,
   save,
   inspect,
   cancel,
@@ -89,6 +93,8 @@ export function Migration({
   selectAsset: (id: string) => void;
   bootstrap: Bootstrap;
   initial?: Scenario;
+  draft?: MigrationDraft;
+  updateDraft?: (d: MigrationDraft) => void;
   save: (s: Scenario) => void;
   inspect: (c: Candidate, r: MigrationResult) => void;
   cancel: () => void;
@@ -96,7 +102,11 @@ export function Migration({
   const asset =
     initial?.request.asset ?? assets.find((a) => a.id === assetId) ?? assets[0];
   const [plan, setPlan] = useState<Plan>(() =>
-    initial ? copy(initial.request.plan) : asset ? planFor(asset) : {},
+    initial
+      ? copy(initial.request.plan)
+      : asset
+        ? requestFor(asset, draft).plan
+        : {},
   );
   const [step, setStep] = useState(0);
   const [result, setResult] = useState<MigrationResult | null>(null);
@@ -133,7 +143,14 @@ export function Migration({
     generation.current += 1;
     abort.current?.abort();
     setBusy(false);
-    setPlan((p) => ({ ...p, [key]: value }));
+    const next = { ...plan, [key]: value };
+    setPlan(next);
+    updateDraft?.({
+      ...draft,
+      assetId: asset.id,
+      selected: draft?.selected ?? "",
+      plan: next,
+    });
     setResult(null);
     setSelected("");
     setConfirmed(false);
@@ -170,7 +187,9 @@ export function Migration({
       );
       if (id !== generation.current) return;
       setResult(r);
-      setSelected(r.candidates?.[0]?.instance_type ?? "");
+      const d = calculatedDraft(request, r, draft?.selected);
+      setSelected(d.selected);
+      updateDraft?.(d);
     } catch (e) {
       if (!controller.signal.aborted) setFailure((e as Error).message);
     } finally {
@@ -536,6 +555,14 @@ export function Migration({
                       setSelected(
                         e.detail.selectedItems[0]?.instance_type ?? "",
                       );
+                      if (result)
+                        updateDraft?.(
+                          calculatedDraft(
+                            request,
+                            result,
+                            e.detail.selectedItems[0]?.instance_type,
+                          ),
+                        );
                       setConfirmed(false);
                     }}
                     ariaLabels={{

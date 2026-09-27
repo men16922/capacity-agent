@@ -1,8 +1,10 @@
 # 정보시스템 하드웨어 규모산정 지침 TTA R3
 
 - 출처 ID: `tta-r3`
-- 종류: 버전이 지정된 표준
-- 원본: [TTAK.KO-10.0292R3_[3].pdf](../../reference/TTAK.KO-10.0292R3_%5B3%5D.pdf)
+- 종류: 한국정보통신기술협회(TTA) 단체표준
+- 공식 문서: [정보시스템 하드웨어 규모산정 지침 · TTAK.KO-10.0292/R3](https://committee.tta.or.kr/data/standard_view.jsp?commit_code=PG423&nowSu=1&pk_num=TTAK.KO-10.0292%2FR3)
+- 개정일: 2023-12-06 · 공식 웹 확인일: 2026-09-28 (상세 페이지 및 표준이력의 유효 표시 확인)
+- 보존 원본: [TTAK.KO-10.0292R3_[3].pdf](../../reference/TTAK.KO-10.0292R3_%5B3%5D.pdf)
 - 위치: §7.1 PDF p.19~32, §7.2 p.33~35, §7.3 p.35~37, §7.4 p.38; 부록 p.39~49
 - SHA-256: `b30126bbe9b06e4b93f2e3d31c0fcf51c9c4d6289aa4999df342bdc57c8ccff2`
 - 읽기 보조: [구조화 추출본](extracted/tta-r3.json)

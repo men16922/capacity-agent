@@ -44,6 +44,9 @@ test("migration golden result, report, snapshot clone, comparison and JSON round
   await expect(
     page.getByRole("tab", { name: "AWS", exact: true }),
   ).toHaveAttribute("aria-selected", "true");
+  await page
+    .getByRole("button", { name: "이전 조건 편집", exact: true })
+    .click();
   await page.getByRole("button", { name: "다음", exact: true }).click();
   await page
     .getByRole("textbox", { name: "노드별 고정 메모리 (GiB)", exact: true })
@@ -294,6 +297,9 @@ test("invalid migration, ARM confirmation and no-candidate state", async ({
   await page
     .getByRole("button", { name: "고객 포털 WEB/WAS", exact: true })
     .click();
+  await page
+    .getByRole("button", { name: "이전 조건 편집", exact: true })
+    .click();
   await page.getByRole("button", { name: "다음", exact: true }).click();
   await page
     .getByRole("textbox", { name: "목표 CPU 활용률 (%)", exact: true })
@@ -365,6 +371,11 @@ test("mobile layout, keyboard navigation and dark mode", async ({
 test("accessible dashboard, forms and migration choices", async ({ page }) => {
   await demo(page);
   async function audit() {
+    await page.evaluate(async () => {
+      await Promise.all(
+        document.getAnimations().map((a) => a.finished.catch(() => {})),
+      );
+    });
     const { violations } = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
       .analyze();
@@ -379,6 +390,9 @@ test("accessible dashboard, forms and migration choices", async ({ page }) => {
   await audit();
   await page
     .getByRole("button", { name: "고객 포털 WEB/WAS", exact: true })
+    .click();
+  await page
+    .getByRole("button", { name: "이전 조건 편집", exact: true })
     .click();
   await page.getByRole("button", { name: "다음", exact: true }).click();
   await audit();

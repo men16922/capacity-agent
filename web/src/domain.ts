@@ -18,6 +18,14 @@ export type Asset = {
   source: string;
   observed_on: string;
   hardware?: string;
+  asset_type?: string;
+  environment?: string;
+  application?: string;
+  os_version?: string;
+  software?: string;
+  license?: string;
+  dependencies?: string;
+  availability?: string;
 };
 export type Plan = Record<string, string | boolean>;
 export type MigrationRequest = {
@@ -104,6 +112,15 @@ export type Scenario = {
   result: MigrationResult;
   selected: string;
 };
+export type MigrationDraft = {
+  assetId: string;
+  plan: Plan;
+  request?: MigrationRequest;
+  result?: MigrationResult;
+  selected: string;
+  calculatedAt?: string;
+  failure?: string;
+};
 export type CalcRequest = {
   schema_version: number;
   profile_id: string;
@@ -167,6 +184,7 @@ export type Project = {
   demo: boolean;
   assets: Asset[];
   scenarios: Scenario[];
+  migrationDrafts?: MigrationDraft[];
   calculations: {
     id: string;
     name: string;
@@ -306,6 +324,14 @@ export function blankAsset(): Asset {
     source: "",
     observed_on: TODAY,
     hardware: "",
+    asset_type: "",
+    environment: "",
+    application: "",
+    os_version: "",
+    software: "",
+    license: "",
+    dependencies: "",
+    availability: "",
   };
 }
 export function assetErrors(asset: Asset): Record<string, string> {
@@ -369,6 +395,23 @@ export function assetErrors(asset: Asset): Record<string, string> {
     new Date(asset.observed_on).toISOString().slice(0, 10) !== asset.observed_on
   )
     errors.observed_on = "YYYY-MM-DD 형식으로 입력하세요.";
+  for (const key of [
+    "hardware",
+    "asset_type",
+    "environment",
+    "application",
+    "os_version",
+    "software",
+    "license",
+    "dependencies",
+    "availability",
+  ] as const) {
+    if (
+      asset[key] !== undefined &&
+      (typeof asset[key] !== "string" || asset[key]!.length > 2000)
+    )
+      errors[key] = "2,000자 이내로 입력하세요.";
+  }
   return errors;
 }
 export function planFor(asset: Asset): Plan {
@@ -478,7 +521,7 @@ export function parseProject(value: unknown): Project {
     !Array.isArray(p.scenarios) ||
     !Array.isArray(p.calculations) ||
     p.assets.length > 200 ||
-    p.scenarios.length > 50 ||
+    p.scenarios.length > 200 ||
     p.calculations.length > 30
   )
     throw new Error("프로젝트 버전·형식·크기를 확인하세요.");
@@ -490,6 +533,48 @@ export function parseProject(value: unknown): Project {
     throw new Error("서버 자산에 잘못된 값이 있습니다.");
   if (new Set(p.assets.map((a) => a.id)).size !== p.assets.length)
     throw new Error("서버 자산 ID가 중복됩니다.");
+  const validPlan = (plan: Plan) =>
+    plan &&
+    typeof plan === "object" &&
+    !Array.isArray(plan) &&
+    Object.keys(plan).length <= 50 &&
+    Object.values(plan).every(
+      (v) =>
+        typeof v === "boolean" || (typeof v === "string" && v.length <= 2000),
+    );
+  if (p.migrationDrafts !== undefined) {
+    if (
+      !Array.isArray(p.migrationDrafts) ||
+      p.migrationDrafts.length > 200 ||
+      new Set(p.migrationDrafts.map((d) => d?.assetId)).size !==
+        p.migrationDrafts.length ||
+      p.migrationDrafts.some(
+        (d) =>
+          !d ||
+          typeof d.assetId !== "string" ||
+          typeof d.selected !== "string" ||
+          !validPlan(d.plan) ||
+          (d.failure !== undefined && typeof d.failure !== "string") ||
+          (d.result !== undefined &&
+            (!d.request ||
+              !d.result ||
+              !["complete", "invalid", "no_candidates"].includes(
+                d.result.status,
+              ) ||
+              !Array.isArray(d.result.errors) ||
+              (d.result.status === "complete" &&
+                !Array.isArray(d.result.candidates)))) ||
+          (d.request !== undefined &&
+            (!d.request ||
+              d.request.schema_version !== 1 ||
+              !d.request.asset ||
+              Object.keys(assetErrors(d.request.asset)).length ||
+              d.request.asset.id !== d.assetId ||
+              !validPlan(d.request.plan))),
+      )
+    )
+      throw new Error("이전 설계 초안 형식이 올바르지 않습니다.");
+  }
   for (const s of p.scenarios)
     if (
       !s ||

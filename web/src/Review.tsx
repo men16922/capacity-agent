@@ -1,3 +1,4 @@
+import { unitLabel } from "./references";
 import { useState } from "react";
 import Alert from "@cloudscape-design/components/alert";
 import Box from "@cloudscape-design/components/box";
@@ -22,7 +23,15 @@ import {
   type Project,
   type Scenario,
 } from "./domain";
-import { Choice, Empty, Mapping, Metric, PageHeading, SourceLink } from "./ui";
+import {
+  Choice,
+  Empty,
+  Mapping,
+  Metric,
+  PageHeading,
+  SourceLink,
+  InputEvidence,
+} from "./ui";
 import { planLabels } from "./Migration";
 
 export function Scenarios({
@@ -688,7 +697,7 @@ export function Reports({
                             "미산정"
                           ) : (
                             <>
-                              {r.raw_value} {r.unit}
+                              {r.raw_value} {unitLabel(r.unit)}
                               <div className="secondary">
                                 정확값 {r.exact_value?.numerator} /{" "}
                                 {r.exact_value?.denominator}
@@ -706,7 +715,10 @@ export function Reports({
                               id={s.source_id}
                               page={s.pages[0]}
                             >
-                              {s.source_id} p.{s.pages.join(",")}
+                              {bootstrap.documents.find(
+                                (d) => d.id === `sources/${s.source_id}.md`,
+                              )?.title ?? "산정 참고 자료"}{" "}
+                              · PDF p.{s.pages.join(",")}
                             </SourceLink>
                           )),
                       },
@@ -734,13 +746,24 @@ export function Reports({
                           id: "v",
                           header: "값·단위",
                           cell: ([, v]) =>
-                            `${v.result_ref ? `참조: ${v.result_ref}` : v.value} ${v.unit}`,
+                            `${v.result_ref ? `참조: ${v.result_ref}` : v.value} ${unitLabel(v.unit)}`,
                         },
                         {
                           id: "e",
                           header: "근거·기준일",
-                          cell: ([, v]) =>
-                            `${v.evidence ?? "동일 산정 참조"} ${v.as_of ?? ""}`,
+                          cell: ([, v]) => (
+                            <>
+                              <InputEvidence
+                                input={v}
+                                sourceId={
+                                  bootstrap.formulas.find(
+                                    (f) => f.id === j.formula_id,
+                                  )?.source_id
+                                }
+                              />
+                              <div>입력 기준일 {v.as_of ?? "동일 실행"}</div>
+                            </>
+                          ),
                         },
                       ]}
                     />

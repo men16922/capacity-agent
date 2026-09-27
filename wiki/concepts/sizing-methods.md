@@ -12,7 +12,7 @@ TTA R3는 CPU·메모리·디스크·스토리지의 계산 방법을 제공한�
 
 계산 규칙은 `tta-r3-2023`, `legacy-xls`, `lecture-network`처럼 출처에 따라 분리한다. 첫 구현은 TTA R3 본문을 우선하는 설계안이다. 이전 XLS와 같은 결과가 필요한 호환 모드는 나중에 별도 검증을 거쳐 추가한다.
 
-TTA 공식 검색 결과에서 R3의 식별자와 2023-12-06 개정일을 확인했다. 공식 상세 페이지는 도구에서 열리지 않아 최신 유효본·정오표의 전수 확인은 남아 있다. “현재 최신 표준”으로 단정하지 않는다. [TTA 공식 표준 목록](https://committee.tta.or.kr/standard/standard.jsp?by=asc&commit_code=PG423&firstDepthCode=TC4&nowPage=10&order=t.standard_no&secondDepthCode=PG423&thirdDepthCode=null)
+2026-09-28 [TTA 공식 상세 페이지](https://committee.tta.or.kr/data/standard_view.jsp?commit_code=PG423&nowSu=1&pk_num=TTAK.KO-10.0292%2FR3)에서 R3 식별자·2023-12-06 개정일·표준이력의 유효 표시를 확인했다. 정오표 전수 검증은 별도다. 산식은 보존한 R3 본문 절·페이지에 연결하며 부록 예제값과 일반 적용 기준을 구분한다.
 
 ## 출처
 

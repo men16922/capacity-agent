@@ -2,7 +2,13 @@
 
 Last Updated: 2026-09-28
 
-P2 웹 구현·로컬/원격 CI 검증·public GitHub commit/push·대시보드 기동 완료. 상세 완료 기록은 [웹 검증](WEB_VERIFICATION.md)과 [완료 요약](COMPLETED_SUMMARY.md)을 참고한다.
+P2 웹 공개와 P2.1 다수 자산 이전 설계의 로컬 구현·검증 완료. 상세 완료 기록은 [웹 검증](WEB_VERIFICATION.md)과 [완료 요약](COMPLETED_SUMMARY.md)을 참고한다.
+
+## P2.1 — 공개 반영 마무리
+
+- [ ] 최종 공개 대상 검사 후 commit/push·원격 CI 확인 및 대시보드 기동 상태 확인.
+
+상세 범위와 상태 모델: [다수 자산 설계](MIGRATION_PORTFOLIO.md).
 
 ## P3 — Wiki 에이전트와 설계 검토
 
@@ -17,7 +23,7 @@ P2 웹 구현·로컬/원격 CI 검증·public GitHub commit/push·대시보드 
 ## 원문·외부 확인
 
 - [ ] [manual] XLS 미해결 수식·네이티브 재계산, HWP 표·PDF 그림·XLSX 화면 전수 확인.
-- [ ] [manual] TTA 최신 유효본·정오표, 2024.06 보안 가이드의 대상 제품 버전별 적용성·현행 인증 기준 대조.
+- [ ] [manual] TTA 정오표 전수 확인, 2024.06 보안 가이드의 대상 제품 버전별 적용성·현행 인증 기준 대조. R3 유효 이력은 공식 상세에서 확인함.
 - [ ] [manual] SPC 개별 FDR·상태와 후보의 정확한 시험 구성 검토.
 - [ ] [manual] 현재 AWS 엑셀과 가이드의 파일 해시 차이·MB/MiB 해석 확인.
 

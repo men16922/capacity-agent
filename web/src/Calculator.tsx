@@ -26,7 +26,9 @@ import {
   type CalcResult,
   type Calculation,
 } from "./domain";
-import { Choice, Field, PageHeading, SourceLink } from "./ui";
+import { Choice, Field, PageHeading, SourceLink, InputEvidence } from "./ui";
+
+import { TTA_REFERENCE, unitLabel, unitOptions } from "./references";
 
 export function Calculator({
   bootstrap,
@@ -260,7 +262,7 @@ export function Calculator({
                             input.result_ref ? (
                               <FormField
                                 key={key}
-                                label={`${fieldNames[key] ?? key} · ${input.unit}`}
+                                label={`${fieldNames[key] ?? key} · ${unitLabel(input.unit)}`}
                                 description={`${key} · ${input.result_ref} 결과 참조`}
                               >
                                 <Box padding={{ top: "xs" }}>
@@ -273,7 +275,7 @@ export function Calculator({
                               <Field
                                 key={key}
                                 id={`calc-${key}`}
-                                label={`${fieldNames[key] ?? key} (${input.unit})`}
+                                label={`${fieldNames[key] ?? key} (${unitLabel(input.unit)})`}
                                 value={
                                   Array.isArray(input.value)
                                     ? input.value.join(", ")
@@ -308,21 +310,42 @@ export function Calculator({
                         </div>
                         <ExpandableSection headerText="적용 옵션·단위·입력 출처">
                           <SpaceBetween size="m">
+                            {rule?.source_id === "tta-r3" && (
+                              <Box>
+                                표준 개정일 {TTA_REFERENCE.published}. 입력
+                                기준일은 값의 기록일이며 표준 발행일과 다릅니다.
+                                MB(원문 표기)는 MiB로 자동 환산하지 않습니다.
+                              </Box>
+                            )}
                             <div className="form-grid">
                               {Object.entries(job.options).map(
-                                ([key, value]) => (
-                                  <Field
-                                    key={key}
-                                    label={key}
-                                    value={String(value)}
-                                    onChange={(v) =>
-                                      editJob({
-                                        ...job,
-                                        options: { ...job.options, [key]: v },
-                                      })
-                                    }
-                                  />
-                                ),
+                                ([key, value]) =>
+                                  key === "capacity_unit" ? (
+                                    <Choice
+                                      key={key}
+                                      label="용량 기준 단위"
+                                      value={String(value)}
+                                      options={unitOptions(String(value))}
+                                      onChange={(v) =>
+                                        editJob({
+                                          ...job,
+                                          options: { ...job.options, [key]: v },
+                                        })
+                                      }
+                                    />
+                                  ) : (
+                                    <Field
+                                      key={key}
+                                      label={key}
+                                      value={String(value)}
+                                      onChange={(v) =>
+                                        editJob({
+                                          ...job,
+                                          options: { ...job.options, [key]: v },
+                                        })
+                                      }
+                                    />
+                                  ),
                               )}
                             </div>
                             <Table
@@ -339,10 +362,11 @@ export function Calculator({
                                   header: "단위",
                                   cell: ([key, input]) =>
                                     input.result_ref ? (
-                                      input.unit
+                                      unitLabel(input.unit)
                                     ) : (
-                                      <Field
+                                      <Choice
                                         label={`${key} 단위`}
+                                        options={unitOptions(input.unit)}
                                         value={input.unit}
                                         onChange={(value) =>
                                           editJob({
@@ -365,12 +389,16 @@ export function Calculator({
                                 {
                                   id: "origin",
                                   header: "근거",
-                                  cell: ([, input]) =>
-                                    input.evidence ?? "상위 계산 결과",
+                                  cell: ([, input]) => (
+                                    <InputEvidence
+                                      input={input}
+                                      sourceId={rule?.source_id}
+                                    />
+                                  ),
                                 },
                                 {
                                   id: "date",
-                                  header: "기준일",
+                                  header: "입력 기준일",
                                   cell: ([, input]) =>
                                     input.as_of ?? "동일 실행",
                                 },
@@ -387,8 +415,11 @@ export function Calculator({
                                 id={rule.source_id}
                                 page={rule.source_pages[0]}
                               >
-                                {rule.source_id} · PDF p.
-                                {rule.source_pages.join(", ")}
+                                {bootstrap.documents.find(
+                                  (d) =>
+                                    d.id === `sources/${rule.source_id}.md`,
+                                )?.title ?? "산정 참고 자료"}{" "}
+                                · PDF p.{rule.source_pages.join(", ")}
                               </SourceLink>
                             </div>
                           </div>
@@ -425,7 +456,8 @@ export function Calculator({
                     {active?.status === "calculated" ? (
                       <SpaceBetween size="m">
                         <div className="calculation-value">
-                          {fmt(active.raw_value, 6)} <span>{active.unit}</span>
+                          {fmt(active.raw_value, 6)}{" "}
+                          <span>{unitLabel(active.unit)}</span>
                         </div>
                         <Box color="text-body-secondary">
                           산정 원값 {active.raw_value} · 표시 반올림{" "}
@@ -452,13 +484,13 @@ export function Calculator({
                                 id: "original",
                                 header: "원 입력",
                                 cell: ([, input]) =>
-                                  `${input.original.result_ref ?? input.original.value} ${input.original.unit}`,
+                                  `${input.original.result_ref ?? input.original.value} ${unitLabel(input.original.unit)}`,
                               },
                               {
                                 id: "norm",
                                 header: "계산에 사용한 값",
                                 cell: ([, input]) =>
-                                  `${input.normalized_value} ${input.normalized_unit}`,
+                                  `${input.normalized_value} ${unitLabel(input.normalized_unit)}`,
                               },
                             ]}
                           />
@@ -526,7 +558,7 @@ export function Calculator({
                     cell: (r) =>
                       r.raw_value == null
                         ? "미산정"
-                        : `${fmt(r.raw_value, 6)} ${r.unit}`,
+                        : `${fmt(r.raw_value, 6)} ${unitLabel(r.unit)}`,
                   },
                   {
                     id: "source",
@@ -538,7 +570,10 @@ export function Calculator({
                           id={s.source_id}
                           page={s.pages[0]}
                         >
-                          {s.source_id} p.{s.pages.join(",")}
+                          {bootstrap.documents.find(
+                            (d) => d.id === `sources/${s.source_id}.md`,
+                          )?.title ?? "산정 참고 자료"}{" "}
+                          · PDF p.{s.pages.join(",")}
                         </SourceLink>
                       )),
                   },
