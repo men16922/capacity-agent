@@ -1,5 +1,15 @@
 # Progress Log
 
+## 2026-09-28 — Public GitHub·원격 CI·대시보드 기동 완료
+
+- Status: 사용자 웹 목표와 공개 저장소·기동 추가 요청 완료.
+- Changed: GitHub CLI로 men16922/capacity-agent public 생성, main 코드 커밋 b2474b6 push. 원본·전체 추출·환경·키·로그는 제외.
+- Verified: 공개 stage의 새 Python3.13 환경에서71개 테스트·브라우저8개 재현. 실제 GitHub clone에서도 원본 제외·Wiki gate 통과, 원격 HEAD 일치.
+- Verified: GitHub Actions36327965577 성공. Linux/Python3.12/Node24에서71개 테스트·CLI·빌드·8개 브라우저 흐름 및 검증 artifact 생성.
+- Verified: 127.0.0.1:8765 백그라운드 서버, health/HTML200. Chrome 대시보드 탭 유지. 실행 PID·로그는 .workspace에만 저장.
+- Blockers: 요청 범위에 남은 장애 없음. 실제 AWS 이관·LLM 연결·클라우드 호스팅은 후속 범위.
+- Next: P3 Wiki 검색·인용 평가와 에이전트 입력/계산 도구 계약.
+
 ## 2026-09-27 — On-Prem/AWS 웹 구현·로컬 검증 완료
 
 - Status: P2 로컬 구현·검증 완료. 공개 GitHub와 기동 마무리 진행.

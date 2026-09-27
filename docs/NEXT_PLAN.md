@@ -1,13 +1,8 @@
 # Next Plan
 
-Last Updated: 2026-09-27
+Last Updated: 2026-09-28
 
-P2 웹 구현·로컬 검증 완료. 상세 완료 기록은 [웹 검증](WEB_VERIFICATION.md)과 [완료 요약](COMPLETED_SUMMARY.md)을 참고한다.
-
-## 공개 마무리
-
-- [ ] 원본 없는 새 체크아웃 재현, 명시적 staging·비밀정보 검사 후 GitHub CLI로 public 저장소 생성·commit·push. 원격 HEAD·공개 가시성 확인.
-- [ ] 작업 완료 후 로컬 대시보드를 기동하고 접속 주소 전달.
+P2 웹 구현·로컬/원격 CI 검증·public GitHub commit/push·대시보드 기동 완료. 상세 완료 기록은 [웹 검증](WEB_VERIFICATION.md)과 [완료 요약](COMPLETED_SUMMARY.md)을 참고한다.
 
 ## P3 — Wiki 에이전트와 설계 검토
 

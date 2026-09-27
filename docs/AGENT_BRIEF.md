@@ -1,8 +1,8 @@
 # Agent Brief
 
-> ▶ NEXT SESSION: `docs/NEXT_PLAN.md`를 따른다. 웹·마이그레이션 로컬 검증은 완료했으며 공개 GitHub 마무리 상태는 STATUS에서 확인한다. 후속 제품 우선순위는 Wiki 검색·인용 평가와 에이전트 도구 계약이다.
+> ▶ NEXT SESSION: `docs/NEXT_PLAN.md`를 따른다. 웹·마이그레이션·public GitHub·로컬 기동 완료. 다음 제품 우선순위는 Wiki 검색·인용 평가셋과 요구사항 추출·계산 도구 계약이다.
 
-Last Updated: 2026-09-27
+Last Updated: 2026-09-28
 
 사용자 원본56경로·고유36개를 보존한 LLM Wiki와 결정론적 계산 엔진1.0.0, On-Prem/AWS Cloudscape 대시보드를 구현했다. 핵심 흐름은 원본 자산→실측/확정 사양→EC2·gp3·비용→이전안 비교·산정서다. LLM은 아직 연결하지 않았다.
 

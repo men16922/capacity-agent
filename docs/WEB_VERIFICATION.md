@@ -2,6 +2,12 @@
 
 검증일 2026-09-27. 아래는 로컬 실행 증적이다. GitHub 원격 실행 상태는 [현재 상태](STATUS.md)에서 별도로 기록한다. 실제 AWS 부하시험·리소스 생성·데이터 이관은 수행하지 않았다.
 
+## 원격·공개 확인 — 2026-09-28
+
+[GitHub Actions 실행36327965577](https://github.com/men16922/capacity-agent/actions/runs/36327965577)이 코드 커밋 `b2474b6`에서 성공했다. Ubuntu·Python3.12·Node24로 의존성 설치, Wiki/Python71개·CLI, production build, 브라우저8개를 실행했다. 브라우저 보고서와 PDF/스크린샷은 CI artifact에 포함한다. 공개 GitHub clone에서도 원본/추출이 없는 상태의 Wiki 검증과 원격 커밋 일치를 확인했다.
+
+로컬 대시보드를 백그라운드로 기동하고 health와 HTML의 HTTP200, Chrome의 실제 화면을 확인했다. 실행 로그·PID는 `.workspace/`에만 남긴다.
+
 ## 실행 게이트
 
 | 검증 | 실제 결과 |

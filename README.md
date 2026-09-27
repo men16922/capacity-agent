@@ -1,5 +1,7 @@
 # Capacity Agent
 
+[![Validate dashboard](https://github.com/men16922/capacity-agent/actions/workflows/check.yml/badge.svg)](https://github.com/men16922/capacity-agent/actions/workflows/check.yml)
+
 **On-Prem 사양에서 AWS 이전 설계와 산정서까지.** 현재 서버의 사양·사용량을 정리하고, 결정론적 계산으로 EC2·EBS 후보와 비용을 비교하는 Cloudscape 대시보드입니다.
 
 ![On-Prem 대시보드 — 합성 예제 프로젝트](docs/images/dashboard.png)

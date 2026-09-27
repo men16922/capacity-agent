@@ -1,6 +1,6 @@
 # Status
 
-Last Updated: 2026-09-27
+Last Updated: 2026-09-28
 
 ## 현재 기준
 
@@ -12,7 +12,9 @@ Last Updated: 2026-09-27
 - `make check`: 원본/추출 해시·출처·식·링크 및 Python71개 테스트 통과. `make engine-smoke` 통과.
 - TypeScript·production build, Playwright8개 흐름 통과. 주요3화면 axe WCAG 자동 검사 위반0개. A4 산정서4페이지 텍스트·렌더 확인.
 - 공개 준비: .gitignore에 원본·전체 추출·키·환경·로그·의존성·빌드 제외. 원본 없는 공개 체크아웃에서 실행하도록 API/검증기 구성.
-- 원본 없는 공개 stage 체크아웃에서 npm ci·build·gate·CLI 및 새 Python3.13 환경의71개 테스트·브라우저8개 통과. GitHub public 생성·commit·push는 마무리 단계이며 원격 CI 실행 결과는 아직 없음.
+- 원본 없는 공개 stage 체크아웃에서 npm ci·build·gate·CLI 및 새 Python3.13 환경의71개 테스트·브라우저8개 통과. [GitHub public 저장소](https://github.com/men16922/capacity-agent) 생성·main commit/push 완료. 실제 원격 clone의 원본 제외·Wiki gate 및 원격 HEAD 일치 확인.
+- GitHub Actions Linux/Python3.12/Node24에서 Python71개·CLI·빌드·브라우저8개 전체 성공. [코드 커밋 CI](https://github.com/men16922/capacity-agent/actions/runs/36327965577).
+- 로컬 서버 `http://127.0.0.1:8765` 기동, health/HTML 200 확인. Chrome 대시보드 탭을 열어 둠.
 - overnight-harness1.6.0은 초기화 상태이며 무인 모델 루프는 실행하지 않음.
 
 ## 실행
