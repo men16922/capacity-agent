@@ -4,7 +4,7 @@ Last Updated: 2026-09-28
 
 ## 현재 기준
 
-- P2.2 구현·문서·리팩토링·로컬 검증 완료. public 반영과 원격 CI 확인 진행 중.
+- P2.2 구현·문서·리팩토링·로컬/원격 검증·public commit/push·대시보드 기동 완료.
 - Capacity Agent 최상위 프로젝트 목록과 선택 후 통합 대시보드. 좌측 On-Prem/AWS 메뉴 및 프로젝트·환경·자산 경로.
 - IndexedDB 프로젝트별 저장·legacy 원본 보존·생성/가져오기 분리·revision 충돌 보호. 계정/공동 편집은 미지원.
 - On-Prem 목록·페이지·CSV·별도 상세·사용량/사용률 입력·실사용 최적화·저장·동일 자산 비교·산정서. TTA/네트워크21식은 별도 모델.
@@ -14,7 +14,7 @@ Last Updated: 2026-09-28
 - `make check engine-smoke`: 원본/출처 검사·Python77개·CLI 통과. Ruff·TypeScript strict/noUnusedLocals·production build 통과.
 - Playwright20개 전체 통과(44.4초). 프로젝트 분리/충돌·48/200개 산정·일괄 저장 거부 조건·사용률 등가·최적화 JSON 재계산·기존 golden·모바일/키보드/axe 검증.
 - 실제 Chrome에서 기존 프로젝트 보존, 별도 예제48개 일괄 저장, On-Prem/AWS 최적화 각각1개 저장·산정서·새로고침 확인. [화면](images/project-dashboard.png).
-- 기획/설계/사용 가이드·데이터 계약은 [문서 안내](README.md). 기존 코드4b9043d의 [원격 CI](https://github.com/men16922/capacity-agent/actions/runs/36333255452)는 P2.1 증거이며 이번 변경과 구분한다.
+- 기획/설계/사용 가이드·데이터 계약은 [문서 안내](README.md). 구현 커밋baccee5 public push·원격 HEAD 일치, [원격 CI36336072535](https://github.com/men16922/capacity-agent/actions/runs/36336072535) Python77개·브라우저20개·빌드/CLI 통과.
 - 로컬 `http://127.0.0.1:8765` 기동, 사용자 Chrome의 통합 대시보드 유지. 모델·무인 루프·AWS 변경은 실행하지 않음.
 
 ## 남는 제품 범위

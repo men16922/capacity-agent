@@ -1,6 +1,6 @@
 # Agent Brief
 
-> ▶ NEXT SESSION: `docs/NEXT_PLAN.md`의 P2.2 공개 반영 마감부터 확인한다. 로컬77개·브라우저20개·실제 Chrome 검수는 통과했다. public commit/push와 원격 CI를 확인한 후 P3로 이동한다.
+> ▶ NEXT SESSION: `docs/NEXT_PLAN.md`의 P3를 따른다. 프로젝트 계층·최적화·일괄 검토 저장은 로컬77개·브라우저20개·원격 CI·실제 Chrome 검수와 public push까지 완료했다. 다음은 Wiki 검색·인용 평가 및 요구사항 에이전트 계약이다.
 
 Last Updated: 2026-09-28
 

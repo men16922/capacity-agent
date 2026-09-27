@@ -2,7 +2,7 @@
 
 ## 2026-09-28 — 프로젝트 계층·자산 중심 최적화·일괄 검토 저장
 
-- Status: P2.2 구현·로컬 검증 완료, 공개 반영 마감 진행.
+- Status: P2.2 구현·로컬/원격 검증·public 반영·기동 완료.
 - Changed: 프로젝트 목록·IndexedDB 독립 저장/revision·통합 대시보드·좌측 On-Prem/AWS·프로젝트별 주소. legacy 보존·가져오기 새 프로젝트 추가.
 - Changed: 자산 목록/상세/편집·사용률/사용량 입력·On-Prem 최적화·AWS 운영 자산/최적화·스냅샷 비교/산정서. AWS 선택 여러 건 일괄 검토 저장.
 - Changed: 화면 책임별 모듈 분리·dead import/CSS 제거·noUnusedLocals·공개 제외 강화·기획/설계/사용 문서 정리.
@@ -10,7 +10,8 @@
 - Verified: 실제 Chrome에서 기존 데이터 보존·48개 일괄 저장·두 환경 최적화 각각1안·산정서·새로고침 복원. 8765 서버와 대시보드 유지.
 - Evidence: docs/PROJECT_WORKSPACE_DESIGN.md, WEB_VERIFICATION.md, images/project-dashboard.png.
 - Blockers: 로컬 기능 장애 없음. 실제 AWS/성능/ML 결과로 주장하지 않음.
-- Next: 공개 파일 검사→commit/push→원격 CI/HEAD 확인.
+- Verified: 구현baccee5 public push·원격 HEAD 일치. GitHub Actions36336072535에서 원본 없는 Python77개·브라우저20개·빌드/CLI 통과.
+- Next: P3 Wiki 검색·인용 평가와 요구사항 에이전트 계약.
 
 ## 2026-09-28 — 다수 자산 이전 설계·공식 출처·문서 완료
 

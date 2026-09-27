@@ -26,7 +26,7 @@ AWS 독립 예제는 16CPU×35%×1.2/70%=9.6, ((32−4)×1.2+4)/80%=47GiB, 300×
 ![프로젝트 선택](images/project-hub.png)
 ![실제 Chrome 통합 대시보드](images/project-dashboard.png)
 
-이번 변경의 public push·원격 CI 확인은 공개 반영 단계에서 기록한다. 아래 P2.1·초기 웹의 수치는 당시 검증 이력이다.
+구현 커밋 `baccee5`를 public main에 push하고 원격 HEAD 일치를 확인했다. [GitHub Actions36336072535](https://github.com/men16922/capacity-agent/actions/runs/36336072535)에서 원본 없는 Linux/Python3.12/Node24의 Wiki·Python77개·CLI·빌드·브라우저20개가 통과했다. 공개45개 파일의 원본·실제 고객 식별자·자격증명 패턴을 검사했고 문서 로컬 링크157개와 하네스 문서 예산을 확인했다. 아래 P2.1·초기 웹의 수치는 당시 검증 이력이다.
 
 
 ## P2.1 다수 자산·공식 근거 — 2026-09-28

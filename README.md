@@ -2,14 +2,16 @@
 
 [![Validate dashboard](https://github.com/men16922/capacity-agent/actions/workflows/check.yml/badge.svg)](https://github.com/men16922/capacity-agent/actions/workflows/check.yml)
 
-**On-Prem 사양에서 AWS 이전 설계와 산정서까지.** 현재 서버의 사양·사용량을 정리하고, 결정론적 계산으로 EC2·EBS 후보와 비용을 비교하는 Cloudscape 대시보드입니다.
+**프로젝트별 On-Prem 용량산정, AWS 마이그레이션과 사용률 최적화.** 현재 자산과 측정값을 정리하고, 결정론적 계산으로 적정 용량·EC2·EBS 후보·예상 비용을 검토하는 Cloudscape 대시보드입니다.
 
-![On-Prem 대시보드 — 합성 예제 프로젝트](docs/images/dashboard.png)
+![프로젝트 통합 대시보드 — 합성 검증 예제](docs/images/project-dashboard.png)
 
 ## 할 수 있는 일
 
-- **On-Prem**: 서버 자산 등록·수정, CSV 가져오기, TTA R3·두 네트워크 기준의 21개 용량산정식 실행.
-- **AWS**: 수십 개 서버 목록·검색·필터 → 선택 일괄 산정·공통 조건 → 자산별 상세·EC2/gp3 후보 → 검토한 이전안 저장. 최대 200개 자산.
+- **프로젝트**: 목록에서 선택·전환, 환경별 자산과 결과 분리, 기존 데이터 보존·동시 편집 충돌 보호.
+- **On-Prem**: 자산 목록·상세·CSV, 사용률 기반 최적화, TTA R3·두 네트워크 기준의21개 용량산정식 실행.
+- **AWS**: 수십 개 서버 목록·검색·필터 → 선택 일괄 산정·공통 조건 → 자산별 상세·EC2/gp3 후보 → 선택한 여러 이전안 검토·일괄 저장. 최대200개 자산.
+- **AWS 최적화**: 현재 EC2/gp3와 CPU·메모리·디스크 사용률에 따른 후보·예상 비용 차이, 시나리오 저장·비교.
 - **공식 근거**: TTA 공식 표준·AWS 공식 평가 지침 링크, 범용 견적 항목, 읽기 쉬운 단위와 원문 위치.
 - **검토·산출물**: 같은 자산의 이전안 복제·비교, 계산 과정·출처를 포함한 산정서, 인쇄/PDF, 프로젝트 JSON 백업·재계산 가져오기.
 - **LLM Wiki**: 36개 출처의 요약·개념·계산 규칙·보안 참고 자료 51페이지 검색. TPC-C·SPC-1/SPC-1C·SPEC 공식 링크.
@@ -37,7 +39,7 @@ python -m uvicorn capacity_web.app:app --host 127.0.0.1 --port 8765
 
 [48개 합성 자산 프로젝트 JSON](examples/migration-portfolio-48.json)을 웹의 `가져오기`로 열거나, [CSV](examples/migration-portfolio-48.csv)를 `서버 자산 → CSV 가져오기`로 추가하세요. 프로젝트의 좌측 AWS 마이그레이션 메뉴에서 전체 선택·일괄 산정 후 서버 이름을 누르면 개별 상세를 볼 수 있습니다. 실제 고객 데이터는 포함하지 않습니다.
 
-![프로젝트 통합 대시보드 — On-Prem과 AWS](docs/images/project-dashboard.png)
+![프로젝트 목록 — 기존 데이터 보존](docs/images/project-hub.png)
 
 ## 검증
 
