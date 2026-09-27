@@ -1,0 +1,5444 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "profile_id": {
+      "enum": [
+        "tta-r3-2023",
+        "lecture-network",
+        "network-guide-2021"
+      ]
+    },
+    "rule_version": {
+      "const": "1.0.0"
+    },
+    "scenario_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+    },
+    "as_of": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000
+      }
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 2000
+      }
+    },
+    "calculations": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100,
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "TTA-WEB-CPU"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "S3": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "S4": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "S5": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "S6": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "S7": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "S8": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "S9": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "S1": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "users"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "S2": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "ops/user/s"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "S10": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "ratio",
+                              "percent"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "S11": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  },
+                  "architecture": {
+                    "enum": [
+                      "role-only",
+                      "single-tier",
+                      "two-tier-webwas-db",
+                      "two-tier-web-wasdb",
+                      "three-tier"
+                    ]
+                  },
+                  "role": {
+                    "enum": [
+                      "WEB",
+                      "WAS",
+                      "DB",
+                      "WEB_WAS",
+                      "WAS_DB",
+                      "WEB_WAS_DB"
+                    ]
+                  },
+                  "benchmark_category": {
+                    "enum": [
+                      "Composite",
+                      "MultiJVM"
+                    ]
+                  },
+                  "server_class": {
+                    "enum": [
+                      "x86",
+                      "general",
+                      "unix"
+                    ]
+                  }
+                },
+                "required": [
+                  "architecture",
+                  "role",
+                  "benchmark_category",
+                  "server_class"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "TTA-OLTP-CPU"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "O2": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "O3": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "O4": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "O5": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "O6": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "O7": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "O8": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "O9": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "O1": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "transactions/min"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "O10": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "ratio",
+                              "percent"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  },
+                  "architecture": {
+                    "enum": [
+                      "role-only",
+                      "single-tier",
+                      "two-tier-webwas-db",
+                      "two-tier-web-wasdb",
+                      "three-tier"
+                    ]
+                  },
+                  "role": {
+                    "enum": [
+                      "WEB",
+                      "WAS",
+                      "DB",
+                      "WEB_WAS",
+                      "WAS_DB",
+                      "WEB_WAS_DB"
+                    ]
+                  }
+                },
+                "required": [
+                  "architecture",
+                  "role"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "TTA-MEMORY"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "M1": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "B",
+                              "KB",
+                              "MB",
+                              "GB",
+                              "TB",
+                              "KiB",
+                              "MiB",
+                              "GiB",
+                              "TiB",
+                              "MB-as-labeled-in-source"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "M2": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "B/user",
+                              "KB/user",
+                              "MB/user",
+                              "GB/user",
+                              "TB/user",
+                              "KiB/user",
+                              "MiB/user",
+                              "GiB/user",
+                              "TiB/user",
+                              "MB-as-labeled-in-source/user"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "M3": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "users"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "M4": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "M5": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "B",
+                              "KB",
+                              "MB",
+                              "GB",
+                              "TB",
+                              "KiB",
+                              "MiB",
+                              "GiB",
+                              "TiB",
+                              "MB-as-labeled-in-source"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "M6": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  },
+                  "capacity_unit": {
+                    "enum": [
+                      "B",
+                      "KB",
+                      "MB",
+                      "GB",
+                      "TB",
+                      "KiB",
+                      "MiB",
+                      "GiB",
+                      "TiB",
+                      "MB-as-labeled-in-source"
+                    ]
+                  }
+                },
+                "required": [
+                  "capacity_unit"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "TTA-SYSTEM-DISK"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "D1": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "B",
+                              "KB",
+                              "MB",
+                              "GB",
+                              "TB",
+                              "KiB",
+                              "MiB",
+                              "GiB",
+                              "TiB",
+                              "MB-as-labeled-in-source"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "D2": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "B",
+                              "KB",
+                              "MB",
+                              "GB",
+                              "TB",
+                              "KiB",
+                              "MiB",
+                              "GiB",
+                              "TiB",
+                              "MB-as-labeled-in-source"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "D3": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "B",
+                              "KB",
+                              "MB",
+                              "GB",
+                              "TB",
+                              "KiB",
+                              "MiB",
+                              "GiB",
+                              "TiB",
+                              "MB-as-labeled-in-source"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "D4": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "D5": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "D8": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  },
+                  "capacity_unit": {
+                    "enum": [
+                      "B",
+                      "KB",
+                      "MB",
+                      "GB",
+                      "TB",
+                      "KiB",
+                      "MiB",
+                      "GiB",
+                      "TiB",
+                      "MB-as-labeled-in-source"
+                    ]
+                  },
+                  "raid": {
+                    "enum": [
+                      "none",
+                      "RAID1",
+                      "RAID10",
+                      "RAID01",
+                      "RAID5",
+                      "RAID6"
+                    ]
+                  }
+                },
+                "required": [
+                  "capacity_unit",
+                  "raid"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "TTA-DATA-DISK"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "D6": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "B",
+                              "KB",
+                              "MB",
+                              "GB",
+                              "TB",
+                              "KiB",
+                              "MiB",
+                              "GiB",
+                              "TiB",
+                              "MB-as-labeled-in-source"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "D7": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "B",
+                              "KB",
+                              "MB",
+                              "GB",
+                              "TB",
+                              "KiB",
+                              "MiB",
+                              "GiB",
+                              "TiB",
+                              "MB-as-labeled-in-source"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "D4": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "D5": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "D8": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  },
+                  "capacity_unit": {
+                    "enum": [
+                      "B",
+                      "KB",
+                      "MB",
+                      "GB",
+                      "TB",
+                      "KiB",
+                      "MiB",
+                      "GiB",
+                      "TiB",
+                      "MB-as-labeled-in-source"
+                    ]
+                  },
+                  "raid": {
+                    "enum": [
+                      "none",
+                      "RAID1",
+                      "RAID10",
+                      "RAID01",
+                      "RAID5",
+                      "RAID6"
+                    ]
+                  }
+                },
+                "required": [
+                  "capacity_unit",
+                  "raid"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "TTA-OLTP-IOPS"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "oltp_tpmC": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "tpmC"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "result_ref": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+                          },
+                          "unit": {
+                            "const": "tpmC"
+                          }
+                        },
+                        "required": [
+                          "result_ref",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "TTA-BATCH-IOPS"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "batch_tpmC": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "tpmC"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "result_ref": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+                          },
+                          "unit": {
+                            "const": "tpmC"
+                          }
+                        },
+                        "required": [
+                          "result_ref",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "NET-BANDWIDTH"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "traffic_bytes": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "B"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "transfer_seconds": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "s"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "NET-DOWNLINK-PORTS"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "required_ports": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "ports"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "expansion_factor": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "stability_factor": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "NET-UPLINK"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "downlink_gbps": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "Gbps"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "downlink_ports": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "ports"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "role_factor": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "NET-SWITCHING"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "all_port_gbps": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                  "maxLength": 64
+                                },
+                                "minItems": 1,
+                                "maxItems": 1000
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "Gbps"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "GUIDE-ACCESS-PORTS"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "required_ports": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "ports"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "expansion_factor": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "stability_factor": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "GUIDE-ACCESS-UPLINK"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "downlink_gbps": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "Gbps"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "downlink_ports": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "ports"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "result_ref": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+                          },
+                          "unit": {
+                            "const": "ports"
+                          }
+                        },
+                        "required": [
+                          "result_ref",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "role_factor": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "GUIDE-UPLINK-PORTS"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "required_uplink_gbps": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "Gbps"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "result_ref": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+                          },
+                          "unit": {
+                            "const": "Gbps"
+                          }
+                        },
+                        "required": [
+                          "result_ref",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "uplink_port_gbps": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "Gbps"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "redundancy_factor": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "GUIDE-ACCESS-SWITCHING"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "all_port_gbps": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                  "maxLength": 64
+                                },
+                                "minItems": 1,
+                                "maxItems": 1000
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "Gbps"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "GUIDE-ACCESS-PPS"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "all_port_gbps": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                  "maxLength": 64
+                                },
+                                "minItems": 1,
+                                "maxItems": 1000
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "Gbps"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "GUIDE-BACKBONE-SWITCHING"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "all_port_gbps": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                  "maxLength": 64
+                                },
+                                "minItems": 1,
+                                "maxItems": 1000
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "Gbps"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "expansion_factor": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "stability_factor": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "GUIDE-BACKBONE-PPS"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "all_port_gbps": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                  "maxLength": 64
+                                },
+                                "minItems": 1,
+                                "maxItems": 1000
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "Gbps"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "expansion_factor": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "stability_factor": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "GUIDE-TARGET-SESSIONS"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "peak_sessions": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "sessions"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "growth_rate": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "ratio",
+                              "percent"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "GUIDE-L47-THROUGHPUT"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "target_sessions": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "sessions"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "result_ref": {
+                            "type": "string",
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+                          },
+                          "unit": {
+                            "const": "sessions"
+                          }
+                        },
+                        "required": [
+                          "result_ref",
+                          "unit"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "average_session_bytes": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "B/session"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "average_session_seconds": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "s"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "expansion_factor": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "system_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$"
+              },
+              "formula_id": {
+                "const": "GUIDE-WDM-CAPACITY"
+              },
+              "inputs": {
+                "type": "object",
+                "properties": {
+                  "all_port_gbps": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string",
+                                  "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                  "maxLength": 64
+                                },
+                                "minItems": 1,
+                                "maxItems": 1000
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "Gbps"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "growth_rate": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "ratio",
+                              "percent"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "expansion_factor": {
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "value": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                                "maxLength": 64
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "unit": {
+                            "enum": [
+                              "factor"
+                            ]
+                          },
+                          "origin": {
+                            "enum": [
+                              "measured",
+                              "estimated",
+                              "source-default"
+                            ]
+                          },
+                          "evidence": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 2000
+                          },
+                          "as_of": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                          }
+                        },
+                        "required": [
+                          "value",
+                          "unit",
+                          "origin",
+                          "evidence",
+                          "as_of"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              },
+              "options": {
+                "type": "object",
+                "properties": {
+                  "display_places": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 12
+                  },
+                  "allocation_increment": {
+                    "type": "string",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+                    "maxLength": 64
+                  }
+                },
+                "required": [],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "system_id",
+              "formula_id",
+              "inputs",
+              "options"
+            ],
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "profile_id",
+    "rule_version",
+    "scenario_id",
+    "as_of",
+    "assumptions",
+    "source_refs",
+    "calculations"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Capacity calculation request v1",
+  "description": "Wire validation. Runtime additionally checks dates, decimal precision, ranges, units, profile/role combinations, provenance and dependencies. Missing resource inputs yield incomplete."
+}

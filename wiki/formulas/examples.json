@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "engine_validation": true,
+  "examples": [
+    {
+      "id": "web-cpu-appendix",
+      "formula_id": "TTA-WEB-CPU",
+      "source_id": "tta-r3",
+      "source_pages": [
+        43
+      ],
+      "inputs": {
+        "S1": "1099",
+        "S2": "4",
+        "S3": "3",
+        "S4": "2",
+        "S5": "1.1",
+        "S6": "1.3",
+        "S7": "1.2",
+        "S8": "1",
+        "S9": "1.3",
+        "S10": "0.7",
+        "S11": "30"
+      },
+      "independent_decimal_result": "2801.8848",
+      "source_displayed_result": "2802",
+      "verification": "independent-arithmetic-and-engine-regression",
+      "notes": ""
+    },
+    {
+      "id": "web-memory-appendix",
+      "formula_id": "TTA-MEMORY",
+      "source_id": "tta-r3",
+      "source_pages": [
+        44
+      ],
+      "inputs": {
+        "M1": "1536",
+        "M2": "2",
+        "M3": "1099",
+        "M4": "1.15",
+        "M5": "2",
+        "M6": "1.3"
+      },
+      "independent_decimal_result": "5585.320",
+      "source_displayed_result": "5585",
+      "verification": "independent-arithmetic-and-engine-regression",
+      "notes": "Do not use the contradictory 1024 MB selection stated in the same page."
+    },
+    {
+      "id": "web-system-disk-appendix",
+      "formula_id": "TTA-SYSTEM-DISK",
+      "source_id": "tta-r3",
+      "source_pages": [
+        44,
+        45
+      ],
+      "inputs": {
+        "D1": "10240",
+        "D2": "4096",
+        "D3": "16384",
+        "D4": "1.1",
+        "D5": "1.3",
+        "D8": "1.3"
+      },
+      "independent_decimal_result": "57108.480",
+      "source_displayed_result": "57108",
+      "verification": "independent-arithmetic-and-engine-regression",
+      "notes": ""
+    },
+    {
+      "id": "db-system-disk-appendix",
+      "formula_id": "TTA-SYSTEM-DISK",
+      "source_id": "tta-r3",
+      "source_pages": [
+        47
+      ],
+      "inputs": {
+        "D1": "10240",
+        "D2": "8192",
+        "D3": "16384",
+        "D4": "1.1",
+        "D5": "1.3",
+        "D8": "1.3"
+      },
+      "independent_decimal_result": "64722.944",
+      "source_displayed_result": "64723",
+      "verification": "independent-arithmetic-and-engine-regression",
+      "notes": "Table matches; narrative value 12167 does not."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "as_of": "2026-09-27",
+  "requirement": {
+    "benchmark": "TPC-C",
+    "version": "5.11.0",
+    "category": "OLTP",
+    "scope": "single-system",
+    "unit": "tpmC",
+    "value": "100000"
+  },
+  "candidate": {
+    "benchmark": "TPC-C",
+    "version": "5.11.0",
+    "category": "OLTP",
+    "scope": "single-system",
+    "unit": "tpmC",
+    "value": "279185",
+    "result_id": "TPC-C-123092901",
+    "status": "accepted",
+    "measurement": "official-reported",
+    "configuration": {
+      "cpu": "Intel Xeon Gold 6354",
+      "processors": "2",
+      "cores_total": "36",
+      "threads_total": "72",
+      "cluster": "False",
+      "database": "IBM DB2 11.5.8 Advanced Edition",
+      "os": "Red Hat Enterprise Linux 7.9",
+      "memory": "Not audited in this reading example.",
+      "system": "Not audited in this reading example.",
+      "storage": "Not audited in this reading example.",
+      "cores": "Not audited in this reading example."
+    },
+    "source_url": "https://www.tpc.org/tpcc/results/tpcc_result_detail5.asp?id=123092901&lang=",
+    "report_url": "https://www.tpc.org/tpcc/results/tpcc_result_detail5.asp?id=123092901&lang=",
+    "verified_on": "2026-09-27",
+    "expires_on": "2026-10-02"
+  },
+  "configuration_match": false,
+  "review_evidence": "Reading example only. FDR and proposed deployment configuration have not been matched."
+}

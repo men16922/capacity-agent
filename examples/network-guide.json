@@ -1,0 +1,362 @@
+{
+  "schema_version": 1,
+  "profile_id": "network-guide-2021",
+  "rule_version": "1.0.0",
+  "scenario_id": "network-guide-example",
+  "as_of": "2026-09-27",
+  "assumptions": [
+    "Synthetic example; access ports round up before uplink calculation. Selected interfaces are explicit, not a catalog recommendation.",
+    "Use table pp.8-9 stability range 1..1.5; do not silently use UI p.14 range 1..2."
+  ],
+  "source_refs": [
+    "pdf-b07aabe8f7d6 physical pp.8-10,14"
+  ],
+  "calculations": [
+    {
+      "id": "access-ports",
+      "system_id": "access",
+      "formula_id": "GUIDE-ACCESS-PORTS",
+      "inputs": {
+        "required_ports": {
+          "value": "21",
+          "unit": "ports",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        },
+        "expansion_factor": {
+          "value": "1.2",
+          "unit": "factor",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        },
+        "stability_factor": {
+          "value": "1.2",
+          "unit": "factor",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        }
+      },
+      "options": {}
+    },
+    {
+      "id": "access-uplink",
+      "system_id": "access",
+      "formula_id": "GUIDE-ACCESS-UPLINK",
+      "inputs": {
+        "downlink_gbps": {
+          "value": "1",
+          "unit": "Gbps",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        },
+        "downlink_ports": {
+          "result_ref": "access-ports",
+          "unit": "ports"
+        },
+        "role_factor": {
+          "value": "0.1",
+          "unit": "factor",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        }
+      },
+      "options": {}
+    },
+    {
+      "id": "uplink-ports",
+      "system_id": "access",
+      "formula_id": "GUIDE-UPLINK-PORTS",
+      "inputs": {
+        "required_uplink_gbps": {
+          "result_ref": "access-uplink",
+          "unit": "Gbps"
+        },
+        "uplink_port_gbps": {
+          "value": "10",
+          "unit": "Gbps",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        },
+        "redundancy_factor": {
+          "value": "2",
+          "unit": "factor",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        }
+      },
+      "options": {}
+    },
+    {
+      "id": "access-fabric",
+      "system_id": "access",
+      "formula_id": "GUIDE-ACCESS-SWITCHING",
+      "inputs": {
+        "all_port_gbps": {
+          "value": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "10",
+            "10"
+          ],
+          "unit": "Gbps",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        }
+      },
+      "options": {}
+    },
+    {
+      "id": "access-packets",
+      "system_id": "access",
+      "formula_id": "GUIDE-ACCESS-PPS",
+      "inputs": {
+        "all_port_gbps": {
+          "value": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "10",
+            "10"
+          ],
+          "unit": "Gbps",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        }
+      },
+      "options": {}
+    },
+    {
+      "id": "backbone-fabric",
+      "system_id": "backbone",
+      "formula_id": "GUIDE-BACKBONE-SWITCHING",
+      "inputs": {
+        "all_port_gbps": {
+          "value": [
+            "10",
+            "10",
+            "10",
+            "10",
+            "10",
+            "10",
+            "10",
+            "10",
+            "40",
+            "40"
+          ],
+          "unit": "Gbps",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        },
+        "expansion_factor": {
+          "value": "1.2",
+          "unit": "factor",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        },
+        "stability_factor": {
+          "value": "1.2",
+          "unit": "factor",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        }
+      },
+      "options": {}
+    },
+    {
+      "id": "backbone-packets",
+      "system_id": "backbone",
+      "formula_id": "GUIDE-BACKBONE-PPS",
+      "inputs": {
+        "all_port_gbps": {
+          "value": [
+            "10",
+            "10",
+            "10",
+            "10",
+            "10",
+            "10",
+            "10",
+            "10",
+            "40",
+            "40"
+          ],
+          "unit": "Gbps",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        },
+        "expansion_factor": {
+          "value": "1.2",
+          "unit": "factor",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        },
+        "stability_factor": {
+          "value": "1.2",
+          "unit": "factor",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        }
+      },
+      "options": {}
+    },
+    {
+      "id": "target-sessions",
+      "system_id": "l47",
+      "formula_id": "GUIDE-TARGET-SESSIONS",
+      "inputs": {
+        "peak_sessions": {
+          "value": "1001",
+          "unit": "sessions",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        },
+        "growth_rate": {
+          "value": "0.2",
+          "unit": "ratio",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        }
+      },
+      "options": {}
+    },
+    {
+      "id": "tcp-throughput",
+      "system_id": "l47",
+      "formula_id": "GUIDE-L47-THROUGHPUT",
+      "inputs": {
+        "target_sessions": {
+          "result_ref": "target-sessions",
+          "unit": "sessions"
+        },
+        "average_session_bytes": {
+          "value": "1000000",
+          "unit": "B/session",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        },
+        "average_session_seconds": {
+          "value": "10",
+          "unit": "s",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        },
+        "expansion_factor": {
+          "value": "1.2",
+          "unit": "factor",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        }
+      },
+      "options": {}
+    },
+    {
+      "id": "wdm-capacity",
+      "system_id": "wdm",
+      "formula_id": "GUIDE-WDM-CAPACITY",
+      "inputs": {
+        "all_port_gbps": {
+          "value": [
+            "100",
+            "100"
+          ],
+          "unit": "Gbps",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        },
+        "growth_rate": {
+          "value": "0.2",
+          "unit": "ratio",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        },
+        "expansion_factor": {
+          "value": "1.2",
+          "unit": "factor",
+          "origin": "estimated",
+          "evidence": "Synthetic worked example using 2021 network guide pp.8-10; not measured device data.",
+          "as_of": "2026-09-27"
+        }
+      },
+      "options": {}
+    }
+  ]
+}

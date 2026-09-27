@@ -1,0 +1,38 @@
+{
+  "as_of": "2026-09-27",
+  "requirement": {
+    "benchmark": "TPC-C",
+    "version": "5.11.0",
+    "category": "OLTP",
+    "scope": "single-system",
+    "unit": "tpmC",
+    "value": "100000"
+  },
+  "candidate": {
+    "benchmark": "TPC-C",
+    "version": "5.11.0",
+    "category": "OLTP",
+    "scope": "single-system",
+    "unit": "tpmC",
+    "value": "200000",
+    "result_id": "OFFLINE-TEST-NOT-PUBLISHED",
+    "status": "accepted",
+    "measurement": "official-reported",
+    "configuration": {
+      "system": "Synthetic unit-test system. Not a real hardware result.",
+      "cpu": "Not audited; synthetic fixture only.",
+      "os": "Not audited; synthetic fixture only.",
+      "memory": "Not audited; synthetic fixture only.",
+      "database": "Not audited; synthetic fixture only.",
+      "storage": "Not audited; synthetic fixture only.",
+      "cores": "Not audited; synthetic fixture only.",
+      "processors": "Not audited; synthetic fixture only."
+    },
+    "source_url": "https://www.tpc.org/tpcc/",
+    "report_url": "https://www.tpc.org/tpcc/",
+    "verified_on": "2026-09-27",
+    "expires_on": "2026-10-02"
+  },
+  "configuration_match": true,
+  "review_evidence": "Synthetic test assertion only; not verified hardware."
+}

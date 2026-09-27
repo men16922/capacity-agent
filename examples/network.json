@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "profile_id": "lecture-network",
+  "rule_version": "1.0.0",
+  "scenario_id": "tta-appendix",
+  "as_of": "2026-09-27",
+  "assumptions": [
+    "Reproduce appendix calculation inputs; not operational recommendations."
+  ],
+  "source_refs": [
+    "tta-r3 physical PDF pp.43-48"
+  ],
+  "calculations": [
+    {
+      "id": "bandwidth",
+      "system_id": "network",
+      "formula_id": "NET-BANDWIDTH",
+      "inputs": {
+        "traffic_bytes": {
+          "value": "125000000",
+          "unit": "B",
+          "origin": "source-default",
+          "evidence": "tta-r3 appendix, physical PDF pp.43-48",
+          "as_of": "2026-09-27"
+        },
+        "transfer_seconds": {
+          "value": "1",
+          "unit": "s",
+          "origin": "source-default",
+          "evidence": "tta-r3 appendix, physical PDF pp.43-48",
+          "as_of": "2026-09-27"
+        }
+      },
+      "options": {}
+    },
+    {
+      "id": "ports",
+      "system_id": "network",
+      "formula_id": "NET-DOWNLINK-PORTS",
+      "inputs": {
+        "required_ports": {
+          "value": "21",
+          "unit": "ports",
+          "origin": "source-default",
+          "evidence": "tta-r3 appendix, physical PDF pp.43-48",
+          "as_of": "2026-09-27"
+        },
+        "expansion_factor": {
+          "value": "1.2",
+          "unit": "factor",
+          "origin": "source-default",
+          "evidence": "tta-r3 appendix, physical PDF pp.43-48",
+          "as_of": "2026-09-27"
+        },
+        "stability_factor": {
+          "value": "1.1",
+          "unit": "factor",
+          "origin": "source-default",
+          "evidence": "tta-r3 appendix, physical PDF pp.43-48",
+          "as_of": "2026-09-27"
+        }
+      },
+      "options": {
+        "allocation_increment": "24"
+      }
+    },
+    {
+      "id": "uplink",
+      "system_id": "network",
+      "formula_id": "NET-UPLINK",
+      "inputs": {
+        "downlink_gbps": {
+          "value": "1",
+          "unit": "Gbps",
+          "origin": "source-default",
+          "evidence": "tta-r3 appendix, physical PDF pp.43-48",
+          "as_of": "2026-09-27"
+        },
+        "downlink_ports": {
+          "value": "24",
+          "unit": "ports",
+          "origin": "source-default",
+          "evidence": "tta-r3 appendix, physical PDF pp.43-48",
+          "as_of": "2026-09-27"
+        },
+        "role_factor": {
+          "value": "0.5",
+          "unit": "factor",
+          "origin": "source-default",
+          "evidence": "tta-r3 appendix, physical PDF pp.43-48",
+          "as_of": "2026-09-27"
+        }
+      },
+      "options": {}
+    },
+    {
+      "id": "switching",
+      "system_id": "network",
+      "formula_id": "NET-SWITCHING",
+      "inputs": {
+        "all_port_gbps": {
+          "value": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "10",
+            "10"
+          ],
+          "unit": "Gbps",
+          "origin": "source-default",
+          "evidence": "tta-r3 appendix, physical PDF pp.43-48",
+          "as_of": "2026-09-27"
+        }
+      },
+      "options": {}
+    }
+  ]
+}

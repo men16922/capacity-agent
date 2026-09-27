@@ -1,0 +1,386 @@
+{
+  "schema_version": 1,
+  "rule_version": "1.0.0",
+  "executable": true,
+  "rules": [
+    {
+      "id": "TTA-WEB-CPU",
+      "status": "implemented",
+      "profile_id": "tta-r3-2023",
+      "expression": "S1*S2*S3*S4*S5*S6*S7*S8*S9/(S10*S11)",
+      "output_unit": "max-jOPS",
+      "inputs": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S9",
+        "S10",
+        "S11"
+      ],
+      "source_id": "tta-r3",
+      "source_pages": [
+        19,
+        20,
+        25,
+        26
+      ],
+      "notes": "Role-level result before architecture weighting; benchmark category required."
+    },
+    {
+      "id": "TTA-OLTP-CPU",
+      "status": "implemented",
+      "profile_id": "tta-r3-2023",
+      "expression": "O1*O2*O3*O4*O5*O6*O7*O8*O9/O10",
+      "output_unit": "tpmC",
+      "inputs": [
+        "O1",
+        "O2",
+        "O3",
+        "O4",
+        "O5",
+        "O6",
+        "O7",
+        "O8",
+        "O9",
+        "O10"
+      ],
+      "source_id": "tta-r3",
+      "source_pages": [
+        26,
+        27
+      ],
+      "notes": ""
+    },
+    {
+      "id": "TTA-MEMORY",
+      "status": "implemented",
+      "profile_id": "tta-r3-2023",
+      "expression": "(M1+M2*M3+M5)*M4*M6",
+      "output_unit": "MB-as-labeled-in-source",
+      "inputs": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6"
+      ],
+      "source_id": "tta-r3",
+      "source_pages": [
+        33
+      ],
+      "notes": "In-memory excluded; binary/decimal conversion not assumed."
+    },
+    {
+      "id": "TTA-SYSTEM-DISK",
+      "status": "implemented",
+      "profile_id": "tta-r3-2023",
+      "expression": "(D1+D2+D3)*D4*D5*D8",
+      "output_unit": "same-as-input-capacity-unit",
+      "inputs": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D8"
+      ],
+      "source_id": "tta-r3",
+      "source_pages": [
+        35,
+        36
+      ],
+      "notes": ""
+    },
+    {
+      "id": "TTA-DATA-DISK",
+      "status": "implemented",
+      "profile_id": "tta-r3-2023",
+      "expression": "(D6+D7)*D4*D5*D8",
+      "output_unit": "same-as-input-capacity-unit",
+      "inputs": [
+        "D6",
+        "D7",
+        "D4",
+        "D5",
+        "D8"
+      ],
+      "source_id": "tta-r3",
+      "source_pages": [
+        35,
+        36
+      ],
+      "notes": ""
+    },
+    {
+      "id": "TTA-OLTP-IOPS",
+      "status": "implemented",
+      "profile_id": "tta-r3-2023",
+      "expression": "oltp_tpmC*0.03",
+      "output_unit": "estimated-IOPS",
+      "inputs": [
+        "oltp_tpmC"
+      ],
+      "source_id": "tta-r3",
+      "source_pages": [
+        38
+      ],
+      "notes": ""
+    },
+    {
+      "id": "TTA-BATCH-IOPS",
+      "status": "implemented",
+      "profile_id": "tta-r3-2023",
+      "expression": "batch_tpmC*0.01",
+      "output_unit": "estimated-IOPS",
+      "inputs": [
+        "batch_tpmC"
+      ],
+      "source_id": "tta-r3",
+      "source_pages": [
+        38
+      ],
+      "notes": ""
+    },
+    {
+      "id": "NET-BANDWIDTH",
+      "status": "implemented",
+      "profile_id": "lecture-network",
+      "expression": "traffic_bytes*8/transfer_seconds",
+      "output_unit": "bps",
+      "inputs": [
+        "traffic_bytes",
+        "transfer_seconds"
+      ],
+      "source_id": "lecture-07",
+      "source_pages": [
+        3
+      ],
+      "notes": "Normalized from lecture definitions; workload/overhead scope must be supplied."
+    },
+    {
+      "id": "NET-DOWNLINK-PORTS",
+      "status": "implemented",
+      "profile_id": "lecture-network",
+      "expression": "required_ports*expansion_factor*stability_factor",
+      "output_unit": "ports-before-rounding",
+      "inputs": [
+        "required_ports",
+        "expansion_factor",
+        "stability_factor"
+      ],
+      "source_id": "lecture-07",
+      "source_pages": [
+        5,
+        6
+      ],
+      "notes": "Ceiling and purchasable configurations are a separate proposed product policy."
+    },
+    {
+      "id": "NET-UPLINK",
+      "status": "implemented",
+      "profile_id": "lecture-network",
+      "expression": "downlink_gbps*downlink_ports*role_factor",
+      "output_unit": "Gbps",
+      "inputs": [
+        "downlink_gbps",
+        "downlink_ports",
+        "role_factor"
+      ],
+      "source_id": "lecture-07",
+      "source_pages": [
+        6
+      ],
+      "notes": ""
+    },
+    {
+      "id": "NET-SWITCHING",
+      "status": "implemented",
+      "profile_id": "lecture-network",
+      "expression": "sum(all_port_gbps)*2",
+      "output_unit": "Gbps",
+      "inputs": [
+        "all_port_gbps"
+      ],
+      "source_id": "lecture-07",
+      "source_pages": [
+        6
+      ],
+      "notes": "Use actual selected downlink and uplink ports."
+    },
+    {
+      "id": "GUIDE-ACCESS-PORTS",
+      "status": "implemented",
+      "profile_id": "network-guide-2021",
+      "expression": "required_ports*expansion_factor*stability_factor",
+      "output_unit": "ports",
+      "inputs": [
+        "required_ports",
+        "expansion_factor",
+        "stability_factor"
+      ],
+      "source_id": "pdf-b07aabe8f7d6",
+      "source_pages": [
+        8
+      ],
+      "notes": "Guide model; not measured performance. Uplink interface rate and full redundant paths are explicit product policy; L4/L7 data normalized as bytes/session."
+    },
+    {
+      "id": "GUIDE-ACCESS-UPLINK",
+      "status": "implemented",
+      "profile_id": "network-guide-2021",
+      "expression": "downlink_gbps*downlink_ports*role_factor",
+      "output_unit": "Gbps",
+      "inputs": [
+        "downlink_gbps",
+        "downlink_ports",
+        "role_factor"
+      ],
+      "source_id": "pdf-b07aabe8f7d6",
+      "source_pages": [
+        8
+      ],
+      "notes": "Guide model; not measured performance. Uplink interface rate and full redundant paths are explicit product policy; L4/L7 data normalized as bytes/session."
+    },
+    {
+      "id": "GUIDE-UPLINK-PORTS",
+      "status": "implemented",
+      "profile_id": "network-guide-2021",
+      "expression": "ceil(required_uplink_gbps/uplink_port_gbps)*redundancy_factor",
+      "output_unit": "ports",
+      "inputs": [
+        "required_uplink_gbps",
+        "uplink_port_gbps",
+        "redundancy_factor"
+      ],
+      "source_id": "pdf-b07aabe8f7d6",
+      "source_pages": [
+        8,
+        14
+      ],
+      "notes": "Guide model; not measured performance. Uplink interface rate and full redundant paths are explicit product policy; L4/L7 data normalized as bytes/session."
+    },
+    {
+      "id": "GUIDE-ACCESS-SWITCHING",
+      "status": "implemented",
+      "profile_id": "network-guide-2021",
+      "expression": "sum(all_port_gbps)*2",
+      "output_unit": "Gbps",
+      "inputs": [
+        "all_port_gbps"
+      ],
+      "source_id": "pdf-b07aabe8f7d6",
+      "source_pages": [
+        8
+      ],
+      "notes": "Guide model; not measured performance. Uplink interface rate and full redundant paths are explicit product policy; L4/L7 data normalized as bytes/session."
+    },
+    {
+      "id": "GUIDE-ACCESS-PPS",
+      "status": "implemented",
+      "profile_id": "network-guide-2021",
+      "expression": "sum(all_port_gbps)*1488095",
+      "output_unit": "theoretical-pps",
+      "inputs": [
+        "all_port_gbps"
+      ],
+      "source_id": "pdf-b07aabe8f7d6",
+      "source_pages": [
+        8
+      ],
+      "notes": "Guide model; not measured performance. Uplink interface rate and full redundant paths are explicit product policy; L4/L7 data normalized as bytes/session."
+    },
+    {
+      "id": "GUIDE-BACKBONE-SWITCHING",
+      "status": "implemented",
+      "profile_id": "network-guide-2021",
+      "expression": "sum(all_port_gbps)*expansion_factor*stability_factor*2",
+      "output_unit": "Gbps",
+      "inputs": [
+        "all_port_gbps",
+        "expansion_factor",
+        "stability_factor"
+      ],
+      "source_id": "pdf-b07aabe8f7d6",
+      "source_pages": [
+        9
+      ],
+      "notes": "Guide model; not measured performance. Uplink interface rate and full redundant paths are explicit product policy; L4/L7 data normalized as bytes/session."
+    },
+    {
+      "id": "GUIDE-BACKBONE-PPS",
+      "status": "implemented",
+      "profile_id": "network-guide-2021",
+      "expression": "sum(all_port_gbps)*expansion_factor*stability_factor*1488095",
+      "output_unit": "theoretical-pps",
+      "inputs": [
+        "all_port_gbps",
+        "expansion_factor",
+        "stability_factor"
+      ],
+      "source_id": "pdf-b07aabe8f7d6",
+      "source_pages": [
+        9
+      ],
+      "notes": "Guide model; not measured performance. Uplink interface rate and full redundant paths are explicit product policy; L4/L7 data normalized as bytes/session."
+    },
+    {
+      "id": "GUIDE-TARGET-SESSIONS",
+      "status": "implemented",
+      "profile_id": "network-guide-2021",
+      "expression": "peak_sessions*(1+growth_rate)",
+      "output_unit": "sessions",
+      "inputs": [
+        "peak_sessions",
+        "growth_rate"
+      ],
+      "source_id": "pdf-b07aabe8f7d6",
+      "source_pages": [
+        9
+      ],
+      "notes": "Guide model; not measured performance. Uplink interface rate and full redundant paths are explicit product policy; L4/L7 data normalized as bytes/session."
+    },
+    {
+      "id": "GUIDE-L47-THROUGHPUT",
+      "status": "implemented",
+      "profile_id": "network-guide-2021",
+      "expression": "target_sessions*average_session_bytes*8/average_session_seconds*expansion_factor",
+      "output_unit": "bps",
+      "inputs": [
+        "target_sessions",
+        "average_session_bytes",
+        "average_session_seconds",
+        "expansion_factor"
+      ],
+      "source_id": "pdf-b07aabe8f7d6",
+      "source_pages": [
+        9,
+        14
+      ],
+      "notes": "Guide model; not measured performance. Uplink interface rate and full redundant paths are explicit product policy; L4/L7 data normalized as bytes/session."
+    },
+    {
+      "id": "GUIDE-WDM-CAPACITY",
+      "status": "implemented",
+      "profile_id": "network-guide-2021",
+      "expression": "sum(all_port_gbps)*(1+growth_rate)*expansion_factor",
+      "output_unit": "Gbps",
+      "inputs": [
+        "all_port_gbps",
+        "growth_rate",
+        "expansion_factor"
+      ],
+      "source_id": "pdf-b07aabe8f7d6",
+      "source_pages": [
+        10
+      ],
+      "notes": "Guide model; not measured performance. Uplink interface rate and full redundant paths are explicit product policy; L4/L7 data normalized as bytes/session."
+    }
+  ],
+  "implementation": "capacity_engine"
+}

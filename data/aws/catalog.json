@@ -1,0 +1,2559 @@
+{
+  "schema_version": 1,
+  "catalog_version": "aws-seoul-2026-09-27",
+  "verified_on": "2026-09-27",
+  "region": "ap-northeast-2",
+  "region_name": "아시아 태평양 (서울)",
+  "currency": "USD",
+  "price_scope": "On-Demand / Shared / Linux or Windows / no pre-installed software",
+  "price_publication_date": "2026-09-25T17:45:21Z",
+  "price_version": "20260925174521",
+  "sources": [
+    {
+      "url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/gp.html",
+      "sha256": "10056ba78fe13c6f8e039fe693eb974f4ffa4df704680731f7b66257cbf4ee20",
+      "download_format": "markdown"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/co.html",
+      "sha256": "909b83ee9ed60321650dcbb02a05c6a38f3046f76ee3d75daf1212f2df9ed211",
+      "download_format": "markdown"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/mo.html",
+      "sha256": "42b80c60c8ca6a7aee1b7a2f88267bff967e4f5fa742a5e63746d2e30daf8ee3",
+      "download_format": "markdown"
+    },
+    {
+      "url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv",
+      "sha256": "a0ea48c943c02fc191e6f61201f51ffdfbcac9e8ac6748c7871fef0ab4bf1136",
+      "metadata": {
+        "FormatVersion": "v1.0",
+        "Disclaimer": "This pricing list is for informational purposes only. All prices are subject to the additional terms included in the pricing pages on http://aws.amazon.com. All Free Tier prices are also subject to the terms included at https://aws.amazon.com/free/",
+        "Publication Date": "2026-09-25T17:45:21Z",
+        "Version": "20260925174521",
+        "OfferCode": "AmazonEC2"
+      }
+    }
+  ],
+  "instances": [
+    {
+      "instance_type": "c8g.large",
+      "family": "c8g",
+      "category": "C",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/co.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "c8g.large",
+          "Memory (GiB)": "4.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "2",
+          "CPU cores": "2",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "c8g.large 1 2",
+          "Baseline / Burst bandwidth (Gbps)": "0.937 / 12.5",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "2",
+          "Network cards": "1",
+          "Max. network interfaces": "3",
+          "IP addresses per interface": "10",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "c8g.large 1",
+          "Baseline / Maximum bandwidth (Mbps)": "630.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "78.75 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "3600.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "9PBVWSTS82ZCBM8W",
+          "rate_code": "9PBVWSTS82ZCBM8W.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.0897600000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.08976 per On Demand Linux c8g.large Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "4.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "2",
+      "cpu_cores": "2",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "0.937",
+      "network_burst_gbps": "12.5",
+      "ebs_baseline_mbps": "630.00",
+      "ebs_baseline_MBps": "78.75",
+      "ebs_baseline_iops": "3600.00"
+    },
+    {
+      "instance_type": "c8g.xlarge",
+      "family": "c8g",
+      "category": "C",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/co.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "c8g.xlarge",
+          "Memory (GiB)": "8.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "4",
+          "CPU cores": "4",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "c8g.xlarge 1 2",
+          "Baseline / Burst bandwidth (Gbps)": "1.875 / 12.5",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "4",
+          "Network cards": "1",
+          "Max. network interfaces": "4",
+          "IP addresses per interface": "15",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "c8g.xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "1250.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "156.25 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "6000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "MCE7TR2JXC349KJ9",
+          "rate_code": "MCE7TR2JXC349KJ9.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.1795200000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.17952 per On Demand Linux c8g.xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "8.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "4",
+      "cpu_cores": "4",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "1.875",
+      "network_burst_gbps": "12.5",
+      "ebs_baseline_mbps": "1250.00",
+      "ebs_baseline_MBps": "156.25",
+      "ebs_baseline_iops": "6000.00"
+    },
+    {
+      "instance_type": "c8g.2xlarge",
+      "family": "c8g",
+      "category": "C",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/co.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "c8g.2xlarge",
+          "Memory (GiB)": "16.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "8",
+          "CPU cores": "8",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "c8g.2xlarge 1 2",
+          "Baseline / Burst bandwidth (Gbps)": "3.75 / 15.0",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "8",
+          "Network cards": "1",
+          "Max. network interfaces": "4",
+          "IP addresses per interface": "15",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "c8g.2xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "2500.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "312.50 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "12000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "WPS54W2R5F2JJSHZ",
+          "rate_code": "WPS54W2R5F2JJSHZ.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.3590400000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.35904 per On Demand Linux c8g.2xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "16.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "8",
+      "cpu_cores": "8",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "3.75",
+      "network_burst_gbps": "15.0",
+      "ebs_baseline_mbps": "2500.00",
+      "ebs_baseline_MBps": "312.50",
+      "ebs_baseline_iops": "12000.00"
+    },
+    {
+      "instance_type": "c8g.4xlarge",
+      "family": "c8g",
+      "category": "C",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/co.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "c8g.4xlarge",
+          "Memory (GiB)": "32.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "16",
+          "CPU cores": "16",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "c8g.4xlarge 1 2",
+          "Baseline / Burst bandwidth (Gbps)": "7.5 / 15.0",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "8",
+          "Network cards": "1",
+          "Max. network interfaces": "8",
+          "IP addresses per interface": "30",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "c8g.4xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "5000.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "625.00 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "20000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "2W23MVKMYP2SHE4Z",
+          "rate_code": "2W23MVKMYP2SHE4Z.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.7180800000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.71808 per On Demand Linux c8g.4xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "32.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "16",
+      "cpu_cores": "16",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "7.5",
+      "network_burst_gbps": "15.0",
+      "ebs_baseline_mbps": "5000.00",
+      "ebs_baseline_MBps": "625.00",
+      "ebs_baseline_iops": "20000.00"
+    },
+    {
+      "instance_type": "c8g.8xlarge",
+      "family": "c8g",
+      "category": "C",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/co.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "c8g.8xlarge",
+          "Memory (GiB)": "64.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "32",
+          "CPU cores": "32",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "c8g.8xlarge 2",
+          "Baseline / Burst bandwidth (Gbps)": "15 Gigabit",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✓ Yes",
+          "ENA queues per interface (Default/Maximum)": "8",
+          "Network cards": "1",
+          "Max. network interfaces": "8",
+          "IP addresses per interface": "30",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "c8g.8xlarge",
+          "Baseline / Maximum bandwidth (Mbps)": "10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "U8YADTWX343U8QQR",
+          "rate_code": "U8YADTWX343U8QQR.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "1.4361600000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$1.43616 per On Demand Linux c8g.8xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "64.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "32",
+      "cpu_cores": "32",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "15",
+      "network_burst_gbps": "15 Gigabit",
+      "ebs_baseline_mbps": "10000.00",
+      "ebs_baseline_MBps": "1250.00",
+      "ebs_baseline_iops": "40000.00"
+    },
+    {
+      "instance_type": "c8g.16xlarge",
+      "family": "c8g",
+      "category": "C",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/co.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "c8g.16xlarge",
+          "Memory (GiB)": "128.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "64",
+          "CPU cores": "64",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "c8g.16xlarge 2",
+          "Baseline / Burst bandwidth (Gbps)": "30 Gigabit",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✓ Yes",
+          "ENA queues per interface (Default/Maximum)": "8",
+          "Network cards": "1",
+          "Max. network interfaces": "15",
+          "IP addresses per interface": "50",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "c8g.16xlarge",
+          "Baseline / Maximum bandwidth (Mbps)": "20000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "2500.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "80000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "48 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "7VEKZ8FSEGFB2WXE",
+          "rate_code": "7VEKZ8FSEGFB2WXE.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "2.8723200000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$2.87232 per On Demand Linux c8g.16xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "128.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "64",
+      "cpu_cores": "64",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "30",
+      "network_burst_gbps": "30 Gigabit",
+      "ebs_baseline_mbps": "20000.00",
+      "ebs_baseline_MBps": "2500.00",
+      "ebs_baseline_iops": "80000.00"
+    },
+    {
+      "instance_type": "c8i.large",
+      "family": "c8i",
+      "category": "C",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/co.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "c8i.large",
+          "Memory (GiB)": "4.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "2",
+          "CPU cores": "1",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "c8i.large 1",
+          "Baseline / Burst bandwidth (Gbps)": "0.937 / 12.5",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "2 / 2",
+          "Network cards": "1",
+          "Max. network interfaces": "3",
+          "IP addresses per interface": "20",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "c8i.large 1",
+          "Baseline / Maximum bandwidth (Mbps)": "650.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "81.25 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "3600.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Windows": {
+          "sku": "BK2DAK3N4CKZES2P",
+          "rate_code": "BK2DAK3N4CKZES2P.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.1978400000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$0.19784 per On Demand Windows c8i.large Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Linux": {
+          "sku": "KMWXHU8PUHRGF9DZ",
+          "rate_code": "KMWXHU8PUHRGF9DZ.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.1058400000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.10584 per On Demand Linux c8i.large Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "4.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "2",
+      "cpu_cores": "1",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "0.937",
+      "network_burst_gbps": "12.5",
+      "ebs_baseline_mbps": "650.00",
+      "ebs_baseline_MBps": "81.25",
+      "ebs_baseline_iops": "3600.00"
+    },
+    {
+      "instance_type": "c8i.xlarge",
+      "family": "c8i",
+      "category": "C",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/co.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "c8i.xlarge",
+          "Memory (GiB)": "8.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "4",
+          "CPU cores": "2",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "c8i.xlarge 1",
+          "Baseline / Burst bandwidth (Gbps)": "1.875 / 12.5",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "4 / 4",
+          "Network cards": "1",
+          "Max. network interfaces": "4",
+          "IP addresses per interface": "30",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "c8i.xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "1250.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "156.25 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "6000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Windows": {
+          "sku": "6SU878SYN2NVH9ET",
+          "rate_code": "6SU878SYN2NVH9ET.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.3956800000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$0.39568 per On Demand Windows c8i.xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Linux": {
+          "sku": "T5RPC3YSTN5D6YKA",
+          "rate_code": "T5RPC3YSTN5D6YKA.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.2116800000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.21168 per On Demand Linux c8i.xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "8.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "4",
+      "cpu_cores": "2",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "1.875",
+      "network_burst_gbps": "12.5",
+      "ebs_baseline_mbps": "1250.00",
+      "ebs_baseline_MBps": "156.25",
+      "ebs_baseline_iops": "6000.00"
+    },
+    {
+      "instance_type": "c8i.2xlarge",
+      "family": "c8i",
+      "category": "C",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/co.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "c8i.2xlarge",
+          "Memory (GiB)": "16.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "8",
+          "CPU cores": "4",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "c8i.2xlarge 1",
+          "Baseline / Burst bandwidth (Gbps)": "3.75 / 15.0",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "8 / 8",
+          "Network cards": "1",
+          "Max. network interfaces": "4",
+          "IP addresses per interface": "30",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "c8i.2xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "2500.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "312.50 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "12000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Windows": {
+          "sku": "JJ7K2M3F2VSDG27A",
+          "rate_code": "JJ7K2M3F2VSDG27A.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.7913600000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$0.79136 per On Demand Windows c8i.2xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Linux": {
+          "sku": "NAGFNBJ9G2CX8AM4",
+          "rate_code": "NAGFNBJ9G2CX8AM4.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.4233600000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.42336 per On Demand Linux c8i.2xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "16.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "8",
+      "cpu_cores": "4",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "3.75",
+      "network_burst_gbps": "15.0",
+      "ebs_baseline_mbps": "2500.00",
+      "ebs_baseline_MBps": "312.50",
+      "ebs_baseline_iops": "12000.00"
+    },
+    {
+      "instance_type": "c8i.4xlarge",
+      "family": "c8i",
+      "category": "C",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/co.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "c8i.4xlarge",
+          "Memory (GiB)": "32.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "16",
+          "CPU cores": "8",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "c8i.4xlarge 1",
+          "Baseline / Burst bandwidth (Gbps)": "7.5 / 15.0",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "8 / 16",
+          "Network cards": "1",
+          "Max. network interfaces": "8",
+          "IP addresses per interface": "50",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "c8i.4xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "5000.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "625.00 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "20000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "MZRZDMEQGTQAJ9UZ",
+          "rate_code": "MZRZDMEQGTQAJ9UZ.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.8467200000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.84672 per On Demand Linux c8i.4xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Windows": {
+          "sku": "UPV477MUZMY99Q7S",
+          "rate_code": "UPV477MUZMY99Q7S.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "1.5827200000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$1.58272 per On Demand Windows c8i.4xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "32.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "16",
+      "cpu_cores": "8",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "7.5",
+      "network_burst_gbps": "15.0",
+      "ebs_baseline_mbps": "5000.00",
+      "ebs_baseline_MBps": "625.00",
+      "ebs_baseline_iops": "20000.00"
+    },
+    {
+      "instance_type": "c8i.8xlarge",
+      "family": "c8i",
+      "category": "C",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/co.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "c8i.8xlarge",
+          "Memory (GiB)": "64.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "32",
+          "CPU cores": "16",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "c8i.8xlarge",
+          "Baseline / Burst bandwidth (Gbps)": "15 Gigabit",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✓ Yes",
+          "ENA queues per interface (Default/Maximum)": "8 / 32",
+          "Network cards": "1",
+          "Max. network interfaces": "10",
+          "IP addresses per interface": "50",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "c8i.8xlarge",
+          "Baseline / Maximum bandwidth (Mbps)": "10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Windows": {
+          "sku": "Y5NKEB9RQCXQN7ZV",
+          "rate_code": "Y5NKEB9RQCXQN7ZV.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "3.1654400000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$3.16544 per On Demand Windows c8i.8xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Linux": {
+          "sku": "ZZMNHVES6Z5N2734",
+          "rate_code": "ZZMNHVES6Z5N2734.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "1.6934400000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$1.69344 per On Demand Linux c8i.8xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "64.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "32",
+      "cpu_cores": "16",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "15",
+      "network_burst_gbps": "15 Gigabit",
+      "ebs_baseline_mbps": "10000.00",
+      "ebs_baseline_MBps": "1250.00",
+      "ebs_baseline_iops": "40000.00"
+    },
+    {
+      "instance_type": "c8i.16xlarge",
+      "family": "c8i",
+      "category": "C",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/co.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "c8i.16xlarge",
+          "Memory (GiB)": "128.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "64",
+          "CPU cores": "32",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "c8i.16xlarge",
+          "Baseline / Burst bandwidth (Gbps)": "30 Gigabit",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✓ Yes",
+          "ENA queues per interface (Default/Maximum)": "16 / 64",
+          "Network cards": "1",
+          "Max. network interfaces": "16",
+          "IP addresses per interface": "64",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "c8i.16xlarge",
+          "Baseline / Maximum bandwidth (Mbps)": "20000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "2500.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "80000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "48 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "83NZ3AKBPVW5N2U2",
+          "rate_code": "83NZ3AKBPVW5N2U2.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "3.3868800000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$3.38688 per On Demand Linux c8i.16xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Windows": {
+          "sku": "9BCBZFG6TV9PH7CA",
+          "rate_code": "9BCBZFG6TV9PH7CA.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "6.3308800000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$6.33088 per On Demand Windows c8i.16xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "128.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "64",
+      "cpu_cores": "32",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "30",
+      "network_burst_gbps": "30 Gigabit",
+      "ebs_baseline_mbps": "20000.00",
+      "ebs_baseline_MBps": "2500.00",
+      "ebs_baseline_iops": "80000.00"
+    },
+    {
+      "instance_type": "m8g.large",
+      "family": "m8g",
+      "category": "M",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/gp.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "m8g.large",
+          "Memory (GiB)": "8.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "2",
+          "CPU cores": "2",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "m8g.large 1 2",
+          "Baseline / Burst bandwidth (Gbps)": "0.937 / 12.5",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "2",
+          "Network cards": "1",
+          "Max. network interfaces": "3",
+          "IP addresses per interface": "10",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "m8g.large 1",
+          "Baseline / Maximum bandwidth (Mbps)": "630.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "78.75 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "3600.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "PZT2MFRE8F9XV79U",
+          "rate_code": "PZT2MFRE8F9XV79U.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.1103400000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.11034 per On Demand Linux m8g.large Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "8.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "2",
+      "cpu_cores": "2",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "0.937",
+      "network_burst_gbps": "12.5",
+      "ebs_baseline_mbps": "630.00",
+      "ebs_baseline_MBps": "78.75",
+      "ebs_baseline_iops": "3600.00"
+    },
+    {
+      "instance_type": "m8g.xlarge",
+      "family": "m8g",
+      "category": "M",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/gp.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "m8g.xlarge",
+          "Memory (GiB)": "16.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "4",
+          "CPU cores": "4",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "m8g.xlarge 1 2",
+          "Baseline / Burst bandwidth (Gbps)": "1.875 / 12.5",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "4",
+          "Network cards": "1",
+          "Max. network interfaces": "4",
+          "IP addresses per interface": "15",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "m8g.xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "1250.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "156.25 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "6000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "Q8QFH6WPCNB4GT7Y",
+          "rate_code": "Q8QFH6WPCNB4GT7Y.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.2206800000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.22068 per On Demand Linux m8g.xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "16.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "4",
+      "cpu_cores": "4",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "1.875",
+      "network_burst_gbps": "12.5",
+      "ebs_baseline_mbps": "1250.00",
+      "ebs_baseline_MBps": "156.25",
+      "ebs_baseline_iops": "6000.00"
+    },
+    {
+      "instance_type": "m8g.2xlarge",
+      "family": "m8g",
+      "category": "M",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/gp.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "m8g.2xlarge",
+          "Memory (GiB)": "32.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "8",
+          "CPU cores": "8",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "m8g.2xlarge 1 2",
+          "Baseline / Burst bandwidth (Gbps)": "3.75 / 15.0",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "8",
+          "Network cards": "1",
+          "Max. network interfaces": "4",
+          "IP addresses per interface": "15",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "m8g.2xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "2500.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "312.50 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "12000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "YCAPKNRECG95CA2X",
+          "rate_code": "YCAPKNRECG95CA2X.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.4413600000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.44136 per On Demand Linux m8g.2xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "32.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "8",
+      "cpu_cores": "8",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "3.75",
+      "network_burst_gbps": "15.0",
+      "ebs_baseline_mbps": "2500.00",
+      "ebs_baseline_MBps": "312.50",
+      "ebs_baseline_iops": "12000.00"
+    },
+    {
+      "instance_type": "m8g.4xlarge",
+      "family": "m8g",
+      "category": "M",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/gp.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "m8g.4xlarge",
+          "Memory (GiB)": "64.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "16",
+          "CPU cores": "16",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "m8g.4xlarge 1 2",
+          "Baseline / Burst bandwidth (Gbps)": "7.5 / 15.0",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "8",
+          "Network cards": "1",
+          "Max. network interfaces": "8",
+          "IP addresses per interface": "30",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "m8g.4xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "5000.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "625.00 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "20000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "43PB3METWWX9WSRP",
+          "rate_code": "43PB3METWWX9WSRP.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.8827200000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.88272 per On Demand Linux m8g.4xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "64.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "16",
+      "cpu_cores": "16",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "7.5",
+      "network_burst_gbps": "15.0",
+      "ebs_baseline_mbps": "5000.00",
+      "ebs_baseline_MBps": "625.00",
+      "ebs_baseline_iops": "20000.00"
+    },
+    {
+      "instance_type": "m8g.8xlarge",
+      "family": "m8g",
+      "category": "M",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/gp.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "m8g.8xlarge",
+          "Memory (GiB)": "128.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "32",
+          "CPU cores": "32",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "m8g.8xlarge 2",
+          "Baseline / Burst bandwidth (Gbps)": "15 Gigabit",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✓ Yes",
+          "ENA queues per interface (Default/Maximum)": "8",
+          "Network cards": "1",
+          "Max. network interfaces": "8",
+          "IP addresses per interface": "30",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "m8g.8xlarge",
+          "Baseline / Maximum bandwidth (Mbps)": "10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "2RCAP4RQMJBTTHFY",
+          "rate_code": "2RCAP4RQMJBTTHFY.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "1.7654400000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$1.76544 per On Demand Linux m8g.8xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "128.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "32",
+      "cpu_cores": "32",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "15",
+      "network_burst_gbps": "15 Gigabit",
+      "ebs_baseline_mbps": "10000.00",
+      "ebs_baseline_MBps": "1250.00",
+      "ebs_baseline_iops": "40000.00"
+    },
+    {
+      "instance_type": "m8g.16xlarge",
+      "family": "m8g",
+      "category": "M",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/gp.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "m8g.16xlarge",
+          "Memory (GiB)": "256.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "64",
+          "CPU cores": "64",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "m8g.16xlarge 2",
+          "Baseline / Burst bandwidth (Gbps)": "30 Gigabit",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✓ Yes",
+          "ENA queues per interface (Default/Maximum)": "8",
+          "Network cards": "1",
+          "Max. network interfaces": "15",
+          "IP addresses per interface": "50",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "m8g.16xlarge",
+          "Baseline / Maximum bandwidth (Mbps)": "20000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "2500.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "80000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "48 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "MJ47CYEJ2UQ5VPQM",
+          "rate_code": "MJ47CYEJ2UQ5VPQM.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "3.5308800000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$3.53088 per On Demand Linux m8g.16xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "256.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "64",
+      "cpu_cores": "64",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "30",
+      "network_burst_gbps": "30 Gigabit",
+      "ebs_baseline_mbps": "20000.00",
+      "ebs_baseline_MBps": "2500.00",
+      "ebs_baseline_iops": "80000.00"
+    },
+    {
+      "instance_type": "m8i.large",
+      "family": "m8i",
+      "category": "M",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/gp.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "m8i.large",
+          "Memory (GiB)": "8.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "2",
+          "CPU cores": "1",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "m8i.large 1",
+          "Baseline / Burst bandwidth (Gbps)": "0.937 / 12.5",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "2 / 2",
+          "Network cards": "1",
+          "Max. network interfaces": "3",
+          "IP addresses per interface": "20",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "m8i.large 1",
+          "Baseline / Maximum bandwidth (Mbps)": "650.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "81.25 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "3600.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Windows": {
+          "sku": "5KYRHXCQSG465FP6",
+          "rate_code": "5KYRHXCQSG465FP6.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.2220900000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$0.22209 per On Demand Windows m8i.large Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Linux": {
+          "sku": "KFWPJR5VGM8TKQ3J",
+          "rate_code": "KFWPJR5VGM8TKQ3J.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.1300900000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.13009 per On Demand Linux m8i.large Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "8.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "2",
+      "cpu_cores": "1",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "0.937",
+      "network_burst_gbps": "12.5",
+      "ebs_baseline_mbps": "650.00",
+      "ebs_baseline_MBps": "81.25",
+      "ebs_baseline_iops": "3600.00"
+    },
+    {
+      "instance_type": "m8i.xlarge",
+      "family": "m8i",
+      "category": "M",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/gp.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "m8i.xlarge",
+          "Memory (GiB)": "16.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "4",
+          "CPU cores": "2",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "m8i.xlarge 1",
+          "Baseline / Burst bandwidth (Gbps)": "1.875 / 12.5",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "4 / 4",
+          "Network cards": "1",
+          "Max. network interfaces": "4",
+          "IP addresses per interface": "30",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "m8i.xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "1250.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "156.25 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "6000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "H6AW9S4VA9GXWX8T",
+          "rate_code": "H6AW9S4VA9GXWX8T.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.2601800000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.26018 per On Demand Linux m8i.xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Windows": {
+          "sku": "JESVSN2X4H2EWWRK",
+          "rate_code": "JESVSN2X4H2EWWRK.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.4441800000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$0.44418 per On Demand Windows m8i.xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "16.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "4",
+      "cpu_cores": "2",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "1.875",
+      "network_burst_gbps": "12.5",
+      "ebs_baseline_mbps": "1250.00",
+      "ebs_baseline_MBps": "156.25",
+      "ebs_baseline_iops": "6000.00"
+    },
+    {
+      "instance_type": "m8i.2xlarge",
+      "family": "m8i",
+      "category": "M",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/gp.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "m8i.2xlarge",
+          "Memory (GiB)": "32.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "8",
+          "CPU cores": "4",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "m8i.2xlarge 1",
+          "Baseline / Burst bandwidth (Gbps)": "3.75 / 15.0",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "8 / 8",
+          "Network cards": "1",
+          "Max. network interfaces": "4",
+          "IP addresses per interface": "30",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "m8i.2xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "2500.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "312.50 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "12000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "2HHDCVNZNXHSZ289",
+          "rate_code": "2HHDCVNZNXHSZ289.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.5203600000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.52036 per On Demand Linux m8i.2xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Windows": {
+          "sku": "CDG573DPW8MC5J7B",
+          "rate_code": "CDG573DPW8MC5J7B.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.8883600000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$0.88836 per On Demand Windows m8i.2xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "32.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "8",
+      "cpu_cores": "4",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "3.75",
+      "network_burst_gbps": "15.0",
+      "ebs_baseline_mbps": "2500.00",
+      "ebs_baseline_MBps": "312.50",
+      "ebs_baseline_iops": "12000.00"
+    },
+    {
+      "instance_type": "m8i.4xlarge",
+      "family": "m8i",
+      "category": "M",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/gp.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "m8i.4xlarge",
+          "Memory (GiB)": "64.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "16",
+          "CPU cores": "8",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "m8i.4xlarge 1",
+          "Baseline / Burst bandwidth (Gbps)": "7.5 / 15.0",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "8 / 16",
+          "Network cards": "1",
+          "Max. network interfaces": "8",
+          "IP addresses per interface": "50",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "m8i.4xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "5000.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "625.00 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "20000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "MU4JG78PNUNC6HA4",
+          "rate_code": "MU4JG78PNUNC6HA4.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "1.0407200000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$1.04072 per On Demand Linux m8i.4xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Windows": {
+          "sku": "NQC53DZPC28VPFV8",
+          "rate_code": "NQC53DZPC28VPFV8.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "1.7767200000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$1.77672 per On Demand Windows m8i.4xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "64.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "16",
+      "cpu_cores": "8",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "7.5",
+      "network_burst_gbps": "15.0",
+      "ebs_baseline_mbps": "5000.00",
+      "ebs_baseline_MBps": "625.00",
+      "ebs_baseline_iops": "20000.00"
+    },
+    {
+      "instance_type": "m8i.8xlarge",
+      "family": "m8i",
+      "category": "M",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/gp.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "m8i.8xlarge",
+          "Memory (GiB)": "128.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "32",
+          "CPU cores": "16",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "m8i.8xlarge",
+          "Baseline / Burst bandwidth (Gbps)": "15 Gigabit",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✓ Yes",
+          "ENA queues per interface (Default/Maximum)": "8 / 32",
+          "Network cards": "1",
+          "Max. network interfaces": "10",
+          "IP addresses per interface": "50",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "m8i.8xlarge",
+          "Baseline / Maximum bandwidth (Mbps)": "10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Windows": {
+          "sku": "5SWHA45GMZ9Z78VW",
+          "rate_code": "5SWHA45GMZ9Z78VW.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "3.5534400000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$3.55344 per On Demand Windows m8i.8xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Linux": {
+          "sku": "CZVY6ARWUDPEPSDY",
+          "rate_code": "CZVY6ARWUDPEPSDY.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "2.0814400000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$2.08144 per On Demand Linux m8i.8xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "128.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "32",
+      "cpu_cores": "16",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "15",
+      "network_burst_gbps": "15 Gigabit",
+      "ebs_baseline_mbps": "10000.00",
+      "ebs_baseline_MBps": "1250.00",
+      "ebs_baseline_iops": "40000.00"
+    },
+    {
+      "instance_type": "m8i.16xlarge",
+      "family": "m8i",
+      "category": "M",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/gp.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "m8i.16xlarge",
+          "Memory (GiB)": "256.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "64",
+          "CPU cores": "32",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "m8i.16xlarge",
+          "Baseline / Burst bandwidth (Gbps)": "30 Gigabit",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✓ Yes",
+          "ENA queues per interface (Default/Maximum)": "16 / 64",
+          "Network cards": "1",
+          "Max. network interfaces": "16",
+          "IP addresses per interface": "64",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "m8i.16xlarge",
+          "Baseline / Maximum bandwidth (Mbps)": "20000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "2500.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "80000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "48 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "JRVV3FW9GHV4SJBM",
+          "rate_code": "JRVV3FW9GHV4SJBM.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "4.1628800000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$4.16288 per On Demand Linux m8i.16xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Windows": {
+          "sku": "PYRF8TDD9QG45F2A",
+          "rate_code": "PYRF8TDD9QG45F2A.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "7.1068800000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$7.10688 per On Demand Windows m8i.16xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "256.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "64",
+      "cpu_cores": "32",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "30",
+      "network_burst_gbps": "30 Gigabit",
+      "ebs_baseline_mbps": "20000.00",
+      "ebs_baseline_MBps": "2500.00",
+      "ebs_baseline_iops": "80000.00"
+    },
+    {
+      "instance_type": "r8g.large",
+      "family": "r8g",
+      "category": "R",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/mo.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "r8g.large",
+          "Memory (GiB)": "16.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "2",
+          "CPU cores": "2",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "r8g.large 1 2",
+          "Baseline / Burst bandwidth (Gbps)": "0.937 / 12.5",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "2",
+          "Network cards": "1",
+          "Max. network interfaces": "3",
+          "IP addresses per interface": "10",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "r8g.large 1",
+          "Baseline / Maximum bandwidth (Mbps)": "630.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "78.75 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "3600.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "8NY5M4NBRR3XAG9T",
+          "rate_code": "8NY5M4NBRR3XAG9T.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.1421200000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.14212 per On Demand Linux r8g.large Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "16.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "2",
+      "cpu_cores": "2",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "0.937",
+      "network_burst_gbps": "12.5",
+      "ebs_baseline_mbps": "630.00",
+      "ebs_baseline_MBps": "78.75",
+      "ebs_baseline_iops": "3600.00"
+    },
+    {
+      "instance_type": "r8g.xlarge",
+      "family": "r8g",
+      "category": "R",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/mo.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "r8g.xlarge",
+          "Memory (GiB)": "32.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "4",
+          "CPU cores": "4",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "r8g.xlarge 1 2",
+          "Baseline / Burst bandwidth (Gbps)": "1.875 / 12.5",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "4",
+          "Network cards": "1",
+          "Max. network interfaces": "4",
+          "IP addresses per interface": "15",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "r8g.xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "1250.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "156.25 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "6000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "VT9295AWD9QQ5SGQ",
+          "rate_code": "VT9295AWD9QQ5SGQ.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.2842400000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.28424 per On Demand Linux r8g.xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "32.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "4",
+      "cpu_cores": "4",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "1.875",
+      "network_burst_gbps": "12.5",
+      "ebs_baseline_mbps": "1250.00",
+      "ebs_baseline_MBps": "156.25",
+      "ebs_baseline_iops": "6000.00"
+    },
+    {
+      "instance_type": "r8g.2xlarge",
+      "family": "r8g",
+      "category": "R",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/mo.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "r8g.2xlarge",
+          "Memory (GiB)": "64.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "8",
+          "CPU cores": "8",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "r8g.2xlarge 1 2",
+          "Baseline / Burst bandwidth (Gbps)": "3.75 / 15.0",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "8",
+          "Network cards": "1",
+          "Max. network interfaces": "4",
+          "IP addresses per interface": "15",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "r8g.2xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "2500.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "312.50 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "12000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "9S4Y52T4A9ZVUUPP",
+          "rate_code": "9S4Y52T4A9ZVUUPP.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.5684800000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.56848 per On Demand Linux r8g.2xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "64.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "8",
+      "cpu_cores": "8",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "3.75",
+      "network_burst_gbps": "15.0",
+      "ebs_baseline_mbps": "2500.00",
+      "ebs_baseline_MBps": "312.50",
+      "ebs_baseline_iops": "12000.00"
+    },
+    {
+      "instance_type": "r8g.4xlarge",
+      "family": "r8g",
+      "category": "R",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/mo.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "r8g.4xlarge",
+          "Memory (GiB)": "128.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "16",
+          "CPU cores": "16",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "r8g.4xlarge 1 2",
+          "Baseline / Burst bandwidth (Gbps)": "7.5 / 15.0",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "8",
+          "Network cards": "1",
+          "Max. network interfaces": "8",
+          "IP addresses per interface": "30",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "r8g.4xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "5000.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "625.00 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "20000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "P636BPVG58M79E24",
+          "rate_code": "P636BPVG58M79E24.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "1.1369600000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$1.13696 per On Demand Linux r8g.4xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "128.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "16",
+      "cpu_cores": "16",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "7.5",
+      "network_burst_gbps": "15.0",
+      "ebs_baseline_mbps": "5000.00",
+      "ebs_baseline_MBps": "625.00",
+      "ebs_baseline_iops": "20000.00"
+    },
+    {
+      "instance_type": "r8g.8xlarge",
+      "family": "r8g",
+      "category": "R",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/mo.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "r8g.8xlarge",
+          "Memory (GiB)": "256.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "32",
+          "CPU cores": "32",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "r8g.8xlarge 2",
+          "Baseline / Burst bandwidth (Gbps)": "15 Gigabit",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✓ Yes",
+          "ENA queues per interface (Default/Maximum)": "8",
+          "Network cards": "1",
+          "Max. network interfaces": "8",
+          "IP addresses per interface": "30",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "r8g.8xlarge",
+          "Baseline / Maximum bandwidth (Mbps)": "10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "FSBD9T24M2Q9MVUB",
+          "rate_code": "FSBD9T24M2Q9MVUB.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "2.2739200000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$2.27392 per On Demand Linux r8g.8xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "256.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "32",
+      "cpu_cores": "32",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "15",
+      "network_burst_gbps": "15 Gigabit",
+      "ebs_baseline_mbps": "10000.00",
+      "ebs_baseline_MBps": "1250.00",
+      "ebs_baseline_iops": "40000.00"
+    },
+    {
+      "instance_type": "r8g.16xlarge",
+      "family": "r8g",
+      "category": "R",
+      "architecture": "arm64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/mo.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "r8g.16xlarge",
+          "Memory (GiB)": "512.00",
+          "Processor": "AWS Graviton4 Processor",
+          "vCPUs": "64",
+          "CPU cores": "64",
+          "Threads per core": "1",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "r8g.16xlarge 2",
+          "Baseline / Burst bandwidth (Gbps)": "30 Gigabit",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✓ Yes",
+          "ENA queues per interface (Default/Maximum)": "8",
+          "Network cards": "1",
+          "Max. network interfaces": "15",
+          "IP addresses per interface": "50",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "r8g.16xlarge",
+          "Baseline / Maximum bandwidth (Mbps)": "20000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "2500.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "80000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "48 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "C4JZVJ83A22TQVQE",
+          "rate_code": "C4JZVJ83A22TQVQE.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "4.5478400000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$4.54784 per On Demand Linux r8g.16xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "512.00",
+      "processor": "AWS Graviton4 Processor",
+      "vcpu": "64",
+      "cpu_cores": "64",
+      "threads_per_core": "1",
+      "network_baseline_gbps": "30",
+      "network_burst_gbps": "30 Gigabit",
+      "ebs_baseline_mbps": "20000.00",
+      "ebs_baseline_MBps": "2500.00",
+      "ebs_baseline_iops": "80000.00"
+    },
+    {
+      "instance_type": "r8i.large",
+      "family": "r8i",
+      "category": "R",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/mo.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "r8i.large",
+          "Memory (GiB)": "16.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "2",
+          "CPU cores": "1",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "r8i.large 1",
+          "Baseline / Burst bandwidth (Gbps)": "0.937 / 12.5",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "2 / 2",
+          "Network cards": "1",
+          "Max. network interfaces": "3",
+          "IP addresses per interface": "20",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "r8i.large 1",
+          "Baseline / Maximum bandwidth (Mbps)": "650.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "81.25 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "3600.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "DHGY3AVZGYXSKQBM",
+          "rate_code": "DHGY3AVZGYXSKQBM.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.1675800000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.16758 per On Demand Linux r8i.large Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Windows": {
+          "sku": "X56ZM4EQZSTHVTT2",
+          "rate_code": "X56ZM4EQZSTHVTT2.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.2595800000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$0.25958 per On Demand Windows r8i.large Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "16.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "2",
+      "cpu_cores": "1",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "0.937",
+      "network_burst_gbps": "12.5",
+      "ebs_baseline_mbps": "650.00",
+      "ebs_baseline_MBps": "81.25",
+      "ebs_baseline_iops": "3600.00"
+    },
+    {
+      "instance_type": "r8i.xlarge",
+      "family": "r8i",
+      "category": "R",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/mo.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "r8i.xlarge",
+          "Memory (GiB)": "32.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "4",
+          "CPU cores": "2",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "r8i.xlarge 1",
+          "Baseline / Burst bandwidth (Gbps)": "1.875 / 12.5",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "4 / 4",
+          "Network cards": "1",
+          "Max. network interfaces": "4",
+          "IP addresses per interface": "30",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "r8i.xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "1250.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "156.25 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "6000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Windows": {
+          "sku": "2ENSTED4S3Z5N8YM",
+          "rate_code": "2ENSTED4S3Z5N8YM.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.5191600000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$0.51916 per On Demand Windows r8i.xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Linux": {
+          "sku": "7YMR6AQMVYGUFNC6",
+          "rate_code": "7YMR6AQMVYGUFNC6.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.3351600000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.33516 per On Demand Linux r8i.xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "32.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "4",
+      "cpu_cores": "2",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "1.875",
+      "network_burst_gbps": "12.5",
+      "ebs_baseline_mbps": "1250.00",
+      "ebs_baseline_MBps": "156.25",
+      "ebs_baseline_iops": "6000.00"
+    },
+    {
+      "instance_type": "r8i.2xlarge",
+      "family": "r8i",
+      "category": "R",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/mo.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "r8i.2xlarge",
+          "Memory (GiB)": "64.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "8",
+          "CPU cores": "4",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "r8i.2xlarge 1",
+          "Baseline / Burst bandwidth (Gbps)": "3.75 / 15.0",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "8 / 8",
+          "Network cards": "1",
+          "Max. network interfaces": "4",
+          "IP addresses per interface": "30",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "r8i.2xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "2500.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "312.50 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "12000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "HHNCARA97REQ94D2",
+          "rate_code": "HHNCARA97REQ94D2.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "0.6703200000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$0.67032 per On Demand Linux r8i.2xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Windows": {
+          "sku": "Z3P6G3BE9KQNPNPU",
+          "rate_code": "Z3P6G3BE9KQNPNPU.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "1.0383200000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$1.03832 per On Demand Windows r8i.2xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "64.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "8",
+      "cpu_cores": "4",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "3.75",
+      "network_burst_gbps": "15.0",
+      "ebs_baseline_mbps": "2500.00",
+      "ebs_baseline_MBps": "312.50",
+      "ebs_baseline_iops": "12000.00"
+    },
+    {
+      "instance_type": "r8i.4xlarge",
+      "family": "r8i",
+      "category": "R",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/mo.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "r8i.4xlarge",
+          "Memory (GiB)": "128.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "16",
+          "CPU cores": "8",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "r8i.4xlarge 1",
+          "Baseline / Burst bandwidth (Gbps)": "7.5 / 15.0",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✗ No",
+          "ENA queues per interface (Default/Maximum)": "8 / 16",
+          "Network cards": "1",
+          "Max. network interfaces": "8",
+          "IP addresses per interface": "50",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "r8i.4xlarge 1",
+          "Baseline / Maximum bandwidth (Mbps)": "5000.00 / 10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "625.00 / 1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "20000.00 / 40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Linux": {
+          "sku": "NEB9V29HKC6CTHBQ",
+          "rate_code": "NEB9V29HKC6CTHBQ.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "1.3406400000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$1.34064 per On Demand Linux r8i.4xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Windows": {
+          "sku": "WC3T57G9SZRZZJNB",
+          "rate_code": "WC3T57G9SZRZZJNB.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "2.0766400000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$2.07664 per On Demand Windows r8i.4xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "128.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "16",
+      "cpu_cores": "8",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "7.5",
+      "network_burst_gbps": "15.0",
+      "ebs_baseline_mbps": "5000.00",
+      "ebs_baseline_MBps": "625.00",
+      "ebs_baseline_iops": "20000.00"
+    },
+    {
+      "instance_type": "r8i.8xlarge",
+      "family": "r8i",
+      "category": "R",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/mo.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "r8i.8xlarge",
+          "Memory (GiB)": "256.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "32",
+          "CPU cores": "16",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "r8i.8xlarge",
+          "Baseline / Burst bandwidth (Gbps)": "15 Gigabit",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✓ Yes",
+          "ENA queues per interface (Default/Maximum)": "8 / 32",
+          "Network cards": "1",
+          "Max. network interfaces": "10",
+          "IP addresses per interface": "50",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "r8i.8xlarge",
+          "Baseline / Maximum bandwidth (Mbps)": "10000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "1250.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "40000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "32 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Windows": {
+          "sku": "84DA7R2PAZRGTHXA",
+          "rate_code": "84DA7R2PAZRGTHXA.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "4.1532800000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$4.15328 per On Demand Windows r8i.8xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Linux": {
+          "sku": "K533AAX5RDDY5KQV",
+          "rate_code": "K533AAX5RDDY5KQV.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "2.6812800000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$2.68128 per On Demand Linux r8i.8xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "256.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "32",
+      "cpu_cores": "16",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "15",
+      "network_burst_gbps": "15 Gigabit",
+      "ebs_baseline_mbps": "10000.00",
+      "ebs_baseline_MBps": "1250.00",
+      "ebs_baseline_iops": "40000.00"
+    },
+    {
+      "instance_type": "r8i.16xlarge",
+      "family": "r8i",
+      "category": "R",
+      "architecture": "x86_64",
+      "spec_url": "https://docs.aws.amazon.com/ec2/latest/instancetypes/mo.html",
+      "spec_rows": {
+        "compute": {
+          "Instance type": "r8i.16xlarge",
+          "Memory (GiB)": "512.00",
+          "Processor": "Intel Xeon Granite Rapids",
+          "vCPUs": "64",
+          "CPU cores": "32",
+          "Threads per core": "2",
+          "Accelerators": "✗ No",
+          "Accelerator memory": "✗ No"
+        },
+        "network": {
+          "Instance type": "r8i.16xlarge",
+          "Baseline / Burst bandwidth (Gbps)": "30 Gigabit",
+          "EFA": "✗ No",
+          "ENA": "✓ Yes",
+          "ENA Express": "✓ Yes",
+          "ENA queues per interface (Default/Maximum)": "16 / 64",
+          "Network cards": "1",
+          "Max. network interfaces": "16",
+          "IP addresses per interface": "64",
+          "IPv6": "✓ Yes"
+        },
+        "ebs": {
+          "Instance type": "r8i.16xlarge",
+          "Baseline / Maximum bandwidth (Mbps)": "20000.00",
+          "Baseline / Maximum throughput (MB/s, 128 KiB I/O)": "2500.00",
+          "Baseline / Maximum IOPS (16 KiB I/O)": "80000.00",
+          "NVMe": "✓ Yes",
+          "Multiple EBS cards": "✗ No",
+          "EBS volume limit": "48 ( Dedicated limit )"
+        }
+      },
+      "prices": {
+        "Windows": {
+          "sku": "46AU5JR5QWVQ9ESM",
+          "rate_code": "46AU5JR5QWVQ9ESM.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "8.3065600000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances:0002",
+          "description": "$8.30656 per On Demand Windows r8i.16xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        },
+        "Linux": {
+          "sku": "CFVPV9JYEFWY68HG",
+          "rate_code": "CFVPV9JYEFWY68HG.JRTCKXETXF.6YS6EN2CT7",
+          "unit": "Hrs",
+          "usd": "5.3625600000",
+          "effective_date": "2026-09-01",
+          "operation": "RunInstances",
+          "description": "$5.36256 per On Demand Linux r8i.16xlarge Instance Hour",
+          "license_model": "No License required",
+          "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+        }
+      },
+      "memory_gib": "512.00",
+      "processor": "Intel Xeon Granite Rapids",
+      "vcpu": "64",
+      "cpu_cores": "32",
+      "threads_per_core": "2",
+      "network_baseline_gbps": "30",
+      "network_burst_gbps": "30 Gigabit",
+      "ebs_baseline_mbps": "20000.00",
+      "ebs_baseline_MBps": "2500.00",
+      "ebs_baseline_iops": "80000.00"
+    }
+  ],
+  "gp3": {
+    "source_url": "https://docs.aws.amazon.com/ebs/latest/userguide/general-purpose.html",
+    "min_gib": "1",
+    "max_gib": "65536",
+    "included_iops": "3000",
+    "max_iops": "80000",
+    "included_MiBps": "125",
+    "max_MiBps": "2000",
+    "iops_per_gib": "500",
+    "MiBps_per_iops": "0.25",
+    "prices": {
+      "iops": {
+        "sku": "65V6R2HKUXFQ5VRV",
+        "rate_code": "65V6R2HKUXFQ5VRV.JRTCKXETXF.6YS6EN2CT7",
+        "unit": "IOPS-Mo",
+        "usd": "0.0057000000",
+        "effective_date": "2026-09-01",
+        "operation": "",
+        "description": "$0.0057 per provisioned IOPS-month of gp3 - Asia Pacific (Seoul)",
+        "license_model": "",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+      },
+      "storage": {
+        "sku": "MTK7D9SGKGYR3JD6",
+        "rate_code": "MTK7D9SGKGYR3JD6.JRTCKXETXF.6YS6EN2CT7",
+        "unit": "GB-Mo",
+        "usd": "0.0912000000",
+        "effective_date": "2026-09-01",
+        "operation": "",
+        "description": "$0.0912 per GB-month of General Purpose (gp3) provisioned storage - Asia Pacific (Seoul)",
+        "license_model": "",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+      },
+      "throughput": {
+        "sku": "Q48V7C4BM3UCSZMQ",
+        "rate_code": "Q48V7C4BM3UCSZMQ.JRTCKXETXF.6YS6EN2CT7",
+        "unit": "GiBps-mo",
+        "usd": "46.6944000000",
+        "effective_date": "2026-09-01",
+        "operation": "",
+        "description": "$0.0456 per provisioned MiBps-month of gp3 - Asia Pacific (Seoul)",
+        "license_model": "",
+        "source_url": "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonEC2/current/ap-northeast-2/index.csv"
+      }
+    }
+  },
+  "limitations": [
+    "한정된 36개 인스턴스의 공식 사양·가격 스냅샷",
+    "AZ 수용량·계정 quota·실제 애플리케이션 성능은 미검증",
+    "네트워크는 다중 흐름 기준, 실제 경로·단일 흐름은 별도 검토",
+    "EC2 EBS 기준은 공식 표의 I/O 크기에 따른 한도"
+  ]
+}

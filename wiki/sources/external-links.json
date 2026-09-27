@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "scope": "official-benchmark-link-directory",
+  "refresh": "Recheck result status, versions, configuration and availability before procurement. Offline gate does not verify live URLs.",
+  "links": [
+    {
+      "id": "benchmark-link-01",
+      "title": "TPC-C 소개",
+      "url": "https://www.tpc.org/tpcc/",
+      "checked_on": "2026-09-27",
+      "verification": "page-read"
+    },
+    {
+      "id": "benchmark-link-02",
+      "title": "FAQ",
+      "url": "https://www.tpc.org/tpcc/faq5.asp",
+      "checked_on": "2026-09-27",
+      "verification": "page-read"
+    },
+    {
+      "id": "benchmark-link-03",
+      "title": "성능순 전체 결과",
+      "url": "https://www.tpc.org/tpcc/results/tpcc_results5.asp?version=2",
+      "checked_on": "2026-09-27",
+      "verification": "page-read"
+    },
+    {
+      "id": "benchmark-link-04",
+      "title": "비클러스터 결과",
+      "url": "https://www.tpc.org/tpcc/results/tpcc_perf_results5.asp?resulttype=noncluster",
+      "checked_on": "2026-09-27",
+      "verification": "page-read"
+    },
+    {
+      "id": "benchmark-link-05",
+      "title": "공식 다운로드",
+      "url": "https://www.tpc.org/information/results_spreadsheet5.asp",
+      "checked_on": "2026-09-27",
+      "verification": "page-read"
+    },
+    {
+      "id": "benchmark-link-06",
+      "title": "SPC 벤치마크 설명",
+      "url": "https://storageperformance.org/benchmarks",
+      "checked_on": "2026-09-27",
+      "verification": "page-read"
+    },
+    {
+      "id": "benchmark-link-07",
+      "title": "SPC-1·SPC-1/E 결과",
+      "url": "https://storageperformance.org/benchmarks/results/spc1-spc1e",
+      "checked_on": "2026-09-27",
+      "verification": "page-read"
+    },
+    {
+      "id": "benchmark-link-08",
+      "title": "SPC-1C·SPC-1C/E 결과",
+      "url": "https://www.storageperformance.org/benchmarks/results/spc1c-spc1ce",
+      "checked_on": "2026-09-27",
+      "verification": "page-read"
+    },
+    {
+      "id": "benchmark-link-09",
+      "title": "공식 규격 목록",
+      "url": "https://storageperformance.org/specifications",
+      "checked_on": "2026-09-27",
+      "verification": "page-read"
+    },
+    {
+      "id": "benchmark-link-10",
+      "title": "SPECjbb2015 실행·보고 규칙",
+      "url": "https://www.spec.org/jbb2015/docs/runrules.pdf",
+      "checked_on": "2026-09-27",
+      "verification": "page-read"
+    },
+    {
+      "id": "benchmark-link-11",
+      "title": "LtechKorea LKG2312 상세 결과",
+      "url": "https://www.tpc.org/tpcc/results/tpcc_result_detail5.asp?id=123092901&lang=",
+      "checked_on": "2026-09-27",
+      "verification": "page-read"
+    },
+    {
+      "id": "benchmark-link-12",
+      "title": "A32028 Executive Summary",
+      "url": "https://storageperformance.org/sites/default/files/files/executive_summary/A32028_ES.pdf",
+      "checked_on": "2026-09-27",
+      "verification": "official-pdf-relevant-pages-read",
+      "sha256_at_review": "474102e1371850088f0ac5ff45ea72c5deb408e2c364e9096a0462ca5b91fa99",
+      "reviewed_pdf_pages": [
+        1
+      ],
+      "retention": "Official URL and hash recorded; downloaded PDF kept as temporary review material only."
+    },
+    {
+      "id": "benchmark-link-13",
+      "title": "A32028 Full Disclosure Report",
+      "url": "https://storageperformance.org/sites/default/files/files/full_disclosure_report/A32028_FDR.pdf",
+      "checked_on": "2026-09-27",
+      "verification": "official-pdf-relevant-pages-read",
+      "sha256_at_review": "3f1ec804e7ea9cc4435e6103dd3c779fe2f793cd83975b7d4585d1911f2918ba",
+      "reviewed_pdf_pages": [
+        1,
+        7,
+        10,
+        11,
+        12
+      ],
+      "retention": "Official URL and hash recorded; downloaded PDF kept as temporary review material only."
+    },
+    {
+      "id": "benchmark-link-14",
+      "title": "SPC-1C 보고서 예시 C00019",
+      "url": "https://www.storageperformance.org/sites/default/files/results/C00019/c00019_Seagate_ST600MP0065_Enterprise-Performance_SPC-1C_full-disclosure-report.pdf",
+      "checked_on": "2026-09-27",
+      "verification": "official-pdf-relevant-pages-read",
+      "sha256_at_review": "77ddb1a293da0ec09741d7f44572f55013a8b739e8d4ac20a9a702a318ba4e5a",
+      "reviewed_pdf_pages": [
+        1,
+        10,
+        11,
+        17,
+        18,
+        19
+      ],
+      "retention": "Official URL and hash recorded; downloaded PDF kept as temporary review material only."
+    }
+  ]
+}

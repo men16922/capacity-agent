@@ -1,0 +1,629 @@
+{
+  "type": "object",
+  "properties": {
+    "as_of": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "requirement": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "benchmark": {
+              "const": "TPC-C"
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "category": {
+              "enum": [
+                "OLTP"
+              ]
+            },
+            "scope": {
+              "enum": [
+                "cluster",
+                "single-system"
+              ]
+            },
+            "unit": {
+              "const": "tpmC"
+            },
+            "value": {
+              "type": "string",
+              "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+              "maxLength": 64
+            }
+          },
+          "required": [
+            "benchmark",
+            "version",
+            "category",
+            "scope",
+            "unit",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "benchmark": {
+              "const": "SPC-1"
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "category": {
+              "enum": [
+                "random-io"
+              ]
+            },
+            "scope": {
+              "enum": [
+                "storage-system"
+              ]
+            },
+            "unit": {
+              "const": "SPC-1-IOPS"
+            },
+            "value": {
+              "type": "string",
+              "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+              "maxLength": 64
+            }
+          },
+          "required": [
+            "benchmark",
+            "version",
+            "category",
+            "scope",
+            "unit",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "benchmark": {
+              "const": "SPC-1C"
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "category": {
+              "enum": [
+                "random-io"
+              ]
+            },
+            "scope": {
+              "enum": [
+                "component"
+              ]
+            },
+            "unit": {
+              "const": "SPC-1C-IOPS"
+            },
+            "value": {
+              "type": "string",
+              "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+              "maxLength": 64
+            }
+          },
+          "required": [
+            "benchmark",
+            "version",
+            "category",
+            "scope",
+            "unit",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "benchmark": {
+              "const": "SPECjbb2015"
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "category": {
+              "enum": [
+                "Composite",
+                "MultiJVM"
+              ]
+            },
+            "scope": {
+              "enum": [
+                "system"
+              ]
+            },
+            "unit": {
+              "const": "max-jOPS"
+            },
+            "value": {
+              "type": "string",
+              "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+              "maxLength": 64
+            }
+          },
+          "required": [
+            "benchmark",
+            "version",
+            "category",
+            "scope",
+            "unit",
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "candidate": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "benchmark": {
+              "const": "TPC-C"
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "category": {
+              "enum": [
+                "OLTP"
+              ]
+            },
+            "scope": {
+              "enum": [
+                "cluster",
+                "single-system"
+              ]
+            },
+            "unit": {
+              "const": "tpmC"
+            },
+            "value": {
+              "type": "string",
+              "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+              "maxLength": 64
+            },
+            "result_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "status": {
+              "enum": [
+                "accepted",
+                "historical",
+                "in-review",
+                "withdrawn"
+              ]
+            },
+            "measurement": {
+              "const": "official-reported"
+            },
+            "configuration": {
+              "type": "object",
+              "required": [
+                "cores",
+                "cpu",
+                "database",
+                "memory",
+                "os",
+                "processors",
+                "storage",
+                "system"
+              ],
+              "additionalProperties": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              }
+            },
+            "source_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "report_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "verified_on": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "expires_on": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "benchmark",
+            "version",
+            "category",
+            "scope",
+            "unit",
+            "value",
+            "result_id",
+            "status",
+            "measurement",
+            "configuration",
+            "source_url",
+            "report_url",
+            "verified_on",
+            "expires_on"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "benchmark": {
+              "const": "SPC-1"
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "category": {
+              "enum": [
+                "random-io"
+              ]
+            },
+            "scope": {
+              "enum": [
+                "storage-system"
+              ]
+            },
+            "unit": {
+              "const": "SPC-1-IOPS"
+            },
+            "value": {
+              "type": "string",
+              "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+              "maxLength": 64
+            },
+            "result_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "status": {
+              "enum": [
+                "accepted",
+                "historical",
+                "in-review",
+                "withdrawn"
+              ]
+            },
+            "measurement": {
+              "const": "official-reported"
+            },
+            "configuration": {
+              "type": "object",
+              "required": [
+                "cache",
+                "capacity",
+                "connectivity",
+                "controllers",
+                "media",
+                "raid",
+                "system",
+                "workload"
+              ],
+              "additionalProperties": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              }
+            },
+            "source_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "report_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "verified_on": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "expires_on": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "benchmark",
+            "version",
+            "category",
+            "scope",
+            "unit",
+            "value",
+            "result_id",
+            "status",
+            "measurement",
+            "configuration",
+            "source_url",
+            "report_url",
+            "verified_on",
+            "expires_on"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "benchmark": {
+              "const": "SPC-1C"
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "category": {
+              "enum": [
+                "random-io"
+              ]
+            },
+            "scope": {
+              "enum": [
+                "component"
+              ]
+            },
+            "unit": {
+              "const": "SPC-1C-IOPS"
+            },
+            "value": {
+              "type": "string",
+              "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+              "maxLength": 64
+            },
+            "result_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "status": {
+              "enum": [
+                "accepted",
+                "historical",
+                "in-review",
+                "withdrawn"
+              ]
+            },
+            "measurement": {
+              "const": "official-reported"
+            },
+            "configuration": {
+              "type": "object",
+              "required": [
+                "cache",
+                "capacity",
+                "connectivity",
+                "controllers",
+                "media",
+                "raid",
+                "system",
+                "workload"
+              ],
+              "additionalProperties": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              }
+            },
+            "source_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "report_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "verified_on": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "expires_on": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "benchmark",
+            "version",
+            "category",
+            "scope",
+            "unit",
+            "value",
+            "result_id",
+            "status",
+            "measurement",
+            "configuration",
+            "source_url",
+            "report_url",
+            "verified_on",
+            "expires_on"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "benchmark": {
+              "const": "SPECjbb2015"
+            },
+            "version": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "category": {
+              "enum": [
+                "Composite",
+                "MultiJVM"
+              ]
+            },
+            "scope": {
+              "enum": [
+                "system"
+              ]
+            },
+            "unit": {
+              "const": "max-jOPS"
+            },
+            "value": {
+              "type": "string",
+              "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?$",
+              "maxLength": 64
+            },
+            "result_id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "status": {
+              "enum": [
+                "accepted",
+                "historical",
+                "in-review",
+                "withdrawn"
+              ]
+            },
+            "measurement": {
+              "const": "official-reported"
+            },
+            "configuration": {
+              "type": "object",
+              "required": [
+                "cores",
+                "cpu",
+                "jvm",
+                "memory",
+                "os",
+                "processors",
+                "storage",
+                "system"
+              ],
+              "additionalProperties": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 2000
+              }
+            },
+            "source_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "report_url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "verified_on": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "expires_on": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "benchmark",
+            "version",
+            "category",
+            "scope",
+            "unit",
+            "value",
+            "result_id",
+            "status",
+            "measurement",
+            "configuration",
+            "source_url",
+            "report_url",
+            "verified_on",
+            "expires_on"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "configuration_match": {
+      "type": "boolean"
+    },
+    "review_evidence": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    }
+  },
+  "required": [
+    "as_of",
+    "requirement",
+    "candidate",
+    "configuration_match",
+    "review_evidence"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Benchmark comparison request v1",
+  "description": "Runtime additionally validates official HTTPS domains, dates, statuses, positive values and cross-record compatibility."
+}

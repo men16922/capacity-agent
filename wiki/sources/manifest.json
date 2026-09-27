@@ -1,0 +1,828 @@
+{
+  "schema_version": 1,
+  "inventory_date": "2026-09-27",
+  "scope": "local-reference",
+  "original_file_count": 56,
+  "unique_source_count": 36,
+  "sources": [
+    {
+      "id": "hwp-5b79bd833eac",
+      "path": "reference/11/서버사양서2_양식.hwp",
+      "sha256": "5b79bd833eac2411e75c3f4fa128658494e03e8ae64bc7bbf8ccd4e0305a6561",
+      "aliases": [
+        "reference/02/11/서버사양서2_양식.hwp"
+      ],
+      "bytes": 39936,
+      "format": "hwp",
+      "extraction": "wiki/sources/extracted/hwp-5b79bd833eac.json",
+      "extraction_sha256": "1117689ceedd19bd744158ebed51f074afdcbb54ff3a238697f22e83c3ecdf46",
+      "card": "wiki/sources/hwp-5b79bd833eac.md",
+      "limitation": "Best-effort HWP v5 paragraph extraction; table relationships, embedded objects, pagination and visual layout are not verified. Preview may be truncated."
+    },
+    {
+      "id": "hwp-6997bd9e5e63",
+      "path": "reference/11/서버사양서3_양식.hwp",
+      "sha256": "6997bd9e5e631b5fedbc3597b2793d4b22d5f30b79706a41a8f51931c701c0ed",
+      "aliases": [
+        "reference/02/11/서버사양서3_양식.hwp"
+      ],
+      "bytes": 98304,
+      "format": "hwp",
+      "extraction": "wiki/sources/extracted/hwp-6997bd9e5e63.json",
+      "extraction_sha256": "9252db28e2f75dcd9533a93178b78ba9872320ee3d022961ac2242c1c7c6b77a",
+      "card": "wiki/sources/hwp-6997bd9e5e63.md",
+      "limitation": "Best-effort HWP v5 paragraph extraction; table relationships, embedded objects, pagination and visual layout are not verified. Preview may be truncated."
+    },
+    {
+      "id": "hwp-708d02f4d643",
+      "path": "reference/11/서버사양서예시3.hwp",
+      "sha256": "708d02f4d643bae639d9f35bd008abd3c76450c41e9a8b224e04aaec66f33a59",
+      "aliases": [
+        "reference/02/11/서버사양서예시3.hwp"
+      ],
+      "bytes": 114688,
+      "format": "hwp",
+      "extraction": "wiki/sources/extracted/hwp-708d02f4d643.json",
+      "extraction_sha256": "4cd3fd8ea838c8bdad840d139fe3c8f00a12bd9927952e4083bd929d1d10596b",
+      "card": "wiki/sources/hwp-708d02f4d643.md",
+      "limitation": "Best-effort HWP v5 paragraph extraction; table relationships, embedded objects, pagination and visual layout are not verified. Preview may be truncated."
+    },
+    {
+      "id": "hwp-a1d77c993a35",
+      "path": "reference/11/서버사양서예시2.hwp",
+      "sha256": "a1d77c993a3590e22d3b3651b8feef58bad5115e19de0c1a11aae37c6522f636",
+      "aliases": [
+        "reference/02/11/서버사양서예시2.hwp"
+      ],
+      "bytes": 65536,
+      "format": "hwp",
+      "extraction": "wiki/sources/extracted/hwp-a1d77c993a35.json",
+      "extraction_sha256": "ef8361a7e8d53b12a585753cd049e2e9a72712bdc0d50c7b97ce359e0e2404e0",
+      "card": "wiki/sources/hwp-a1d77c993a35.md",
+      "limitation": "Best-effort HWP v5 paragraph extraction; table relationships, embedded objects, pagination and visual layout are not verified. Preview may be truncated."
+    },
+    {
+      "id": "hwp-dea431a662e8",
+      "path": "reference/11/서버사양서예시1.hwp",
+      "sha256": "dea431a662e81da14475c3da9f111924e379328e312940c6b681a5bd2d69e1d3",
+      "aliases": [
+        "reference/02/11/서버사양서예시1.hwp",
+        "reference/02/15/서버사양서_예시.hwp",
+        "reference/15/서버사양서_예시.hwp"
+      ],
+      "bytes": 114688,
+      "format": "hwp",
+      "extraction": "wiki/sources/extracted/hwp-dea431a662e8.json",
+      "extraction_sha256": "096c73489847a001a1f26ea2d98b84d8b6d717b7b7491d481e4de6f56e812c34",
+      "card": "wiki/sources/hwp-dea431a662e8.md",
+      "limitation": "Best-effort HWP v5 paragraph extraction; table relationships, embedded objects, pagination and visual layout are not verified. Preview may be truncated."
+    },
+    {
+      "id": "hwp-ec1c4a8a142c",
+      "path": "reference/11/서버사양서1_양식.hwp",
+      "sha256": "ec1c4a8a142cf0f6c2d8eeaf9f07c668371156e0603d0f78f829461e861f6493",
+      "aliases": [
+        "reference/02/11/서버사양서1_양식.hwp"
+      ],
+      "bytes": 65536,
+      "format": "hwp",
+      "extraction": "wiki/sources/extracted/hwp-ec1c4a8a142c.json",
+      "extraction_sha256": "9755420a53018025a186d7c0f425a74397ff00085e45cfa7744b137a0b644b3b",
+      "card": "wiki/sources/hwp-ec1c4a8a142c.md",
+      "limitation": "Best-effort HWP v5 paragraph extraction; table relationships, embedded objects, pagination and visual layout are not verified. Preview may be truncated."
+    },
+    {
+      "id": "lecture-01",
+      "path": "reference/01.pdf",
+      "sha256": "57033ff852c24937cf6b7e434d0eda13e56d2537e1fff439c9ff1089880248a3",
+      "aliases": [],
+      "bytes": 923560,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/lecture-01.json",
+      "extraction_sha256": "a837ce6dc5e8fb53664a08da9681c9a60551bd365cb51639ae59059bdaf2826b",
+      "card": "wiki/sources/lecture-01.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 12
+    },
+    {
+      "id": "lecture-02",
+      "path": "reference/02/02.pdf",
+      "sha256": "b0a5f78b019d95bf2af2d0a751dd75ee53160f5003389fa7c6d832bdde94c313",
+      "aliases": [],
+      "bytes": 607319,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/lecture-02.json",
+      "extraction_sha256": "ac3869056ee1c83dae35ab7b914bb84fbddf55fa78ebdb7ea5bacd956de12b79",
+      "card": "wiki/sources/lecture-02.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 5
+    },
+    {
+      "id": "lecture-03",
+      "path": "reference/03/03.pdf",
+      "sha256": "356f5e6a6d4444d4194f900fcdd69085e110b9f71f36f0b8d9d90e8a91a90dc9",
+      "aliases": [],
+      "bytes": 773496,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/lecture-03.json",
+      "extraction_sha256": "4ee444c441dc0f0a4ec166e3f289e9c920697271ec584b5c415c31f36487f0ad",
+      "card": "wiki/sources/lecture-03.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 10
+    },
+    {
+      "id": "lecture-04",
+      "path": "reference/04.pdf",
+      "sha256": "065cb24bedeb741ee3bb6ffd42dcea8a469a230d91e44c25d646032cce04e0f2",
+      "aliases": [],
+      "bytes": 907391,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/lecture-04.json",
+      "extraction_sha256": "1ba95e6cbb026f29601ff790f2a5386289a3d59a960aa3b1edc9f422f183a6c3",
+      "card": "wiki/sources/lecture-04.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 12
+    },
+    {
+      "id": "lecture-05",
+      "path": "reference/05/05.pdf",
+      "sha256": "f754c9a9c980c26c7cebad9e143109550983904e33bbb4cf51b09dbfc9c05808",
+      "aliases": [],
+      "bytes": 609652,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/lecture-05.json",
+      "extraction_sha256": "00abe13719ab2b4dddaa48d6ff22aca45e10d6f9ae820dae972645f9eb986525",
+      "card": "wiki/sources/lecture-05.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 7
+    },
+    {
+      "id": "lecture-06",
+      "path": "reference/06.pdf",
+      "sha256": "ac69d82b92d757f3560814114279308bc10461f77b6f3c7249e1a7fd9917955b",
+      "aliases": [],
+      "bytes": 789979,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/lecture-06.json",
+      "extraction_sha256": "67ea525ab5a5da2348db3cc025e5aba581a4e15da1d11e6ad69135425053fcdc",
+      "card": "wiki/sources/lecture-06.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 11
+    },
+    {
+      "id": "lecture-07",
+      "path": "reference/07.pdf",
+      "sha256": "fd370c3e68d305ea78f5ba06366dbc83103f25ddd3c84106d0178eccf03b107c",
+      "aliases": [],
+      "bytes": 629137,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/lecture-07.json",
+      "extraction_sha256": "5fb0d74115301ced1edfd1896ebe1864714bcc7871b449f7ef566a8764d63b91",
+      "card": "wiki/sources/lecture-07.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 8
+    },
+    {
+      "id": "lecture-08",
+      "path": "reference/08.pdf",
+      "sha256": "80ee766395d1fbfb9a15cbf86eecb3cc449e5bae786caf9c506d8a4fa0182eb9",
+      "aliases": [],
+      "bytes": 623295,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/lecture-08.json",
+      "extraction_sha256": "50b94d5d4147fe8e7bd41979fe6516eb87a5951fe450a6ee23f2186e25be09cc",
+      "card": "wiki/sources/lecture-08.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 8
+    },
+    {
+      "id": "lecture-09",
+      "path": "reference/09/09.pdf",
+      "sha256": "a10fa62ad0ab393f5f34f40ffb698107373a56fe934b64f221fd33cfc7a093a3",
+      "aliases": [],
+      "bytes": 606739,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/lecture-09.json",
+      "extraction_sha256": "8fc711a2251404cf86abc4582b5a793c1e429e52d4ea0a25e07a9c8b6dcf6c9c",
+      "card": "wiki/sources/lecture-09.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 7
+    },
+    {
+      "id": "lecture-10",
+      "path": "reference/10.pdf",
+      "sha256": "239fc5fa4fb7168c4993e0dc3f30535eb7a07ed501e6ce2c9849f64ebc035fa1",
+      "aliases": [],
+      "bytes": 660355,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/lecture-10.json",
+      "extraction_sha256": "96455769d9f37f7fa81ecdb8617798cdd51ede362ce5ebb02a57a2b3cb0b89da",
+      "card": "wiki/sources/lecture-10.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 9
+    },
+    {
+      "id": "lecture-11",
+      "path": "reference/11/11.pdf",
+      "sha256": "39ef1989c6b4d8cffcd65e39f5dd337e69de6a4d03948a26034ab88bcf5a2026",
+      "aliases": [
+        "reference/02/11/11.pdf"
+      ],
+      "bytes": 735453,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/lecture-11.json",
+      "extraction_sha256": "c2bf78acc257c66cccc6f5cef55540870974a84c18657b3d2385627ca0e92722",
+      "card": "wiki/sources/lecture-11.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 9
+    },
+    {
+      "id": "lecture-12",
+      "path": "reference/12/12.pdf",
+      "sha256": "2c40cc5b80ce20c59d68b45661fe679efe5af0a2e283b3083635181cf8847ef8",
+      "aliases": [
+        "reference/02/12 2/12.pdf"
+      ],
+      "bytes": 650930,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/lecture-12.json",
+      "extraction_sha256": "b2d68d52a13088bf2e7af473ceff0856c15c49e703a0951ed974edd939ef5bcf",
+      "card": "wiki/sources/lecture-12.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 8
+    },
+    {
+      "id": "lecture-13",
+      "path": "reference/13/13.pdf",
+      "sha256": "9e8fe4ed759d7e571b57a0be8663fe3cb42e65877fadf4ec41ed7522f06491ba",
+      "aliases": [
+        "reference/02/13/13.pdf"
+      ],
+      "bytes": 647121,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/lecture-13.json",
+      "extraction_sha256": "36d4716a243f082949f7976601cdfcdb097bd96b384cd72ec96f383572341db9",
+      "card": "wiki/sources/lecture-13.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 10
+    },
+    {
+      "id": "lecture-14",
+      "path": "reference/14/14.pdf",
+      "sha256": "78e5aa91c09eba265a28a0eca0a7f9dbb96251cea8ca21a66eef4da6dad96375",
+      "aliases": [
+        "reference/02/14/14.pdf"
+      ],
+      "bytes": 604815,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/lecture-14.json",
+      "extraction_sha256": "c39b3d998390df24fb5bd90746e5f177c5113127c0e0fc8d3b9cdb139a389e38",
+      "card": "wiki/sources/lecture-14.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 8
+    },
+    {
+      "id": "lecture-15",
+      "path": "reference/15/15.pdf",
+      "sha256": "b710731b115a515899911c761d50d0b3fd8a4a5c35467e8c2cfdbf0369be71cc",
+      "aliases": [
+        "reference/02/15/15.pdf"
+      ],
+      "bytes": 646084,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/lecture-15.json",
+      "extraction_sha256": "dc010549dc4b407d9b3f9cb14dd743f3e110d4cbfdf3fc521af8645a45c8fa39",
+      "card": "wiki/sources/lecture-15.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 9
+    },
+    {
+      "id": "pdf-1e5aa3fe692c",
+      "path": "reference/클라우드 취약점 점검 가이드(2024.06).pdf",
+      "sha256": "1e5aa3fe692c168eb61bc3ba6e0177cb2be2f0ca73baa9391501edbaafd1be61",
+      "aliases": [],
+      "bytes": 27149221,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/pdf-1e5aa3fe692c.json",
+      "extraction_sha256": "af7adb2f343a2d652eb24e040e84014fe720dde7b7c326f6b1a0fbaba0846a1b",
+      "card": "wiki/sources/pdf-1e5aa3fe692c.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 766
+    },
+    {
+      "id": "pdf-39cde3f5bf44",
+      "path": "reference/TTA_R3_AWS_Sizing_User_Guide.pdf",
+      "sha256": "39cde3f5bf444db84c30fd3383b0211bd182d21bdb1731bf2f5cebb013b0169a",
+      "aliases": [],
+      "bytes": 751199,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/pdf-39cde3f5bf44.json",
+      "extraction_sha256": "4f5ee97de0286ee3b6c945414d6ff4ce4cf8ce12fc8f19becbca1daa952e711c",
+      "card": "wiki/sources/pdf-39cde3f5bf44.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 16
+    },
+    {
+      "id": "pdf-b07aabe8f7d6",
+      "path": "reference/규모산정시스템 사용 가이드라인.pdf",
+      "sha256": "b07aabe8f7d636eff47c99073c50cc0a85048403e2dde0c0d942ff2ff24f00b6",
+      "aliases": [],
+      "bytes": 1116843,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/pdf-b07aabe8f7d6.json",
+      "extraction_sha256": "4f7943e4b6106d10e9d84fbeb76a8f4315694c81c8311f3be5b0d2a402e871e0",
+      "card": "wiki/sources/pdf-b07aabe8f7d6.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 22
+    },
+    {
+      "id": "tta-r3",
+      "path": "reference/TTAK.KO-10.0292R3_[3].pdf",
+      "sha256": "b30126bbe9b06e4b93f2e3d31c0fcf51c9c4d6289aa4999df342bdc57c8ccff2",
+      "aliases": [],
+      "bytes": 1240007,
+      "format": "pdf",
+      "extraction": "wiki/sources/extracted/tta-r3.json",
+      "extraction_sha256": "ce27718832b416108e908258951ca8a98052ef9a85c8946634c69eeca40f8983",
+      "card": "wiki/sources/tta-r3.md",
+      "limitation": "Text layer only; images and layout must be checked against the original PDF.",
+      "page_count": 55
+    },
+    {
+      "id": "xls-0ff724077942",
+      "path": "reference/03/정보시스템 용량산정 계산도구.xls",
+      "sha256": "0ff724077942e4113c4c32dd226b6430ea3030ff040552b86217a2eadee7982e",
+      "aliases": [],
+      "bytes": 154112,
+      "format": "xls",
+      "extraction": "wiki/sources/extracted/xls-0ff724077942.json",
+      "extraction_sha256": "b72e5cd2f9aa33bb2cc7bfbd8037617310202bd5f6f280616013e67e6f0a5e1f",
+      "card": "wiki/sources/xls-0ff724077942.md",
+      "limitation": "Cached values and BIFF formula text only; no recalculation, macros, controls, or visual verification.",
+      "sheets": [
+        {
+          "name": "OLTP서버CPU용량산정",
+          "rows": 63,
+          "columns": 41
+        },
+        {
+          "name": "WEB_WAS산정",
+          "rows": 16,
+          "columns": 13
+        },
+        {
+          "name": "메모리용량산정",
+          "rows": 22,
+          "columns": 13
+        },
+        {
+          "name": "디스크용량산정",
+          "rows": 22,
+          "columns": 16
+        },
+        {
+          "name": "기초데이터",
+          "rows": 59,
+          "columns": 14
+        }
+      ]
+    },
+    {
+      "id": "xls-1ce134ae104c",
+      "path": "reference/05/정보시스템 용량산정 계산도구.xls",
+      "sha256": "1ce134ae104cb5d30609fa40f5f03a09d0fc99e419907351fd13a8599c0074f8",
+      "aliases": [],
+      "bytes": 136192,
+      "format": "xls",
+      "extraction": "wiki/sources/extracted/xls-1ce134ae104c.json",
+      "extraction_sha256": "2bddc572174614148de484e4f8a7f8ad50c820775a992e8de03d6a0685b2a1e7",
+      "card": "wiki/sources/xls-1ce134ae104c.md",
+      "limitation": "Cached values and BIFF formula text only; no recalculation, macros, controls, or visual verification.",
+      "sheets": [
+        {
+          "name": "OLTP서버CPU용량산정",
+          "rows": 63,
+          "columns": 41
+        },
+        {
+          "name": "WEB_WAS산정",
+          "rows": 16,
+          "columns": 13
+        },
+        {
+          "name": "메모리용량산정",
+          "rows": 22,
+          "columns": 13
+        },
+        {
+          "name": "디스크용량산정",
+          "rows": 22,
+          "columns": 16
+        },
+        {
+          "name": "기초데이터",
+          "rows": 59,
+          "columns": 14
+        }
+      ]
+    },
+    {
+      "id": "xlsx-01ebbaa330f2",
+      "path": "reference/13/서버하드웨어 구성점검 항목표.xlsx",
+      "sha256": "01ebbaa330f27c996c15391503b246a788d24300fa6ef34864e33cf0919d94a5",
+      "aliases": [
+        "reference/02/13/서버하드웨어 구성점검 항목표.xlsx"
+      ],
+      "bytes": 12713,
+      "format": "xlsx",
+      "extraction": "wiki/sources/extracted/xlsx-01ebbaa330f2.json",
+      "extraction_sha256": "673acb9eff4ff77b8cf6bb8e1a1b0a2d4c7b4bd3e77b63d2bf6e28a54d287cb2",
+      "card": "wiki/sources/xlsx-01ebbaa330f2.md",
+      "limitation": "Cell content only; drawings, formatting and native recalculation not verified.",
+      "sheets": [
+        {
+          "name": "서버 하드웨어 구성 점검 항목-물리적",
+          "rows": 11,
+          "columns": 4
+        },
+        {
+          "name": "서버 하드웨어 구성 점검 항목-논리적",
+          "rows": 6,
+          "columns": 4
+        }
+      ]
+    },
+    {
+      "id": "xlsx-264236f67058",
+      "path": "reference/09/ISMS체크리스트.xlsx",
+      "sha256": "264236f670586c1a5cbf11c8492ebfd9b2f39b6c9c7897066eba1c582a6a2426",
+      "aliases": [],
+      "bytes": 172184,
+      "format": "xlsx",
+      "extraction": "wiki/sources/extracted/xlsx-264236f67058.json",
+      "extraction_sha256": "b4a43a1ef241d0f234142adc5a0ce6871c14a75d97595f03edda40925ebd9121",
+      "card": "wiki/sources/xlsx-264236f67058.md",
+      "limitation": "Cell content only; drawings, formatting and native recalculation not verified.",
+      "sheets": [
+        {
+          "name": "관리과정",
+          "rows": 33,
+          "columns": 8
+        },
+        {
+          "name": "1.정보보호정책",
+          "rows": 18,
+          "columns": 8
+        },
+        {
+          "name": "2.정보보호조직",
+          "rows": 12,
+          "columns": 8
+        },
+        {
+          "name": "3.외부자보안",
+          "rows": 9,
+          "columns": 8
+        },
+        {
+          "name": "4. 정보자산 분류",
+          "rows": 12,
+          "columns": 8
+        },
+        {
+          "name": "5.정보보호교육",
+          "rows": 15,
+          "columns": 8
+        },
+        {
+          "name": "6.인적보안",
+          "rows": 16,
+          "columns": 8
+        },
+        {
+          "name": "7.물리적보안",
+          "rows": 26,
+          "columns": 8
+        },
+        {
+          "name": "8.시스템개발보안",
+          "rows": 28,
+          "columns": 8
+        },
+        {
+          "name": "9.암호통제",
+          "rows": 13,
+          "columns": 8
+        },
+        {
+          "name": "10. 접근통제",
+          "rows": 51,
+          "columns": 8
+        },
+        {
+          "name": "11. 운영보안",
+          "rows": 62,
+          "columns": 8
+        },
+        {
+          "name": "12.침해사고 관리",
+          "rows": 20,
+          "columns": 8
+        },
+        {
+          "name": "13.IT재해복구",
+          "rows": 11,
+          "columns": 8
+        },
+        {
+          "name": "Sheet3",
+          "rows": 1,
+          "columns": 1
+        },
+        {
+          "name": "list",
+          "rows": 5,
+          "columns": 2
+        }
+      ]
+    },
+    {
+      "id": "xlsx-3ed64db8ee3b",
+      "path": "reference/09/ISMS-P_인증기준_세부점검항목.xlsx",
+      "sha256": "3ed64db8ee3b34e250b1e0ed5d5b85933d3d5de2328cb65f6f41c0bc5bef0c8d",
+      "aliases": [],
+      "bytes": 53253,
+      "format": "xlsx",
+      "extraction": "wiki/sources/extracted/xlsx-3ed64db8ee3b.json",
+      "extraction_sha256": "ec57222586588c1fed28a197950935c7e728e8660735de8a22b88c9dc5270bd1",
+      "card": "wiki/sources/xlsx-3ed64db8ee3b.md",
+      "limitation": "Cell content only; drawings, formatting and native recalculation not verified.",
+      "sheets": [
+        {
+          "name": "1.관리체계 수립 및 운영",
+          "rows": 44,
+          "columns": 7
+        },
+        {
+          "name": "2.보호대책 요구사항",
+          "rows": 197,
+          "columns": 13
+        },
+        {
+          "name": "3.개인정보 처리단계별 요구사항",
+          "rows": 93,
+          "columns": 7
+        }
+      ]
+    },
+    {
+      "id": "xlsx-4570ff3206e4",
+      "path": "reference/02/요구사항정의서_실습자료.xlsx",
+      "sha256": "4570ff3206e4809201541362a3d59ed8ae5b58176b9933e0d96efd89dd9c4098",
+      "aliases": [
+        "reference/05/인프라요구사항 정의서.xlsx"
+      ],
+      "bytes": 19427,
+      "format": "xlsx",
+      "extraction": "wiki/sources/extracted/xlsx-4570ff3206e4.json",
+      "extraction_sha256": "96ec65a028e9b76d905d51e5d29f1eb79dfba1a89afca9225b6648342cfb8854",
+      "card": "wiki/sources/xlsx-4570ff3206e4.md",
+      "limitation": "Cell content only; drawings, formatting and native recalculation not verified.",
+      "sheets": [
+        {
+          "name": "요구사항",
+          "rows": 26,
+          "columns": 9
+        },
+        {
+          "name": "시스템요구사항도출",
+          "rows": 26,
+          "columns": 9
+        },
+        {
+          "name": "인프라요구사항추출-서버네트워크디스크영향및 우선순위파악",
+          "rows": 14,
+          "columns": 9
+        },
+        {
+          "name": "인프라 요구사항 분석서",
+          "rows": 19,
+          "columns": 10
+        }
+      ]
+    },
+    {
+      "id": "xlsx-5829c4eee2b4",
+      "path": "reference/13/서버소프트웨어 구성점검 항목표.xlsx",
+      "sha256": "5829c4eee2b4932d1703315a60b2706ae7c6d9e831d26e9b65299b55ee8c2021",
+      "aliases": [
+        "reference/02/13/서버소프트웨어 구성점검 항목표.xlsx"
+      ],
+      "bytes": 13420,
+      "format": "xlsx",
+      "extraction": "wiki/sources/extracted/xlsx-5829c4eee2b4.json",
+      "extraction_sha256": "91f5b17b9b1c55502072939af4896c88360cbcb61bb4b665c5701a1972ddc238",
+      "card": "wiki/sources/xlsx-5829c4eee2b4.md",
+      "limitation": "Cell content only; drawings, formatting and native recalculation not verified.",
+      "sheets": [
+        {
+          "name": "서버 하드웨어 구성 점검 항목-물리적",
+          "rows": 14,
+          "columns": 4
+        },
+        {
+          "name": "구성 점검 항목표에 따라 설치된 시스템 소프트웨어를 점검",
+          "rows": 5,
+          "columns": 4
+        }
+      ]
+    },
+    {
+      "id": "xlsx-5f64b2d0a3c8",
+      "path": "reference/14/서버보안점검리스트.xlsx",
+      "sha256": "5f64b2d0a3c81d26364a03dd02a861536d1762981e8f9be789f897fde59b8176",
+      "aliases": [
+        "reference/02/14/서버보안점검리스트.xlsx",
+        "reference/02/15/서버보안점검리스트.xlsx",
+        "reference/15/서버보안점검리스트.xlsx"
+      ],
+      "bytes": 17891,
+      "format": "xlsx",
+      "extraction": "wiki/sources/extracted/xlsx-5f64b2d0a3c8.json",
+      "extraction_sha256": "595140715622a18ce103f22cc5c0aec8d81625e1a799b11fe69748888f141a14",
+      "card": "wiki/sources/xlsx-5f64b2d0a3c8.md",
+      "limitation": "Cell content only; drawings, formatting and native recalculation not verified.",
+      "sheets": [
+        {
+          "name": "서버하드웨어보안적용리스트",
+          "rows": 45,
+          "columns": 5
+        },
+        {
+          "name": "서버운영체계보안적용리스트",
+          "rows": 42,
+          "columns": 5
+        }
+      ]
+    },
+    {
+      "id": "xlsx-620246b6e530",
+      "path": "reference/12/서버소프트웨어 설치리스트.xlsx",
+      "sha256": "620246b6e53097c614158e055351cef2d21a0c5a27a2cb8472ce1b8b90697dc5",
+      "aliases": [
+        "reference/02/12 2/서버소프트웨어 설치리스트.xlsx"
+      ],
+      "bytes": 2290894,
+      "format": "xlsx",
+      "extraction": "wiki/sources/extracted/xlsx-620246b6e530.json",
+      "extraction_sha256": "237990427602cf1d07c4a9b978484422670f04bc5f318a20b8e69c7d4faf7308",
+      "card": "wiki/sources/xlsx-620246b6e530.md",
+      "limitation": "Cell content only; drawings, formatting and native recalculation not verified.",
+      "sheets": [
+        {
+          "name": "서버소프트웨어설치리스트",
+          "rows": 14,
+          "columns": 5
+        },
+        {
+          "name": "화면1",
+          "rows": 1,
+          "columns": 1
+        },
+        {
+          "name": "화면2",
+          "rows": 1,
+          "columns": 1
+        },
+        {
+          "name": "화면3",
+          "rows": 1,
+          "columns": 1
+        },
+        {
+          "name": "화면4",
+          "rows": 1,
+          "columns": 1
+        },
+        {
+          "name": "화면5",
+          "rows": 1,
+          "columns": 1
+        },
+        {
+          "name": "화면6",
+          "rows": 1,
+          "columns": 1
+        },
+        {
+          "name": "화면7",
+          "rows": 1,
+          "columns": 1
+        },
+        {
+          "name": "화면8",
+          "rows": 1,
+          "columns": 1
+        },
+        {
+          "name": "화면9",
+          "rows": 1,
+          "columns": 1
+        },
+        {
+          "name": "화면10",
+          "rows": 1,
+          "columns": 1
+        },
+        {
+          "name": "화면11",
+          "rows": 1,
+          "columns": 1
+        },
+        {
+          "name": "화면12",
+          "rows": 1,
+          "columns": 1
+        }
+      ]
+    },
+    {
+      "id": "xlsx-d6bfd84a3ce8",
+      "path": "reference/TTA_R3_AWS_Sizing_Calculator.xlsx",
+      "sha256": "d6bfd84a3ce8ede1bbe0eb23881efe43d2cd70fe3d88355af9a0670ba73fa4ad",
+      "aliases": [],
+      "bytes": 40365,
+      "format": "xlsx",
+      "extraction": "wiki/sources/extracted/xlsx-d6bfd84a3ce8.json",
+      "extraction_sha256": "e7c5013a4ad75361c0c0a522cbde4a0a266a30582bf4bafa196a2c1886baa850",
+      "card": "wiki/sources/xlsx-d6bfd84a3ce8.md",
+      "limitation": "Cell content only; drawings, formatting and native recalculation not verified.",
+      "sheets": [
+        {
+          "name": "시작",
+          "rows": 50,
+          "columns": 5
+        },
+        {
+          "name": "TTA 산정",
+          "rows": 73,
+          "columns": 7
+        },
+        {
+          "name": "AWS EC2",
+          "rows": 75,
+          "columns": 7
+        },
+        {
+          "name": "EC2 목록",
+          "rows": 44,
+          "columns": 18
+        },
+        {
+          "name": "가중치 기준",
+          "rows": 74,
+          "columns": 7
+        },
+        {
+          "name": "검증",
+          "rows": 43,
+          "columns": 10
+        }
+      ]
+    },
+    {
+      "id": "xlsx-f0cb82e8ed8c",
+      "path": "reference/02/요구사항정의서_양식.xlsx",
+      "sha256": "f0cb82e8ed8cb1b9d3c1d648dd9a644bd58dd56945574025be094904134aac11",
+      "aliases": [],
+      "bytes": 19872,
+      "format": "xlsx",
+      "extraction": "wiki/sources/extracted/xlsx-f0cb82e8ed8c.json",
+      "extraction_sha256": "3ec18facd3a9a2a67d724671b6efeebe0edbaa3775c4bf94097c6b172588598a",
+      "card": "wiki/sources/xlsx-f0cb82e8ed8c.md",
+      "limitation": "Cell content only; drawings, formatting and native recalculation not verified.",
+      "sheets": [
+        {
+          "name": "요구사항-양식",
+          "rows": 26,
+          "columns": 9
+        },
+        {
+          "name": "시스템요구사항도출-양식",
+          "rows": 26,
+          "columns": 9
+        },
+        {
+          "name": "인프라요구사항추출-서버네트워크디스크영향및 우선순위파악",
+          "rows": 14,
+          "columns": 9
+        },
+        {
+          "name": "인프라 요구사항 분석서",
+          "rows": 19,
+          "columns": 10
+        }
+      ]
+    }
+  ]
+}

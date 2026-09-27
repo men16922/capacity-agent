@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "purpose": "Reading examples, not an approved hardware catalog",
+  "records": [
+    {
+      "id": "TPC-C-123092901",
+      "sample_only": true,
+      "benchmark": "TPC-C",
+      "version": "5.11.0",
+      "product": "LtechKorea LKG2312",
+      "performance": {
+        "value": "279185",
+        "unit": "tpmC"
+      },
+      "configuration": {
+        "cpu": "Intel Xeon Gold 6354",
+        "processors": 2,
+        "cores_total": 36,
+        "threads_total": 72,
+        "cluster": false,
+        "database": "IBM DB2 11.5.8 Advanced Edition",
+        "os": "Red Hat Enterprise Linux 7.9"
+      },
+      "status_at_review": "Accepted Result",
+      "report_date": "2023-09-29",
+      "active_expiration_date": "2026-10-02",
+      "reviewed_on": "2026-09-27",
+      "url": "https://www.tpc.org/tpcc/results/tpcc_result_detail5.asp?id=123092901&lang=",
+      "limitation": "HTML detail reviewed; not a purchase recommendation or current quotation. FDR not audited."
+    },
+    {
+      "id": "SPC-1-A32028",
+      "sample_only": true,
+      "benchmark": "SPC-1",
+      "version": "3.10.0",
+      "product": "Gluesys AnyStor-700EK",
+      "performance": {
+        "value": "800010",
+        "unit": "SPC-1 IOPS"
+      },
+      "iops_response_time": {
+        "value": "0.117",
+        "unit": "ms"
+      },
+      "overall_response_time": {
+        "value": "0.095",
+        "unit": "ms"
+      },
+      "physical_storage": {
+        "value": "61440",
+        "unit": "GB"
+      },
+      "asu_capacity": {
+        "value": "22441",
+        "unit": "GB"
+      },
+      "configuration": {
+        "controllers": 1,
+        "drives": 8,
+        "drive_type": "DapuStor 7.68 TB NVMe SSD",
+        "cache_gb": 96,
+        "network": "100 Gbps InfiniBand",
+        "protection": "Protected 1 (RAID 1+0)"
+      },
+      "status_at_review": "Submitted for Review (listing)",
+      "submission_date": "2023-12-19",
+      "reviewed_on": "2026-09-27",
+      "url": "https://storageperformance.org/sites/default/files/files/full_disclosure_report/A32028_FDR.pdf",
+      "reviewed_pdf_pages": [
+        1,
+        7,
+        10,
+        11,
+        12
+      ],
+      "limitation": "Selected pages reviewed; no end-to-end audit. Measured configuration, not an arbitrary product configuration."
+    },
+    {
+      "id": "SPC-1C-C00019",
+      "sample_only": true,
+      "benchmark": "SPC-1C",
+      "version": "1.5",
+      "product": "Seagate ST600MP0065 Enterprise Performance HDD configuration",
+      "performance": {
+        "value": "4700.46",
+        "unit": "SPC-1C IOPS"
+      },
+      "configuration": {
+        "drives": 24,
+        "drive_type": "600 GB 15K 12Gbps SAS 2.5 inch HDD",
+        "controller": "LSI MegaRAID SAS 9361-8i, 1 GB cache",
+        "enclosure": "Dataon DNS-1640 JBOD",
+        "protection": "Protected 1 (Mirroring)"
+      },
+      "submission_date": "2014-11-03",
+      "current_result_status": "unverified",
+      "reviewed_on": "2026-09-27",
+      "url": "https://www.storageperformance.org/sites/default/files/results/C00019/c00019_Seagate_ST600MP0065_Enterprise-Performance_SPC-1C_full-disclosure-report.pdf",
+      "reviewed_pdf_pages": [
+        1,
+        10,
+        11,
+        17,
+        18,
+        19
+      ],
+      "limitation": "Historical example of component benchmark scope. The score is not a single-drive score."
+    }
+  ]
+}
