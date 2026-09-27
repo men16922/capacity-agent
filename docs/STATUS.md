@@ -14,7 +14,7 @@ Last Updated: 2026-09-28
 - `make check engine-smoke`: 원본/출처 검사·Python77개·CLI 통과. Ruff·TypeScript strict/noUnusedLocals·production build 통과.
 - Playwright20개 전체 통과(44.4초). 프로젝트 분리/충돌·48/200개 산정·일괄 저장 거부 조건·사용률 등가·최적화 JSON 재계산·기존 golden·모바일/키보드/axe 검증.
 - 실제 Chrome에서 기존 프로젝트 보존, 별도 예제48개 일괄 저장, On-Prem/AWS 최적화 각각1개 저장·산정서·새로고침 확인. [화면](images/project-dashboard.png).
-- 기획/설계/사용 가이드·데이터 계약은 [문서 안내](README.md). 구현 커밋baccee5 public push·원격 HEAD 일치, [원격 CI36336072535](https://github.com/men16922/capacity-agent/actions/runs/36336072535) Python77개·브라우저20개·빌드/CLI 통과.
+- 기획/설계/사용 가이드·데이터 계약은 [문서 안내](README.md). 구현baccee5와 릴리스 문서a52bae6 public push 확인. 문서 포함 [원격 CI36336269860](https://github.com/men16922/capacity-agent/actions/runs/36336269860) Python77개·브라우저20개·빌드/CLI 통과.
 - 로컬 `http://127.0.0.1:8765` 기동, 사용자 Chrome의 통합 대시보드 유지. 모델·무인 루프·AWS 변경은 실행하지 않음.
 
 ## 남는 제품 범위

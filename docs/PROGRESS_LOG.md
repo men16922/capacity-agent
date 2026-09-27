@@ -11,6 +11,8 @@
 - Evidence: docs/PROJECT_WORKSPACE_DESIGN.md, WEB_VERIFICATION.md, images/project-dashboard.png.
 - Blockers: 로컬 기능 장애 없음. 실제 AWS/성능/ML 결과로 주장하지 않음.
 - Verified: 구현baccee5 public push·원격 HEAD 일치. GitHub Actions36336072535에서 원본 없는 Python77개·브라우저20개·빌드/CLI 통과.
+- Verified: 릴리스 문서a52bae6의 [GitHub Actions36336269860](https://github.com/men16922/capacity-agent/actions/runs/36336269860) 성공·원격 HEAD 일치 확인. 체크포인트에서 `gh run view`·`git ls-remote`·8765 health를 재확인했다.
+- Verified: 체크포인트 `make check`의 Wiki·Python77개, 변경 문서 로컬 링크8개·하네스 문서 예산·`git diff --check` 통과. 로컬 브라우저 테스트는 재실행하지 않았으며 위 릴리스/CI 증거를 유지한다.
 - Next: P3 Wiki 검색·인용 평가와 요구사항 에이전트 계약.
 
 ## 2026-09-28 — 다수 자산 이전 설계·공식 출처·문서 완료
