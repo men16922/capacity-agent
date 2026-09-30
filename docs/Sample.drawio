@@ -1,0 +1,150 @@
+<mxfile host="Electron" agent="OpenAI" compressed="false">
+  <diagram id="eai-onprem-core" name="온프렘 DB · 백업 · DR">
+    <mxGraphModel dx="1414" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1440" pageHeight="840" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="tag" parent="1" style="rounded=1;absoluteArcSize=1;arcSize=5;whiteSpace=wrap;html=1;fillColor=#EAF0F7;strokeColor=none;strokeWidth=1.5;" value="" vertex="1">
+          <mxGeometry height="36" width="180" x="1220" y="36" as="geometry" />
+        </mxCell>
+        <mxCell id="toprule" parent="1" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=1;fillColor=#DFE6EE;strokeColor=none;strokeWidth=1.5;" value="" vertex="1">
+          <mxGeometry height="2" width="1360" x="40" y="126" as="geometry" />
+        </mxCell>
+        <mxCell id="main_panel" parent="1" style="rounded=1;absoluteArcSize=1;arcSize=9;whiteSpace=wrap;html=1;fillColor=#F8FAFD;strokeColor=#C9D4E0;strokeWidth=1.5;" value="" vertex="1">
+          <mxGeometry height="548" width="840" x="40" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="dr_panel" parent="1" style="rounded=1;absoluteArcSize=1;arcSize=9;whiteSpace=wrap;html=1;fillColor=#F8FAFD;strokeColor=#C9D4E0;strokeWidth=1.5;" value="" vertex="1">
+          <mxGeometry height="548" width="460" x="940" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="main_header" parent="1" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=1;fillColor=#203C62;strokeColor=none;strokeWidth=1.5;" value="" vertex="1">
+          <mxGeometry height="49" width="840" x="40" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="dr_header" parent="1" style="rounded=0;absoluteArcSize=1;arcSize=0;whiteSpace=wrap;html=1;fillColor=#35577E;strokeColor=none;strokeWidth=1.5;" value="" vertex="1">
+          <mxGeometry height="49" width="460" x="940" y="155" as="geometry" />
+        </mxCell>
+        <mxCell id="prod1_to_san" edge="1" parent="1" source="prod_db1" style="edgeStyle=none;rounded=0;html=1;strokeColor=#CE8426;strokeWidth=2.5;endArrow=none;endFill=1;endSize=10;startArrow=none;dashed=0;dashPattern=6 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="main_san_switch" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="195" y="388" />
+              <mxPoint x="460" y="388" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="prod2_to_san" edge="1" parent="1" source="prod_db2" style="edgeStyle=none;rounded=0;html=1;strokeColor=#CE8426;strokeWidth=2.5;endArrow=none;endFill=1;endSize=10;startArrow=none;dashed=0;dashPattern=6 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="main_san_switch" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="backupserver_to_san" edge="1" parent="1" source="backup_server" style="edgeStyle=none;rounded=0;html=1;strokeColor=#CE8426;strokeWidth=2.5;endArrow=none;endFill=1;endSize=10;startArrow=none;dashed=0;dashPattern=6 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="main_san_switch" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="727.5" y="388" />
+              <mxPoint x="460" y="388" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="san_to_appliance" edge="1" parent="1" source="main_san_switch" style="edgeStyle=none;rounded=0;html=1;strokeColor=#CE8426;strokeWidth=2.5;endArrow=none;endFill=1;endSize=10;startArrow=none;dashed=0;dashPattern=6 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="backup_appliance" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="530" />
+              <mxPoint x="222" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="san_to_storage" edge="1" parent="1" source="main_san_switch" style="edgeStyle=none;rounded=0;html=1;strokeColor=#CE8426;strokeWidth=2.5;endArrow=none;endFill=1;endSize=10;startArrow=none;dashed=0;dashPattern=6 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="prod_storage" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="460" y="530" />
+              <mxPoint x="660" y="530" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="drdb_to_san" edge="1" parent="1" source="dr_db" style="edgeStyle=none;rounded=0;html=1;strokeColor=#CE8426;strokeWidth=2.5;endArrow=none;endFill=1;endSize=10;startArrow=none;dashed=0;dashPattern=6 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dr_san_switch" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="drsan_to_storage" edge="1" parent="1" source="dr_san_switch" style="edgeStyle=none;rounded=0;html=1;strokeColor=#CE8426;strokeWidth=2.5;endArrow=none;endFill=1;endSize=10;startArrow=none;dashed=0;dashPattern=6 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="dr_storage" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ha_pair" edge="1" parent="1" source="prod_db1" style="edgeStyle=none;rounded=0;html=1;strokeColor=#7C8DA3;strokeWidth=2;endArrow=none;endFill=1;endSize=10;startArrow=none;dashed=1;dashPattern=6 4;exitX=1;exitY=0.45;exitDx=0;exitDy=0;entryX=0;entryY=0.45;entryDx=0;entryDy=0;" target="prod_db2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="storage_replication" edge="1" parent="1" source="prod_storage" style="edgeStyle=none;rounded=0;html=1;strokeColor=#3D6D9D;strokeWidth=3;endArrow=block;endFill=1;endSize=10;startArrow=none;dashed=0;dashPattern=6 4;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="dr_storage" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_san" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=1;strokeColor=#CE8426;strokeWidth=2.5;endArrow=none;endFill=1;endSize=10;startArrow=none;dashed=0;dashPattern=6 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="43" y="741" as="sourcePoint" />
+            <mxPoint x="95" y="741" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend_rep" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=1;strokeColor=#3D6D9D;strokeWidth=3;endArrow=block;endFill=1;endSize=10;startArrow=none;dashed=0;dashPattern=6 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="265" y="741" as="sourcePoint" />
+            <mxPoint x="318" y="741" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="legend_ha" edge="1" parent="1" style="edgeStyle=none;rounded=0;html=1;strokeColor=#7C8DA3;strokeWidth=2;endArrow=none;endFill=1;endSize=10;startArrow=none;dashed=1;dashPattern=6 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="588" y="741" as="sourcePoint" />
+            <mxPoint x="640" y="741" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="main_name" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=22;fontColor=#FFFFFF;fontStyle=1;" value="Main Center  |  Prod." vertex="1">
+          <mxGeometry height="39" width="795" x="63" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="dr_name" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=22;fontColor=#FFFFFF;fontStyle=1;" value="DR Center" vertex="1">
+          <mxGeometry height="39" width="416" x="962" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="prod_db1" parent="1" style="rounded=1;absoluteArcSize=1;arcSize=7;whiteSpace=wrap;html=1;fillColor=#EFF4FA;strokeColor=#C9D4E0;strokeWidth=1.6;align=center;verticalAlign=middle;fontFamily=Arial;spacing=7;fontSize=20;fontColor=#243B53;" value="&lt;div style=&quot;font-size:20px;font-weight:700;color:#243B53;line-height:1.35;&quot;&gt;운영 DB #1&lt;/div&gt;&lt;div style=&quot;font-size:16px;font-weight:400;color:#61748A;line-height:1.35;margin-top:3px;&quot;&gt;DB / UM / MWS #1&lt;/div&gt;&lt;div style=&quot;font-size:13px;font-weight:400;color:#61748A;line-height:1.35;margin-top:3px;&quot;&gt;DB Backup · SAN Backup&lt;/div&gt;" vertex="1">
+          <mxGeometry height="106" width="190" x="100" y="247" as="geometry" />
+        </mxCell>
+        <mxCell id="prod_db2" parent="1" style="rounded=1;absoluteArcSize=1;arcSize=7;whiteSpace=wrap;html=1;fillColor=#EFF4FA;strokeColor=#C9D4E0;strokeWidth=1.6;align=center;verticalAlign=middle;fontFamily=Arial;spacing=7;fontSize=20;fontColor=#243B53;" value="&lt;div style=&quot;font-size:20px;font-weight:700;color:#243B53;line-height:1.35;&quot;&gt;운영 DB #2&lt;/div&gt;&lt;div style=&quot;font-size:16px;font-weight:400;color:#61748A;line-height:1.35;margin-top:3px;&quot;&gt;DB / UM / MWS #2&lt;/div&gt;&lt;div style=&quot;font-size:13px;font-weight:400;color:#61748A;line-height:1.35;margin-top:3px;&quot;&gt;DB Backup · SAN Backup&lt;/div&gt;" vertex="1">
+          <mxGeometry height="106" width="190" x="365" y="247" as="geometry" />
+        </mxCell>
+        <mxCell id="backup_server" parent="1" style="rounded=1;absoluteArcSize=1;arcSize=7;whiteSpace=wrap;html=1;fillColor=#FCF8EF;strokeColor=#C9D4E0;strokeWidth=1.6;align=center;verticalAlign=middle;fontFamily=Arial;spacing=7;fontSize=20;fontColor=#243B53;" value="&lt;div style=&quot;font-size:20px;font-weight:700;color:#243B53;line-height:1.35;&quot;&gt;Backup 서버&lt;/div&gt;&lt;div style=&quot;font-size:16px;font-weight:400;color:#61748A;line-height:1.35;margin-top:3px;&quot;&gt;SAN Backup&lt;/div&gt;" vertex="1">
+          <mxGeometry height="106" width="185" x="635" y="247" as="geometry" />
+        </mxCell>
+        <mxCell id="main_san_switch" parent="1" style="rounded=1;absoluteArcSize=1;arcSize=7;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C9D4E0;strokeWidth=1.6;align=center;verticalAlign=middle;fontFamily=Arial;spacing=7;fontSize=20;fontColor=#243B53;" value="&lt;div style=&quot;font-size:20px;font-weight:700;color:#243B53;line-height:1.35;&quot;&gt;SAN Switch × 2&lt;/div&gt;" vertex="1">
+          <mxGeometry height="66" width="230" x="345" y="424" as="geometry" />
+        </mxCell>
+        <mxCell id="backup_appliance" parent="1" style="rounded=1;absoluteArcSize=1;arcSize=7;whiteSpace=wrap;html=1;fillColor=#FCF8EF;strokeColor=#C9D4E0;strokeWidth=1.6;align=center;verticalAlign=middle;fontFamily=Arial;spacing=7;fontSize=20;fontColor=#243B53;" value="&lt;div style=&quot;font-size:20px;font-weight:700;color:#243B53;line-height:1.35;&quot;&gt;Backup appliance&lt;/div&gt;&lt;div style=&quot;font-size:16px;font-weight:400;color:#61748A;line-height:1.35;margin-top:3px;&quot;&gt;백업 장비&lt;/div&gt;" vertex="1">
+          <mxGeometry height="104" width="220" x="112" y="568" as="geometry" />
+        </mxCell>
+        <mxCell id="prod_storage" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;fillColor=#EFF4FA;strokeColor=#C9D4E0;strokeWidth=1.6;align=center;verticalAlign=middle;fontFamily=Arial;spacing=7;fontSize=20;fontColor=#243B53;" value="&lt;div style=&quot;font-size:20px;font-weight:700;color:#243B53;line-height:1.35;&quot;&gt;SAN Storage&lt;/div&gt;&lt;div style=&quot;font-size:16px;font-weight:400;color:#61748A;line-height:1.35;margin-top:3px;&quot;&gt;(Prod.)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="104" width="220" x="550" y="568" as="geometry" />
+        </mxCell>
+        <mxCell id="dr_db" parent="1" style="rounded=1;absoluteArcSize=1;arcSize=7;whiteSpace=wrap;html=1;fillColor=#EFF4FA;strokeColor=#C9D4E0;strokeWidth=1.6;align=center;verticalAlign=middle;fontFamily=Arial;spacing=7;fontSize=20;fontColor=#243B53;" value="&lt;div style=&quot;font-size:20px;font-weight:700;color:#243B53;line-height:1.35;&quot;&gt;DR DB&lt;/div&gt;&lt;div style=&quot;font-size:16px;font-weight:400;color:#61748A;line-height:1.35;margin-top:3px;&quot;&gt;DB / UM / MWS&lt;/div&gt;" vertex="1">
+          <mxGeometry height="106" width="220" x="1060" y="247" as="geometry" />
+        </mxCell>
+        <mxCell id="dr_san_switch" parent="1" style="rounded=1;absoluteArcSize=1;arcSize=7;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#C9D4E0;strokeWidth=1.6;align=center;verticalAlign=middle;fontFamily=Arial;spacing=7;fontSize=20;fontColor=#243B53;" value="&lt;div style=&quot;font-size:20px;font-weight:700;color:#243B53;line-height:1.35;&quot;&gt;SAN Switch × 2&lt;/div&gt;" vertex="1">
+          <mxGeometry height="66" width="230" x="1055" y="424" as="geometry" />
+        </mxCell>
+        <mxCell id="dr_storage" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;fillColor=#EFF4FA;strokeColor=#C9D4E0;strokeWidth=1.6;align=center;verticalAlign=middle;fontFamily=Arial;spacing=7;fontSize=20;fontColor=#243B53;" value="&lt;div style=&quot;font-size:20px;font-weight:700;color:#243B53;line-height:1.35;&quot;&gt;SAN Storage&lt;/div&gt;&lt;div style=&quot;font-size:16px;font-weight:400;color:#61748A;line-height:1.35;margin-top:3px;&quot;&gt;(DR)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="104" width="220" x="1060" y="568" as="geometry" />
+        </mxCell>
+        <mxCell id="ha_label" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=14;fontColor=#61748A;fontStyle=1;" value="HA" vertex="1">
+          <mxGeometry height="23" width="58" x="299" y="268" as="geometry" />
+        </mxCell>
+        <mxCell id="replication_label" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=18;fontColor=#3D6D9D;fontStyle=1;" value="Storage Replication" vertex="1">
+          <mxGeometry height="31" width="268" x="781" y="568" as="geometry" />
+        </mxCell>
+        <mxCell id="replication_note" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=14;fontColor=#61748A;fontStyle=0;" value="복제용 네트워크 경유" vertex="1">
+          <mxGeometry height="28" width="246" x="792" y="632" as="geometry" />
+        </mxCell>
+        <mxCell id="san_label" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=14;fontColor=#CE8426;fontStyle=1;" value="SAN" vertex="1">
+          <mxGeometry height="24" width="54" x="765" y="366" as="geometry" />
+        </mxCell>
+        <mxCell id="drsan_label" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=14;fontColor=#CE8426;fontStyle=1;" value="SAN" vertex="1">
+          <mxGeometry height="24" width="60" x="1190" y="382" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_san_t" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#61748A;fontStyle=0;" value="SAN 연결" vertex="1">
+          <mxGeometry height="27" width="134" x="106" y="728" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_rep_t" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#61748A;fontStyle=0;" value="Storage Replication" vertex="1">
+          <mxGeometry height="27" width="230" x="331" y="728" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_ha_t" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacing=0;fontFamily=Arial;fontSize=15;fontColor=#61748A;fontStyle=0;" value="HA" vertex="1">
+          <mxGeometry height="27" width="75" x="652" y="728" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
